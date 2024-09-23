@@ -117,7 +117,8 @@ This will help in debugging the code
 ## 12. Set-up of Utils (functionality that we will be using frequently)
 
 Go to common.py file
-Past the code and save
+Paste the code and save.
+Make sure the project folder is named correctly 'TGSRTC_Productivity'
 
 ## 13. Commit changes to github
     
@@ -134,6 +135,76 @@ Past the code and save
     ```
 
      OR the same can be done in vscode using the menu to the right side where you see an icon for source control
+
+
+## 14. Note the workflow for updating the files
+
+Update config.yaml
+Update schema.yaml
+Update params.yaml
+Update the entity
+Update the configuration manager in src config
+Update the components
+Update the pipeline
+Update the main.py
+Update the app.py 
+
+
+## 15. DATA INGESTION
+
+First in the research folder build a prototype of the code and then implement it in a modular format
+
+### A. Create a file called 01_data_ingestion.ipynb
+
+### B. Open the file config/config.yaml
+
+Add the standard code from github
+Set the right address of the zip file stored on github
+It should by saved as .zip file
+
+### C. Schema.yaml no changes
+
+### D. Params.yaml no changes
+
+### E. Complete the code in the 01_data_ingestion file
+
+### F. Add the code to constants/__init__.py file
+
+### G. Dont keen the schema.yaml file empty. Add some dummy code
+
+### H. Run the 01_data_ingestion file
+
+Huge issues with the zip file being correct. Not sure how this got resolved. Used a different download function.
+
+
+## 16. Converting the notebook experiment to modular coding
+
+### A. Update the entity file with the code
+
+### B. Update the src/config/configuration file
+
+### C. Within components add a file data_ingestion.py
+
+### D. Add the code and change the project name
+
+### E. Create a new file in pipeline called stage_01_data_ingestion.py
+
+Copy the code. Change the project name
+
+Note: Look at making the project name generic so that there is only one place it gets changed
+
+### F. Now in main.py enter the code and save
+
+### G. Run the main.py code in git bas terminal
+
+python main.py
+
+Note: Delete the artifacts folder before running this.
+Upon successful execution the artifacts gets created
+
+
+
+
 
 
 
