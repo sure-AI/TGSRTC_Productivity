@@ -78,7 +78,30 @@
 
     OR the same can be done in vscode using the menu to the right side where you see an icon for source control
 
-## 8. 
+## 8. In requirements.txt add all the required libraries and save
+
+ pip install -r requirements.txt
+
+ ISSUE: Got resolved by this...
+ pip install --upgrade pip setuptools #to upgrade
+ pip cache purge
+
+## 9. Commit the changes
+
+## 7. Commit changes to github
+    
+    ```console
+    git add .
+    ```
+
+    ```console
+    git commit -m "requirements"
+    ```
+
+    ```console
+    git push -u origin main
+    ```
+
 
 
 

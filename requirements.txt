@@ -1,0 +1,19 @@
+pandas 
+sqlalchemy
+graphviz
+mlflow
+notebook
+numpy
+scikit-learn
+matplotlib
+python-box
+pyYAML
+pymysql
+tqdm
+ensure
+joblib
+types-PyYAML
+Flask
+Flask-Cors
+Pyarrow
+-e .
