@@ -1,0 +1,569 @@
+employee_id;age;depot;absent_days;tot_opd_kms;hours;tot_schedules;palle_schedules;suplux_schedules;express_schedules;day_schedules;night_schedules;bus_age_0to5;bus_age_5to10;bus_age_above10;bus_kms_0to5l;bus_kms_5to10l;bus_kms_above10l;creatinine_value;creatinine_interpret;blood_pressure_systolic;blood_pressure_diastolic;blood_pressure_interpret;hemoglobin_value;hemoglobin_interpret;glucose_random_value;glucose_interpret;bilirubin_value;bilirubin_interpret;total_cholestrol;final_grading;PERF;ECG_interpret;BMI;alcohol;smoke;tobacco
+150010;56;Mahaboobnagar;9;111146;3630;201;8;172;20;53;148;110;58;8;120;42;14;1;Normal;136;136;Elevated;14.4;Normal;99;Normal;0.82;Normal;235;C;300;"Within Normal Limits";22;1;0;0
+150011;53;Mahaboobnagar;11;103187;3290;181.5;6.5;153;22;41.5;140;108;37;17.5;120.5;27;15;0.87;Normal;136;136;Elevated;11;"Borderline Low";74.2;Normal;0.46;Normal;132;C;NULL;"Within Normal Limits";NULL;0;0;0
+150066;56;Mahaboobnagar;5;74428;2426;204;105;1;98;191;13;3;143;55;35;79;87;0.8;Normal;107;107;Normal;15;Normal;137;Normal;0.97;Normal;232;C;350;"Within Normal Limits";17;1;1;0
+150071;57;Mahaboobnagar;4;74964;3472;219;206;0;13;104;115;0;16;201;96;91;30;1;Normal;149;149;"Stage-1 Hypertension";14.3;Normal;115;Normal;0.33;Normal;206;C;320;"Within Normal Limits";23;1;0;0
+150074;53;Mahaboobnagar;7;74451;2259;209;107;0;102;197;12;1;137;71;45;42;122;1.2;"High Creatinine";134;134;Elevated;13;Normal;117;Normal;1.12;Normal;200;C;350;"Within Normal Limits";22;0;0;0
+150106;56;Mahaboobnagar;12;70693;3470;194;191;0;3;49;145;0;12;181;121;14;58;0.4;Normal;120;120;Normal;14;Normal;103;Normal;0.8;Normal;228;C;NULL;"Within Normal Limits";NULL;0;0;0
+150110;59;Mahaboobnagar;35;61285;2821;173;172;0;1;81;92;0;5;166;62;90;19;1.4;"High Creatinine";137;137;Elevated;12.8;"Borderline Low";115;Normal;0.99;Normal;237;C;NULL;"Within Normal Limits";NULL;0;0;0
+150112;59;Mahaboobnagar;167;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;260;NULL;22;1;1;0
+150120;55;Mahaboobnagar;1;67020;3303;199;198;0;1;105;94;0;16;181;21;8;168;1.1;Normal;125;125;Normal;14.2;Normal;149;Prediabetes;0.77;Normal;196;C;200;"Within Normal Limits";20;0;0;0
+150125;58;Mahaboobnagar;6;78799;2551;247;27;114;20;182;65;19;68;124;65;60;86;0.5;Normal;178;178;"Stage-2 Hypertension";11;"Borderline Low";114;Normal;1.29;"High Bilirubin";226;D;350;"Within Normal Limits";20;0;0;0
+150237;57;Mahaboobnagar;4;73162;2244;199;106;0;93;182;17;0;135;61;34;48;114;1.5;"High Creatinine";119;119;Normal;11.7;"Borderline Low";100;Normal;0.58;Normal;194;C;NULL;"Within Normal Limits";NULL;0;0;0
+150261;56;Mahaboobnagar;26;27170;1300;82.5;75.5;1;4;32.5;50;0;9;73.5;26.5;39;17;1;Normal;120;120;Normal;14;Normal;147;Prediabetes;1.25;"High Bilirubin";213;C;350;"Within Normal Limits";28;1;0;0
+150262;54;Mahaboobnagar;7;46908;1486;131;72;0;59;131;0;1;89;40;21;53;56;1.5;"High Creatinine";141;141;"Stage-1 Hypertension";16.4;Normal;128;Normal;1.03;Normal;237;C;250;Abnormal;25;0;0;0
+150263;55;Mahaboobnagar;13;45218;1499;127;75;0;52;116;11;1;57;61;42;35;42;0.9;Normal;125;125;Normal;13.2;Normal;122;Normal;0.98;Normal;155;A;NULL;"Within Normal Limits";NULL;0;0;0
+150268;58;Mahaboobnagar;11;65995;3191;185;181;0;4;48;137;1;13;165;117;21;41;0.7;Normal;138;138;Elevated;12.3;"Borderline Low";124;Normal;0.76;Normal;228;C;205;"Within Normal Limits";27;1;0;1
+150280;52;Mahaboobnagar;8;92280;3045;184;3;177;1;86;98;88;80;5;100;59;14;0.9;Normal;125;125;Normal;15;Normal;132;Normal;0.9;Normal;154;A;NULL;"Within Normal Limits";NULL;0;0;0
+150288;59;Mahaboobnagar;66;400;12;1;1;0;0;1;0;0;0;1;0;1;0;1;Normal;149;149;"Stage-1 Hypertension";13;Normal;132;Normal;0.98;Normal;121;C;150;"Within Normal Limits";21;1;0;0
+150302;59;Mahaboobnagar;3;57642;1878;216;149;4;38;189;27;7;30;175;161;16;35;1.1;Normal;112;112;Normal;12.4;"Borderline Low";141;Prediabetes;1.06;Normal;218;C;210;"Within Normal Limits";22;1;0;0
+150397;54;Mahaboobnagar;3;77090;2426;215;112;1;102;214;1;2;153;53;27;79;102;1.4;"High Creatinine";170;170;"Stage-2 Hypertension";11.2;"Borderline Low";121;Normal;0.88;Normal;211;D;350;"Within Normal Limits";20;0;0;0
+150403;54;Mahaboobnagar;19;108994;3551;220.5;4;167;48.5;87.5;133;108;60.5;28;142;45.5;9;1.1;Normal;138;138;Elevated;13;Normal;127;Normal;1.11;Normal;241;C;200;"Within Normal Limits";27;0;0;0
+150431;58;Mahaboobnagar;2;37796;1329;63;39;4;19;34;29;4;21;34;27;12;20;1.1;Normal;123;123;Normal;13.1;Normal;115;Normal;1.19;Normal;198;C;350;Abnormal;20;1;1;0
+150556;55;Mahaboobnagar;16;87251;2720;189;2;174;11;103;86;63;97;10;83;74;13;0.7;Normal;147;147;"Stage-1 Hypertension";17.2;Normal;114;Normal;0.46;Normal;198;C;220;"Minor St T Abnormalities";25;1;1;0
+150717;59;Mahaboobnagar;65;54044;2620;147.5;147.5;0;0;52.5;95;0;9;137.5;57;43.5;46;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;300;NULL;24;1;0;0
+150809;55;Mahaboobnagar;7;137946;4204;236;5;204;27;54;182;171;39;9;179;20;20;1.3;"High Creatinine";160;160;"Stage-1 Hypertension";15.3;Normal;99;Normal;0.48;Normal;212;C;NULL;"Within Normal Limits";NULL;0;0;0
+150832;55;Mahaboobnagar;7;55476;1806;97;2;92;3;21;76;58;22;1;61;17;3;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;230;NULL;27;1;0;0
+150903;54;Mahaboobnagar;9;70792;2338;206.5;114.5;0;92;202.5;4;0;138;53.5;69.5;21;101;1.4;"High Creatinine";108;108;Normal;11.8;"Borderline Low";98;Normal;0.87;Normal;233;C;350;"Within Normal Limits";25;1;0;0
+150917;56;Mahaboobnagar;13;80064;2737;207.5;106.5;0;101;157.5;50;6;80;114.5;69.5;53;78;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;375;NULL;23;0;0;0
+150926;55;Mahaboobnagar;6;142577;4451;254;2;229;23;62;192;177;48;9;186;39;9;1.4;"High Creatinine";141;141;"Stage-1 Hypertension";11.2;"Borderline Low";124;Normal;0.69;Normal;193;C;350;"Within Normal Limits";25;0;0;0
+150943;55;Mahaboobnagar;6;69254;3241;191;182;0;9;93;98;1;17;172;65;31;94;1.3;"High Creatinine";140;140;Elevated;16;Normal;131;Normal;0.43;Normal;221;C;250;"Minor St Abnormalities";19;1;1;0
+150946;54;Ranigunj-I;46;34807;1693;191;0;0;0;188;3;0;131;57.5;41.5;14.5;132.5;1;Normal;120;120;Normal;17.4;Normal;105;Normal;0.81;Normal;200;A;NULL;"Within Normal Limits";NULL;0;0;0
+150973;56;Mahaboobnagar;5;68869;3115;197;189;1;7;101;96;1;19;177;87;28;82;1.2;"High Creatinine";116;116;Normal;10;"Borderline Low";124;Normal;1.01;Normal;237;C;200;"Within Normal Limits";21;0;0;0
+151003;55;Mahaboobnagar;4;27107;1229;76;74;1;1;38;38;0;3;73;34;5;37;1.1;Normal;145;145;"Stage-1 Hypertension";11.5;"Borderline Low";136;Normal;0.42;Normal;220;C;NULL;"Within Normal Limits";NULL;0;0;0
+151005;55;Mahaboobnagar;11;80968;2632;242;124;2;116;237;5;2;150;73;77;44;104;1.1;Normal;113;113;Normal;11.2;"Borderline Low";123;Normal;1.09;Normal;234;C;NULL;"Within Normal Limits";NULL;0;0;0
+151007;58;Mahaboobnagar;3;70211;3373;194;190;0;4;67;127;0;6;188;100;23;71;1.2;"High Creatinine";178;178;"Stage-2 Hypertension";15.4;Normal;147;Prediabetes;0.9;Normal;216;D;200;"Within Normal Limits";20;1;0;0
+151014;58;Mahaboobnagar;100;48127;2450;144;139;0;5;63;81;0;13;130;31;11;101;0.9;Normal;179;179;"Stage-2 Hypertension";14;Normal;101;Normal;1;Normal;150;D;200;"Within Normal Limits";24;0;0;0
+151015;58;Mahaboobnagar;5;78659;2837;178;145;8;25;73;105;8;39;130;64;61;52;1.4;"High Creatinine";125;125;Normal;13.8;Normal;118;Normal;0.39;Normal;219;C;200;"Left Axis Deviation";27;0;1;0
+151016;59;Ranigunj-I;17;33869;1741;145.5;0;0;0;145.5;0;0;2;143.5;135.5;4;6;1;Normal;105;105;Normal;15;Normal;124;Normal;0.6;Normal;238;C;480;"Within Normal Limits";27;0;1;0
+151020;59;Mahaboobnagar;10;70390;3371;198;119;1;78;86;112;0;61;127;108;52;28;0.8;Normal;135;135;Elevated;16;Normal;107;Normal;0.67;Normal;170;B;NULL;"Within Normal Limits";NULL;0;0;0
+151215;52;Mahaboobnagar;82;17425;573;37;0;35;0;20;17;12;18;1;15;14;2;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;220;NULL;24;1;0;1
+151272;50;Mahaboobnagar;6;120480;3741;203;5;171;27;40;163;133;47;15;151;28;16;1.1;Normal;143;143;"Stage-1 Hypertension";15.9;Normal;124;Normal;1.12;Normal;234;C;400;"Intraventricular Conduction Defect";22;1;0;1
+151273;52;Mahaboobnagar;3;110408;3529;178;1;163;14;37;141;129;35;4;136;23;9;0.9;Normal;130;130;Normal;14.5;Normal;85;Normal;0.86;Normal;185;A;NULL;"Within Normal Limits";NULL;0;0;0
+151277;49;Mahaboobnagar;8;68606;2355;161;144;1;16;64;97;1;19;140;55;52;53;1;Normal;124;124;Normal;14;Normal;107;Normal;0.96;Normal;229;C;280;"Within Normal Limits";31;0;0;0
+151285;55;Mahaboobnagar;28;48061;1576;139;78;0;61;138;1;0;89;49;51;19;68;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;0;0;0
+151286;52;Mahaboobnagar;126;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;400;NULL;21;1;1;1
+151295;52;Mahaboobnagar;8;97634;3113;207;0;182;24;112;94;75;109;6;93;78;19;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;400;NULL;20;0;0;1
+151307;56;Mahaboobnagar;5;72933;3412;195.5;191.5;0;4;95.5;100;0;11;183.5;76.5;28;90;1.5;"High Creatinine";132;132;Elevated;13.6;Normal;119;Normal;0.76;Normal;229;C;350;"Within Normal Limits";23;1;0;0
+151316;49;Mahaboobnagar;4;99433;3125;190;2;165;21;99;91;81;64;14;102;43;14;1;Normal;110;110;Normal;11.2;"Borderline Low";89;Normal;0.52;Normal;154;C;500;"Within Normal Limits";25;0;0;0
+151332;53;Mahaboobnagar;1;83477;2650;198;68;0;130;151;47;5;107;82;56;37;101;1.2;"High Creatinine";134;134;Elevated;17.3;Normal;142;Prediabetes;0.32;Normal;211;C;420;"Within Normal Limits";26;1;0;1
+151333;58;Mahaboobnagar;9;66061;3165;194;191;1;2;83;111;1;22;168;74;53;64;0.8;Normal;150;150;"Stage-1 Hypertension";12;"Borderline Low";125;Normal;1.1;Normal;215;C;195;"Within Normal Limits";25;1;0;0
+151334;53;Mahaboobnagar;13;89761;2891;143;2;134;7;31;112;95;27;9;103;18;10;1;Normal;140;140;Elevated;18;Normal;141;Prediabetes;0.68;Normal;213;C;500;"Within Normal Limits";24;0;0;0
+151495;50;Mahaboobnagar;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;0;0;0
+151520;48;Mahaboobnagar;13;116028;3694;194;4;166;24;30;164;133;35;14;146;30;6;1.1;Normal;137;137;Elevated;13.6;Normal;192;Prediabetes;3.2;"High Bilirubin";210;D;300;"Within Normal Limits";22;1;0;0
+151527;51;Mahaboobnagar;8;37824;1355;68;1;57;10;9;59;36;27;5;44;17;7;1;Normal;152;152;"Stage-1 Hypertension";15.1;Normal;140;Normal;0.9;Normal;179;C;NULL;"LVH MONITOR BP";NULL;0;0;0
+151534;47;Mahaboobnagar;3;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;0;0;0
+151663;47;Ranigunj-I;20;44817;3116;156.5;0;0;1;2.5;154;0;5.5;149.5;131;4.5;19.5;1.2;"High Creatinine";134;134;Elevated;15.1;Normal;124;Normal;0.6;Normal;164;C;450;"Within Normal Limits";16;0;0;0
+151666;47;Mahaboobnagar;18;80445;2986;187;151;2;34;90;97;0;30;154;62;33;89;0.9;Normal;138;138;"Stage-1 Hypertension";13.9;Normal;162;Prediabetes;1;Normal;316;D;200;"Within Normal Limits";23;0;0;0
+151675;50;Mahaboobnagar;3;65122;2908;170;108;0;62;72;98;0;54;110;95;38;31;1.2;"High Creatinine";139;139;Elevated;16.4;Normal;96;Normal;0.55;Normal;235;C;350;"Within Normal Limits";28;1;0;0
+151690;48;Mahaboobnagar;3;69217;2555;195;142;1;52;155;40;0;94;95;65;40;84;1.2;"High Creatinine";119;119;Normal;13.4;Normal;133;Normal;0.38;Normal;209;C;450;Abnormal;16;0;0;0
+151724;45;Mahaboobnagar;20;94598;2984;196;6;182;8;106;90;53;111;7;73;76;22;1.1;Normal;120;120;Normal;15;Normal;108;Normal;1.11;Normal;201;C;450;"Within Normal Limits";22;1;1;0
+151738;47;Mahaboobnagar;11;77377;3060;175;159;0;16;48;127;2;20;152;67;77;30;1;Normal;102;102;Normal;16.2;Normal;137;Normal;0.81;Normal;227;C;350;"Within Normal Limits";19;1;1;0
+151742;50;Mahaboobnagar;17;94651;2949;164;0;154;10;36;128;98;51;9;108;42;8;1.2;"High Creatinine";111;111;Normal;18;Normal;128;Normal;1.35;"High Bilirubin";238;C;NULL;"Within Normal Limits";NULL;0;0;0
+151750;54;Mahaboobnagar;9;82692;3051;199.5;165.5;2;32;99.5;100;1;42;153.5;109.5;41;46;0.8;Normal;110;110;Normal;11.6;"Borderline Low";104;Normal;0.93;Normal;196;C;400;"Left Axis Deviation";63;0;0;0
+151751;53;Mahaboobnagar;5;118491;3788;194;1;190;3;44;150;127;46;3;133;34;9;1;Normal;139;139;Elevated;18;Normal;128;Normal;0.49;Normal;208;C;350;"Within Normal Limits";24;0;0;0
+151769;44;Mahaboobnagar;3;87468;3185;205.5;125.5;3;77;102.5;103;1;59;137.5;63;89.5;45;1.4;"High Creatinine";116;116;Normal;16.8;Normal;144;Prediabetes;0.44;Normal;221;C;160;"Poor R Wave Progression";18;0;0;0
+151770;53;Mahaboobnagar;1;61453;2330;246.5;137.5;0;12;190;56.5;0;17;227.5;43.5;27;174;0.9;Normal;128;128;Normal;15;Normal;108;Normal;0.81;Normal;238;C;NULL;"Within Normal Limits";NULL;0;0;0
+151886;54;Mahaboobnagar;6;115304;3569;199;2;194;3;46;153;124;66;4;134;50;10;1.3;"High Creatinine";127;127;Normal;13.4;Normal;141;Prediabetes;1.03;Normal;223;C;NULL;"Within Normal Limits";NULL;0;0;0
+152071;51;Mahaboobnagar;5;76170;3832;214.5;210.5;0;4;72;142.5;0;22;192.5;70;24;120.5;0.84;Normal;132;132;Elevated;12.9;"Borderline Low";82.5;Normal;0.88;Normal;128;C;350;"Within Normal Limits";20;0;0;0
+152077;51;Mahaboobnagar;11;114184;3615;184;0;176;8;39;145;127;38;7;135;32;5;0.9;Normal;121;121;Normal;14.1;Normal;104;Normal;0.86;Normal;181;A;NULL;"Within Normal Limits";NULL;0;0;0
+152083;50;Mahaboobnagar;6;77896;4476;219;217;0;2;9;210;0;6;213;43;149;27;1.01;Normal;134;134;Elevated;10.9;"Borderline Low";92.3;Normal;0.9;Normal;177;C;150;"Minor St Abnormalities";21;0;0;0
+152307;48;Mahaboobnagar;5;104597;3267;297;96;0;201;287;10;40;123;127;121;76;93;0.6;Normal;114;114;Normal;10.2;"Borderline Low";92;Normal;0.48;Normal;158;C;NULL;"Intraventricular Conduction Defect? Lbbb Without Evi Of Mi";NULL;0;0;0
+152312;48;Mahaboobnagar;49;54168;2103;131;124;1;6;59;72;0;6;124;42;18;70;1.1;Normal;169;169;"Stage-2 Hypertension";10.7;"Borderline Low";127;Normal;0.52;Normal;217;D;400;"Within Normal Limits";20;0;0;0
+152316;43;Mahaboobnagar;68;690;22;3;2;0;1;3;0;0;1;1;2;0;0;0.9;Normal;140;140;Elevated;16;Normal;127;Normal;1.22;"High Bilirubin";239;C;NULL;"Lvh Noted Adviced 2Decho";NULL;0;0;0
+152323;45;Mahaboobnagar;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;0;0;0
+152439;45;Mahaboobnagar;11;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;0;0;0
+152453;45;Mahaboobnagar;9;119738;3743;188;1;178;9;36;152;129;40;3;132;33;7;1;Normal;173;173;"Stage-2 Hypertension";12;"Borderline Low";121;Normal;1.05;Normal;190;D;300;"Within Normal Limits";23;1;0;1
+152461;54;Mahaboobnagar;21;109731;3440;192;3;174;15;48;144;127;40;13;137;31;12;0.82;Normal;118;118;Normal;14.1;Normal;107;Normal;0.67;Normal;193;A;550;"Within Normal Limits";25;0;0;1
+152462;48;Mahaboobnagar;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;0;0;0
+152463;46;Mahaboobnagar;5;82432;3570;188;186;1;1;34;154;0;8;177;61;38;86;0.8;Normal;156;156;"Stage-1 Hypertension";13.9;Normal;289;Diabetes;0.95;Normal;148;D;650;"Within Normal Limits";23;0;0;0
+152468;40;Mahaboobnagar;43;22788;733;46;0;38;8;22;24;26;16;3;32;9;4;1;Normal;123;123;Normal;16;Normal;121;Normal;0.93;Normal;231;C;NULL;"Within Normal Limits";NULL;0;0;0
+152470;49;Mahaboobnagar;229;4510;160;13;10;0;2;10;3;0;2;11;3;3;7;0.5;Normal;119;119;Normal;17;Normal;102;Normal;1.3;"High Bilirubin";223;C;210;"Within Normal Limits";23;1;0;0
+152479;46;Mahaboobnagar;8;115748;3678;187;1;174;12;36;151;137;31;9;147;25;5;1;Normal;177;177;"Stage-2 Hypertension";11;"Borderline Low";146;Prediabetes;1.1;Normal;221;D;475;"Within Normal Limits";20;1;0;0
+152484;48;Mahaboobnagar;116;42406;1936;106;101;1;4;32;74;0;13;90;26;14;63;0.9;Normal;140;140;Elevated;16.2;Normal;143;Prediabetes;1;Normal;169;C;NULL;"Within Normal Limits";NULL;0;0;0
+152491;43;Mahaboobnagar;3;115316;3603;196;7;174;15;40;156;118;56;11;130;47;8;1.2;"High Creatinine";158;158;"Stage-1 Hypertension";13.4;Normal;109;Normal;0.8;Normal;199;C;210;"Within Normal Limits";17;1;1;0
+152498;48;Mahaboobnagar;10;104696;3220;177;2;152;23;40;137;104;52;10;117;33;16;0.9;Normal;122;122;Normal;12.2;"Borderline Low";142;Prediabetes;0.38;Normal;218;C;650;"Within Normal Limits";24;1;0;1
+152504;47;Mahaboobnagar;11;114576;3609;188;0;182;6;38;150;137;43;1;144;29;8;1.1;Normal;162;162;"Stage-2 Hypertension";13.6;Normal;127;Normal;0.88;Normal;230;D;350;"Within Normal Limits";21;1;1;0
+152505;45;Mahaboobnagar;8;98271;3048;189;3;168;15;85;104;60;100;6;87;67;12;1.2;"High Creatinine";140;140;Elevated;16;Normal;116;Normal;0.52;Normal;246;C;350;"Within Normal Limits";26;1;0;0
+152510;44;Mahaboobnagar;7;79583;3513;201;196;0;5;72;129;0;15;182;72;22;103;0.9;Normal;129;129;Normal;13.1;Normal;140;Normal;0.52;Normal;159;A;520;"Within Normal Limits";25;1;1;0
+152522;50;Mahaboobnagar;4;62791;1775;121;3;76;41;73;48;39;59;21;66;46;7;1.2;"High Creatinine";117;117;Normal;13.6;Normal;138;Normal;0.9;Normal;167;C;NULL;"Within Normal Limits";NULL;0;0;0
+152524;45;Mahaboobnagar;8;104846;3195;185;6;106;73;78;107;51;96;25;74;61;37;1;Normal;161;161;"Stage-2 Hypertension";11.9;"Borderline Low";115;Normal;0.41;Normal;231;D;650;"Within Normal Limits";23;0;0;0
+152536;49;Mahaboobnagar;13;74136;2874;172;157;0;15;33;139;0;23;149;70;57;45;1;Normal;130;130;Normal;19;"Critical High";104;Normal;0.99;Normal;223;E;300;"Within Normal Limits";21;1;0;0
+152544;49;Mahaboobnagar;11;116682;3717;198;2;184;12;42;156;137;41;11;148;35;6;1.2;"High Creatinine";110;110;Normal;14;Normal;133;Normal;0.94;Normal;221;C;192;"Within Normal Limits";17;1;0;0
+152546;48;Mahaboobnagar;15;13530;563;36;32;0;4;18;18;0;4;32;22;5;9;1.1;Normal;129;129;Normal;15.1;Normal;145;Prediabetes;0.67;Normal;221;C;190;"Within Normal Limits";23;0;0;0
+152550;48;Mahaboobnagar;4;81421;2971;194;183;1;10;101;93;1;31;159;89;38;64;0.9;Normal;137;137;Elevated;12.8;"Borderline Low";107;Normal;0.9;Normal;169;C;NULL;"Within Normal Limits";NULL;0;0;0
+152555;46;Mahaboobnagar;7;118180;3692;199;3;175;20;45;154;132;42;15;150;29;10;1;Normal;167;167;"Stage-2 Hypertension";17;Normal;98;Normal;0.98;Normal;205;D;650;"Within Normal Limits";28;1;0;0
+152561;47;Mahaboobnagar;43;108070;3376;170;4;157;8;29;141;126;25;8;135;17;7;1.1;Normal;140;140;Elevated;18;Normal;102;Normal;1.02;Normal;226;C;260;"Within Normal Limits";16;1;1;0
+152568;53;Mahaboobnagar;14;65817;2919;174;153;2;19;67;107;0;42;125;60;54;53;1;Normal;140;140;Elevated;19;"Critical High";143;Prediabetes;0.49;Normal;239;E;NULL;"Within Normal Limits";NULL;0;0;0
+152574;43;Mahaboobnagar;3;1661;56;8;7;0;1;7;1;0;2;6;4;1;3;0.7;Normal;130;130;Normal;14.2;Normal;107;Normal;1.09;Normal;190;A;NULL;"Within Normal Limits";NULL;0;0;0
+152580;54;Mahaboobnagar;9;78759;3915;201.5;186.5;3;12;28.5;173;2;20;175.5;75.5;73;49;0.9;Normal;132;132;Elevated;10.9;"Borderline Low";140;Normal;0.44;Normal;237;C;NULL;"LVH Strain  pattern";NULL;0;0;0
+152595;50;Mahaboobnagar;24;78637;2456;173.5;121.5;0;52;80.5;93;0;56;113.5;47.5;66;56;0.8;Normal;121;121;Normal;12;"Borderline Low";122;Normal;1.26;"High Bilirubin";227;C;NULL;Lahb;NULL;0;0;0
+152606;47;Mahaboobnagar;7;94963;3037;166;4;119;37;50;116;77;67;14;85;30;43;1.1;Normal;150;150;"Stage-1 Hypertension";11.2;"Borderline Low";96;Normal;0.75;Normal;203;C;425;"Within Normal Limits";21;1;0;0
+152611;50;Mahaboobnagar;38;70328;2802;176;121;0;55;74;102;0;47;120;81;49;37;1.3;"High Creatinine";102;102;Normal;17.1;Normal;113;Normal;0.81;Normal;237;C;440;"Intraventricular conduction defect without evidence of MI";21;0;0;1
+152618;50;Mahaboobnagar;26;89715;3050;190;6;146;37;84;106;42;97;28;75;67;25;1.2;"High Creatinine";141;141;"Stage-1 Hypertension";16.2;Normal;122;Normal;0.93;Normal;210;C;175;"Within Normal Limits";22;1;1;0
+152622;45;Mahaboobnagar;56;74956;2419;140;0;123;17;52;88;65;48;10;78;32;13;1;Normal;125;125;Normal;15.1;Normal;112;Normal;0.61;Normal;167;A;300;"Within Normal Limits";23;1;0;1
+152635;42;Mahaboobnagar;4;102390;3168;208;4;191;12;102;106;82;95;12;109;73;7;0.7;Normal;138;138;Elevated;12.8;"Borderline Low";108;Normal;1.19;Normal;228;C;NULL;"Within Normal Limits";NULL;0;0;0
+152654;46;Mahaboobnagar;25;93422;2982;157;1;148;7;43;114;111;33;5;117;27;5;0.9;Normal;132;132;Elevated;19;"Critical High";146;Prediabetes;1.37;"High Bilirubin";213;E;650;"Within Normal Limits";28;0;0;0
+152656;48;Mahaboobnagar;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;0;0;0
+152806;48;Mahaboobnagar;2;126621;3877;220;1;200;19;53;167;145;52;10;157;38;12;1.1;Normal;141;141;"Stage-1 Hypertension";13.8;Normal;100;Normal;1;Normal;169;C;NULL;"Within Normal Limits";NULL;0;0;0
+152829;51;Mahaboobnagar;8;69720;2995;172;152;2;18;65;107;1;18;148;56;24;87;0.9;Normal;136;136;Elevated;16.5;Normal;143;Prediabetes;1.12;Normal;192;C;350;Abnormal;21;0;0;0
+152833;46;Mahaboobnagar;8;119101;3760;194;3;177;11;30;164;146;28;6;154;20;6;1;Normal;140;140;Elevated;15.2;Normal;129;Normal;1;Normal;195;B;190;"Within Normal Limits";23;1;0;0
+152890;43;Mahaboobnagar;15;50378;1765;112;40;55;16;53;59;22;38;38;43;32;23;0.9;Normal;139;139;Elevated;14.8;Normal;118;Normal;0.35;Normal;225;C;NULL;"Within Normal Limits";NULL;0;0;0
+152892;41;Mahaboobnagar;19;87111;2765;185;13;156;16;108;77;60;96;18;86;70;18;1.1;Normal;130;130;Normal;15.4;Normal;104;Normal;0.96;Normal;211;C;NULL;"Within Normal Limits";NULL;0;0;0
+152915;41;Mahaboobnagar;147;25790;845;52;1;38;13;26;26;27;21;2;30;15;5;1.2;"High Creatinine";128;128;Normal;13.4;Normal;99;Normal;0.68;Normal;215;C;NULL;"Within Normal Limits";NULL;0;0;0
+152936;37;Mahaboobnagar;3;98349;3115;163;4;129;30;42;121;97;49;13;106;30;23;0.9;Normal;130;130;Normal;16;Normal;136;Normal;0.55;Normal;199;A;NULL;"Within Normal Limits";NULL;0;0;0
+152947;40;Mahaboobnagar;14;90616;2957;174;4;146;22;71;103;81;63;11;96;43;16;0.95;Normal;140;140;Elevated;12.4;"Borderline Low";102;Normal;1;Normal;128;C;NULL;"Within Normal Limits";NULL;0;0;0
+153380;48;Mahaboobnagar;8;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;0;0;0
+153409;41;Mahaboobnagar;16;72914;2037;170;9;60;101;152;18;35;69;65;100;45;24;1.3;"High Creatinine";120;120;Normal;14.8;Normal;133;Normal;1.15;Normal;228;C;NULL;"Within Normal Limits";NULL;0;0;0
+153489;45;Ranigunj-I;20;42345;2864;144.5;0;0;0;1.5;143;0;2;120.5;57;11;54.5;0.89;Normal;137;137;Elevated;9.3;"Abnormal (Low)";110;Normal;0.88;Normal;170;D;300;"Within Normal Limits";26;0;0;0
+175413;55;Ranigunj-I;22;52482;2215;153;0;0;0;115.5;37.5;0;8;146;95;11.5;47.5;0.9;Normal;148;148;"Stage-1 Hypertension";12.7;"Borderline Low";80;Normal;0.9;Normal;177;C;490;"Within Normal Limits";31;1;0;0
+177194;49;Mahaboobnagar;11;66577;2159;109;11;2;96;8;101;2;87;16;11;20;74;1.1;Normal;150;150;"Stage-1 Hypertension";10.7;"Borderline Low";119;Normal;1.02;Normal;212;C;NULL;"Poor R wave progression";NULL;0;0;0
+177359;44;Mahaboobabad;3;4276;149;9;7;0;2;7;2;0;0;9;6;1;2;1.2;"High Creatinine";144;144;"Stage-1 Hypertension";14.7;Normal;123;Normal;0.46;Normal;158;C;295;"Intraventricular conduction defect? Lbbb without evi of MI";24;0;0;0
+203060;58;Ranigunj-I;83;47761;2069;126.5;0;0;0;122;4.5;0;4;50.5;10;5.5;39;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;500;NULL;28;0;0;0
+203587;59;Mahaboobnagar;17;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;Normal;131;131;Elevated;13;Normal;112;Normal;0.98;Normal;121;B;NULL;"Within Normal Limits";NULL;0;0;0
+204269;56;Ranigunj-I;16;41681;2054;147.5;0;0;0;147.5;0;0;2;144.5;79.5;4.5;62.5;0.9;Normal;150;150;"Stage-1 Hypertension";15.2;Normal;118;Normal;0.9;Normal;163;C;NULL;"Within Normal Limits";NULL;0;0;0
+204803;57;Ranigunj-I;21;37219;1957;140;0;0;1;131;9;0;4;137;127;4;10;1;Normal;130;130;Normal;13;Normal;105;Normal;1;Normal;150;A;400;"Within Normal Limits";28;1;0;0
+204821;57;Ranigunj-I;18;44023;2318;145.5;0;0;0;143.5;2;0;4;140;132.5;5;6.5;1.2;"High Creatinine";140;140;Elevated;12.9;"Borderline Low";140;Normal;0.6;Normal;197;C;370;"Within Normal Limits";25;0;0;0
+204974;56;Ranigunj-I;45;31191;1617;125.5;0;0;0;125.5;0;0;21.5;102.5;89;13.5;21.5;1.4;"High Creatinine";125;125;Normal;17;Normal;131;Normal;0.94;Normal;210;C;310;"Within Normal Limits";26;1;0;0
+205188;58;Ranigunj-I;12;45658;2076;151.5;0;0;0;151.5;0;0;21.5;127.5;22.5;82;44.5;0.8;Normal;148;148;"Stage-1 Hypertension";12.6;"Borderline Low";107;Normal;0.82;Normal;216;C;310;"Within Normal Limits";26;0;0;0
+205329;57;Ranigunj-I;17;44647;1579;181;0;0;0;180;1;0;10;166;135.5;17;23.5;0.4;Normal;140;140;Elevated;13.7;Normal;104;Normal;0.5;Normal;177;B;450;"Within Normal Limits";27;1;0;0
+205331;58;Ranigunj-I;157;20413;1006;74;0;0;0;74;0;0;42;31;19;8.5;45.5;0.9;Normal;148;148;"Stage-1 Hypertension";13.3;Normal;92.3;Normal;0.89;Normal;144;C;NULL;"Within Normal Limits";NULL;0;0;0
+205606;59;Ranigunj-I;28;45171;1821;142;0;0;1;138;4;0;8.5;134;45.5;78.5;18.5;0.9;Normal;142;142;"Stage-1 Hypertension";16.7;Normal;127;Normal;0.41;Normal;216;C;540;"Within Normal Limits";25;1;0;0
+205743;56;Ranigunj-I;50;22511;1042;88.5;0;0;0;88.5;0;0;0;88.5;10.5;1.5;76.5;1.3;"High Creatinine";145;145;"Stage-1 Hypertension";15.5;Normal;135;Normal;1.2;Normal;187;C;350;"Within Normal Limits";23;1;1;0
+205814;55;Ranigunj-I;115;8264;342;28.5;0;0;0;28.5;0;0;0;28.5;3.5;2;23;1;Normal;140;140;Elevated;14.9;Normal;109;Normal;0.9;Normal;158;B;400;"Within Normal Limits";29;0;0;0
+205854;56;Ranigunj-I;24;43104;1745;147;0;0;0;146;1;0;4.5;142;18.5;120;8;1.1;Normal;177;177;"Stage-2 Hypertension";17.2;Normal;143;Prediabetes;0.55;Normal;204;D;570;"Within Normal Limits";26;1;0;0
+206384;54;Ranigunj-I;30;38002;1714;134;0;0;0;126;8;0;8.5;123.5;78.5;31.5;22;0.9;Normal;140;140;Elevated;14.5;Normal;125;Normal;0.76;Normal;195;B;350;"Within Normal Limits";24;1;1;0
+206399;59;Ranigunj-I;27;42201;2172;126;0;0;1;123;3;0;2;124;9;97.5;19.5;1.3;"High Creatinine";160;160;"Stage-1 Hypertension";13.4;Normal;136;Normal;0.68;Normal;199;C;NULL;"Minor St T Abnormalities";NULL;0;0;0
+206485;59;Ranigunj-I;43;28960;1802;128;0;0;0;128;0;0;3.5;236;231.5;3;5;0.9;Normal;142;142;"Stage-1 Hypertension";12;"Borderline Low";123;Normal;1.33;"High Bilirubin";230;C;370;"Within Normal Limits";26;0;0;0
+206514;56;Ranigunj-I;59;29323;1765;125;0;0;0;125;0;0;7.5;118;16;99;10.5;0.78;Normal;131;131;Elevated;15.8;Normal;164;Prediabetes;0.5;Normal;138;C;310;"Minor St-T Abnormalities";25;1;0;0
+206868;57;Ranigunj-I;15;43882;1204;149.5;0;0;0;149.5;0;0;1.5;146;133.5;4.5;9.5;0.88;Normal;166;166;"Stage-2 Hypertension";13.2;Normal;110;Normal;0.9;Normal;190;D;280;" St-T Abnormalities? T Negative Or Biphasic";29;1;0;0
+206905;59;Ranigunj-I;14;35289;2081;150.5;0;0;1;147.5;3;0;4.5;144.5;49;63.5;36.5;1.2;"High Creatinine";153;153;"Stage-1 Hypertension";14.2;Normal;109;Normal;0.6;Normal;192;C;350;"Within Normal Limits";25;0;0;0
+206940;58;Ranigunj-I;31;37517;1828;145.5;0;0;0;145.5;0;0;2.5;62.5;53.5;5;6.5;1;Normal;136;136;Elevated;11.9;"Borderline Low";121;Normal;1;Normal;121;C;430;"Within Normal Limits";32;0;0;0
+206996;59;Ranigunj-I;36;30991;1834;130.5;0;0;0;129.5;1;0;6.5;124.5;114;8;9;1.1;Normal;130;130;Normal;14.8;Normal;98;Normal;0.9;Normal;167;A;NULL;"Within Normal Limits";NULL;0;0;0
+207274;58;Ranigunj-I;32;39619;2288;163.5;0;0;0;163;0.5;0;4;159.5;145;3;15.5;1.1;Normal;177;177;"Stage-2 Hypertension";14.9;Normal;136;Normal;0.96;Normal;156;D;370;"Within Normal Limits";22;1;1;0
+207281;56;Ranigunj-I;8;41730;2065;149.5;0;0;0;149.5;0;0;4;144.5;131.5;6.5;10.5;0.95;Normal;169;169;"Stage-2 Hypertension";13.4;Normal;125;Normal;0.8;Normal;104;D;NULL;"Within Normal Limits";NULL;0;0;0
+207287;54;Ranigunj-I;91;25402;1961;96;0;0;0;1;95;0;3;93;9;38.5;48.5;0.89;Normal;147;147;"Stage-1 Hypertension";14.9;Normal;161;Prediabetes;0.98;Normal;201;C;490;"Within Normal Limits";23;1;1;0
+207460;58;Ranigunj-I;54;39244;1830;151;0;0;0;150.5;0.5;0;14.5;134.5;80;46;23;0.9;Normal;130;130;Normal;15.5;Normal;86;Normal;0.97;Normal;187;A;NULL;"Within Normal Limits";NULL;0;0;0
+207701;56;Ranigunj-I;137;23192;1914;97;0;0;1;13;84;0;5.5;93.5;73.5;15.5;10;1;Normal;145;145;"Stage-1 Hypertension";10;"Borderline Low";140;Normal;1.02;Normal;235;C;230;"T WAVE INVERSION AND B COMPLEX IN LEAD 3";18;1;0;0
+207981;54;Ranigunj-I;18;33110;1937;140;0;0;0;140;0;0;3.5;136.5;15;118;7;1;Normal;140;140;Elevated;14.3;Normal;117;Normal;0.85;Normal;154;B;590;"Within Normal Limits";22;1;0;0
+208028;57;Ranigunj-I;22;31856;1574;122;0;0;0;121;1;0;7.5;114.5;28;82.5;11.5;0.9;Normal;130;130;Normal;16.3;Normal;80.7;Normal;0.67;Normal;145;A;350;"Within Normal Limits";26;1;0;0
+208051;56;Ranigunj-I;20;39894;1609;131;0;0;0;130;1;0;23;108.5;17.5;48.5;65.5;0.93;Normal;120;120;Normal;16.9;Normal;119;Normal;0.98;Normal;193;A;350;"Within Normal Limits";23;1;0;0
+208078;59;Ranigunj-I;96;32185;1220;99.5;0;0;0;98.5;1;0;14.5;82.5;60.5;17;19.5;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;0;0;0
+208131;55;Ranigunj-I;96;28836;1375;116;0;0;0;116;0;0;15.5;94;61;12.5;36;0.9;Normal;150;150;"Stage-1 Hypertension";14.1;Normal;108;Normal;0.96;Normal;225;C;NULL;"Within Normal Limits";NULL;0;0;0
+208139;57;Ranigunj-I;21;38162;2060;148.5;0;0;0;145.5;3;0;7;141.5;16.5;34.5;97.5;0.8;Normal;130;130;Normal;15.5;Normal;86;Normal;0.65;Normal;178;C;250;"Poor R wave progression";21;0;0;0
+208152;59;Ranigunj-I;238;7485;248;26;0;0;0;26;0;0;8.5;15.5;15;3;6;1.1;Normal;149;149;"Stage-1 Hypertension";13.2;Normal;146;Prediabetes;0.9;Normal;215;C;370;"Within Normal Limits";26;1;1;0
+208172;57;Ranigunj-I;28;33394;1991;144;0;0;0;143;1;0;1.5;143.5;135;6.5;3.5;1;Normal;170;170;"Stage-2 Hypertension";14.3;Normal;126;Normal;0.86;Normal;158;D;510;"Within Normal Limits";23;1;0;1
+208410;57;Ranigunj-I;37;38106;2665;138.5;0;0;0;0.5;138;0;51;81.5;34;39;59.5;0.8;Normal;133;133;Elevated;14.5;Normal;134;Normal;0.98;Normal;176;B;NULL;"Within Normal Limits";NULL;0;0;0
+208447;58;Ranigunj-I;20;40280;1971;141.5;0;0;0;141;0.5;0;33.5;107.5;122;11;8;1.2;"High Creatinine";118;118;Normal;14.6;Normal;146;Prediabetes;0.8;Normal;215;C;NULL;"Within Normal Limits";NULL;0;0;0
+208521;53;Ranigunj-I;29;41850;1702;142;0;0;0;142;0;0;4;132;45;76.5;14.5;0.9;Normal;148;148;"Stage-1 Hypertension";12.5;"Borderline Low";140;Normal;0.93;Normal;153;C;400;"Within Normal Limits";23;0;0;0
+208559;54;Ranigunj-I;19;42577;2900;144.5;0;0;0;1.5;143;0;2;141.5;11.5;75;57;1.5;"High Creatinine";120;120;Normal;13.8;Normal;104;Normal;1.09;Normal;235;C;280;"Within Normal Limits";25;1;0;0
+209007;53;Ranigunj-I;42;1607;83;5;0;0;0;1;4;0;1;4;3.5;1.5;0;0.5;Normal;115;115;Normal;14.2;Normal;98;Normal;0.9;Normal;130;A;630;"Within Normal Limits";31;0;0;0
+209254;57;Ranigunj-I;26;43100;1747;144.5;0;0;0;144.5;0;0;4.5;61;52.5;3.5;9.5;0.8;Normal;148;148;"Stage-1 Hypertension";15.1;Normal;98;Normal;0.89;Normal;144;C;270;"Within Normal Limits";27;0;0;0
+209308;53;Ranigunj-I;79;19542;919;67;0;0;0;62;5;0;4.5;60;31;14.5;19;1;Normal;120;120;Normal;14.3;Normal;125;Normal;0.84;Normal;154;A;250;"Within Normal Limits";23;1;0;0
+209393;57;Ranigunj-I;13;39788;1263;153.5;0;0;0;153.5;0;0;20;132;125;10.5;16.5;0.8;Normal;140;140;Elevated;13;Normal;148;Prediabetes;0.72;Normal;225;C;430;"Within Normal Limits";21;1;0;0
+209401;59;Mahaboobnagar;2;78668;2481;199;122;7;70;181;18;10;135;52;38;49;110;0.9;Normal;132;132;Elevated;18;Normal;137;Normal;0.98;Normal;224;C;200;"Within Normal Limits";19;1;0;0
+209467;58;Ranigunj-I;22;43285;2964;150;0;0;0;6;144;0;4.5;143.5;23;76;49;0.9;Normal;140;140;Elevated;13.7;Normal;111;Normal;0.7;Normal;187;B;310;"Within Normal Limits";28;1;0;0
+209520;54;Ranigunj-I;20;35383;1159;147;0;0;0;146.5;0.5;0;2;79.5;25;34;22.5;0.8;Normal;147;147;"Stage-1 Hypertension";15.5;Normal;134;Normal;0.84;Normal;187;C;470;"Within Normal Limits";33;1;0;0
+209533;57;Ranigunj-I;13;39099;1898;147;0;0;0;147;0;0;5;141.5;127;11;8.5;1.2;"High Creatinine";96;96;Normal;13;Normal;124;Normal;0.64;Normal;215;C;270;"Within Normal Limits";32;1;0;0
+209554;54;Ranigunj-I;17;40450;1890;135;0;0;0;135;0;0;29;106.5;9.5;89;37;0.7;Normal;175;175;"Stage-2 Hypertension";14.9;Normal;172;Prediabetes;0.87;Normal;99;D;250;"Within Normal Limits";25;1;0;0
+209557;52;Ranigunj-I;13;50336;1865;154.5;0;0;0;154.5;0;0;59.5;92.5;107.5;12.5;32;0.7;Normal;138;138;Elevated;12.6;"Borderline Low";135;Normal;1.1;Normal;168;C;600;"Within Normal Limits";27;0;0;0
+209564;53;Ranigunj-I;22;40970;2341;171;0;0;0;171;0;0;8;165;138.5;15;19.5;0.83;Normal;149;149;"Stage-1 Hypertension";14.5;Normal;162;Prediabetes;1.04;Normal;184;C;250;"Within Normal Limits";28;1;0;0
+209614;58;Ranigunj-I;12;35409;2041;279;0;0;0;279;0;0;1.5;276;260.5;8.5;8.5;0.75;Normal;151;151;"Stage-1 Hypertension";10.9;"Borderline Low";86;Normal;0.85;Normal;168;C;470;"Minor St-T Abnormalities";32;1;0;0
+209850;56;Ranigunj-I;13;42261;1725;143.5;0;0;0;142.5;1;0;18;126.5;62.5;56.5;25.5;1;Normal;110;110;Normal;14.2;Normal;129;Normal;0.5;Normal;187;A;560;"Within Normal Limits";32;1;0;0
+209892;57;Ranigunj-I;87;31954;1382;115;0;0;0;114;1;0;12;97;40.5;24.5;44;1.2;"High Creatinine";139;139;Elevated;12;"Borderline Low";120;Normal;1.1;Normal;184;C;330;"Within Normal Limits";31;1;0;0
+210814;52;Ranigunj-I;30;55264;1840;173.5;0;0;0;173.5;0;0;1.5;171;154.5;6.5;11.5;1.2;"High Creatinine";140;140;Elevated;14.5;Normal;122;Normal;0.9;Normal;188;C;550;"Within Normal Limits";33;1;0;0
+211072;50;Ranigunj-I;20;36761;1988;143;0;0;0;141;2;0;23;118;19;5;117;0.75;Normal;140;140;Elevated;12.8;"Borderline Low";130;Normal;0.62;Normal;154;C;450;"Within Normal Limits";32;1;0;0
+211080;54;Ranigunj-I;16;34597;2412;128;0;0;0;5;123;0;3;121;92;7.5;24.5;0.9;Normal;143;143;"Stage-1 Hypertension";14.6;Normal;107;Normal;1;Normal;179;C;280;"Within Normal Limits";26;0;0;0
+211097;56;Ranigunj-I;37;33320;1113;246;0;0;0;246;0;0;10.5;231.5;190;32;20;0.9;Normal;151;151;"Stage-1 Hypertension";11.4;"Borderline Low";105.2;Normal;0.82;Normal;190;C;190;"Minor St T Abnormalities";27;1;1;0
+211158;51;Ranigunj-I;46;36497;1494;124.5;0;0;0;124.5;0;0;0;124.5;119;3;2.5;1.2;"High Creatinine";140;140;Elevated;13.5;Normal;123;Normal;0.8;Normal;169;C;NULL;"Within Normal Limits";NULL;0;0;0
+211294;53;Ranigunj-I;141;11267;518;38;0;0;0;38;0;0;3.5;34.5;32;3.5;2.5;0.8;Normal;144;144;"Stage-1 Hypertension";17;Normal;138;Normal;0.52;Normal;221;C;350;"Within Normal Limits";28;1;0;0
+211404;50;Ranigunj-I;49;28598;1559;111;0;0;0;106;5;0;1.5;109.5;28;6;77;1.3;"High Creatinine";133;133;Elevated;15;Normal;113;Normal;1.11;Normal;225;C;330;"Within Normal Limits";32;1;1;0
+211490;57;Ranigunj-I;25;41562;1897;136.5;0;0;0;135.5;1;0;27.5;111;91;11;36.5;0.9;Normal;112;112;Normal;13.7;Normal;121;Normal;0.4;Normal;199;A;168;"Within Normal Limits";20;0;0;0
+211528;52;Ranigunj-I;113;30690;1203;109.5;0;0;0;89.5;20;0;7;103.5;96.5;3;11;1.4;"High Creatinine";177;177;"Stage-2 Hypertension";12.5;"Borderline Low";131;Normal;0.71;Normal;237;D;310;"Lvh Monitor Bp Advice 2Decho";27;1;1;0
+211552;51;Ranigunj-I;41;48700;2071;131;0;0;0;120;11;0;10.5;115;67.5;22;36;0.9;Normal;120;120;Normal;15.5;Normal;123;Normal;0.75;Normal;176;A;500;"Within Normal Limits";27;1;0;1
+211624;52;Ranigunj-I;19;34709;2073;84.5;0;0;0;84.5;0;0;5.5;80.5;75.5;4;6.5;1;Normal;150;150;"Stage-1 Hypertension";13.9;Normal;118;Normal;1.02;Normal;159;C;350;"Within Normal Limits";26;0;0;0
+211636;46;Ranigunj-I;43;42727;1519;110;0;0;0;106;4;0;14.5;94;74;21.5;13;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;370;NULL;32;1;1;0
+211638;47;Ranigunj-I;16;41438;2695;152;0;0;0;7;145;0;4.5;146.5;14.5;4;132.5;0.4;Normal;137;137;Elevated;13.8;Normal;116;Normal;0.6;Normal;158;C;560;"Minor St-T Abnormalities";25;0;0;0
+211644;49;Ranigunj-I;37;32376;1649;138;0;0;0;138;0;0;5.5;132.5;22;99.5;16.5;0.8;Normal;140;140;Elevated;14.7;"Borderline Low";114;Prediabetes;0.9;Normal;179;C;450;"T WAVE INVERSION IN LEAD 3 MONITOR BP";27;1;0;0
+211644;49;Ranigunj-I;37;32376;1649;138;0;0;0;138;0;0;5.5;132.5;22;99.5;16.5;1;Normal;137;137;Elevated;12.7;"Borderline Low";152;Prediabetes;0.65;Normal;152;C;450;"Within Normal Limits";27;1;0;0
+211783;50;Ranigunj-I;30;44293;2196;181;0;0;0;180;1;0;41.5;136;78.5;28;71;1;Normal;149;149;"Stage-1 Hypertension";15.5;Normal;85;Normal;0.68;Normal;168;C;330;"Within Normal Limits";30;1;1;0
+211823;46;Ranigunj-I;35;6722;270;21;0;0;0;20;1;0;7.5;13;13;3;4.5;0.5;Normal;166;166;"Stage-2 Hypertension";14;Normal;105;Normal;0.6;Normal;171;D;460;"Minor St-T Abnormalities";34;1;0;0
+211865;49;Ranigunj-I;15;41769;2748;152;0;0;0;1;151;0;3;147;10;5;135;0.9;Normal;207;207;"Hypertension Critical";10.9;"Borderline Low";110;Normal;1.2;Normal;167;E;520;"Lvh Strain Advice 2Decho Followed By Further Evaluation";23;0;0;0
+211882;49;Ranigunj-I;47;36538;2929;143;0;0;0;2;141;0;3;140;52;6.5;84.5;0.98;Normal;176;176;"Stage-2 Hypertension";14.6;Normal;121;Normal;1;Normal;154;D;600;"Within Normal Limits";24;0;0;0
+211930;46;Ranigunj-I;17;40801;2858;150.5;0;0;0;4.5;146;0;5;144.5;98;9.5;42;0.8;Normal;115;115;Normal;10.6;"Borderline Low";99;Normal;0.37;Normal;220;C;270;"Within Normal Limits";26;1;0;0
+211949;45;Ranigunj-I;11;41097;3048;152;0;0;0;1;151;0;34;116;104.5;5.5;40;1.2;"High Creatinine";147;147;"Stage-1 Hypertension";12.6;"Borderline Low";101;Normal;1;Normal;155;C;280;"Minor St T Abnormalities";4235;0;0;0
+211951;48;Ranigunj-I;74;34192;2075;107.5;0;0;1;2.5;105;0;4.5;103;45;5.5;57;1;Normal;120;120;Normal;16.5;Normal;104;Normal;0.5;Normal;218;C;NULL;"Within Normal Limits";NULL;0;0;0
+211992;48;Ranigunj-I;9;30255;2114;105.5;0;0;0;1;104.5;0;1.5;104;96;3;6.5;1;Normal;128;128;Normal;13.2;Normal;98;Normal;0.4;Normal;182;C;500;"Minor St T Abnormalities";25;1;0;0
+212017;50;Ranigunj-I;6;40969;2899;152;0;0;0;1;151;0;99;48;12.5;5;129.5;1;Normal;128;128;Normal;12.8;"Borderline Low";108;Normal;1.4;"High Bilirubin";141;C;300;"Within Normal Limits";24;0;0;0
+212073;53;Ranigunj-I;25;38513;1987;141.5;0;0;0;140.5;1;0;37;104;24;16;101;1.2;"High Creatinine";140;140;Elevated;15.1;Normal;133;Normal;1.1;Normal;182;C;300;"Within Normal Limits";28;1;0;0
+212102;49;Ranigunj-I;61;35412;1592;123;0;0;0;119.5;3.5;0;10;110;53;48;19;0.9;Normal;168;168;"Stage-2 Hypertension";16.8;Normal;141;Prediabetes;0.74;Normal;203;D;420;"Within Normal Limits";26;1;0;0
+212139;51;Ranigunj-I;185;19917;898;66;0;0;0;63.5;2.5;0;19.5;46.5;26;17;23;1;Normal;164;164;"Stage-2 Hypertension";11.1;"Borderline Low";98;Normal;0.98;Normal;152;E;350;"Multifold VPC, RBBB,LAHB";33;1;1;0
+212155;48;Ranigunj-I;32;33762;1481;121.5;0;0;0;117.5;4;0;15.5;102.5;67;25.5;25.5;1;Normal;116;116;Normal;19;"Critical High";127;Normal;1;Normal;241;E;670;"Within Normal Limits";22;0;0;0
+213556;56;Ranigunj-I;24;37373;1595;133.5;0;0;0;132;1.5;0;16.5;108.5;55;32;38;0.9;Normal;165;165;"Stage-2 Hypertension";15.5;Normal;87;Normal;0.86;Normal;176;D;320;"Within Normal Limits";27;1;1;0
+213561;50;Ranigunj-I;16;47059;3122;148.5;0;0;0;0;148.5;0;17.5;131;107.5;21;20;0.3;Normal;136;136;Elevated;17;Normal;172;Prediabetes;0.6;Normal;146;C;250;"Within Normal Limits";26;1;1;0
+213570;50;Ranigunj-I;35;41169;1871;151;0;0;0;148;3;0;16;131;83;29;35;1.2;"High Creatinine";142;142;"Stage-1 Hypertension";14.8;Normal;98;Normal;0.6;Normal;218;C;650;"Within Normal Limits";30;0;0;0
+214423;53;Mahaboobabad;10;20718;785;52;51;0;1;50;2;0;2;50;26;4;22;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;384;NULL;24;0;0;0
+214464;50;Ranigunj-I;14;37421;2055;147.5;0;0;0;147.5;0;0;1.5;146;137.5;5.5;4.5;0.73;Normal;140;140;Elevated;13.4;Normal;99;Normal;0.74;Normal;137;C;300;"Minor St-T Abnormalities";24;0;0;0
+214497;53;Ranigunj-I;13;31774;2728;137.5;0;0;0;1.5;136;0;3;136.5;37;11;91.5;1.4;"High Creatinine";147;147;"Stage-1 Hypertension";16.6;Normal;108;Normal;0.7;Normal;203;C;430;"Within Normal Limits";27;0;0;0
+214519;46;Ranigunj-I;6;61830;2170;166;0;0;0;166;0;0;138;29;153.5;5;8.5;1;Normal;147;147;"Stage-1 Hypertension";13.2;Normal;158;Prediabetes;1;Normal;155;C;310;"Within Normal Limits";27;1;1;0
+214521;50;Ranigunj-I;21;37390;1852;149;0;0;0;148.5;0.5;0;19;127.5;35.5;49;62;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;430;NULL;26;1;1;0
+214545;52;Ranigunj-I;26;41403;1743;149;0;0;0;145;4;0;9;136;107;21;17;0.7;Normal;134;134;Elevated;15.6;Normal;137;Normal;0.95;Normal;220;C;490;"Within Normal Limits";25;0;0;0
+214594;47;Ranigunj-I;16;39548;1324;286;0;0;0;286;0;0;5;277.5;19;5;258.5;0.9;Normal;127;127;Elevated;12.7;"Borderline Low";131;Normal;0.8;Normal;185;C;550;"Within Normal Limits";23;1;1;0
+214747;51;Ranigunj-I;19;38418;1862;134;0;0;0;132;2;0;4.5;130;109;13.5;12;0.78;Normal;131;131;Elevated;14.9;Normal;157;Prediabetes;0.67;Normal;199;C;320;"Within Normal Limits";35;1;0;1
+214799;46;Ranigunj-I;36;42077;1415;135.5;0;0;0;135.5;0;0;3;130;114;7.5;11.5;1.1;Normal;104;104;Normal;13.6;Normal;136;Normal;0.98;Normal;233;C;350;"Within Normal Limits";18;0;0;1
+214807;53;Ranigunj-I;134;14081;885;64;0;0;0;63.5;0.5;0;24.5;39.5;10.5;24.5;29;1;Normal;130;130;Normal;13.7;Normal;110;Normal;0.9;Normal;189;A;320;"Within Normal Limits";25;1;1;0
+214809;52;Ranigunj-I;21;34762;1927;143;0;0;0;143;0;0;10;135;107.5;15.5;22;1.1;Normal;160;160;"Stage-1 Hypertension";15;Normal;140;Normal;1.2;Normal;182;C;480;"Within Normal Limits";25;0;0;1
+214853;54;Ranigunj-I;22;38913;3178;152.5;0;0;0;1.5;151;0;2;58.5;7;2;51.5;1.3;"High Creatinine";158;158;"Stage-1 Hypertension";15.5;Normal;116;Normal;0.97;Normal;204;C;250;"Within Normal Limits";21;1;0;0
+214894;44;Ranigunj-I;38;39370;2039;155.5;0;0;0;154.5;1;0;20.5;132;88;30.5;34;0.77;Normal;125;125;Normal;16.8;Normal;149;Prediabetes;2.34;"High Bilirubin";144;D;290;"Within Normal Limits";19;0;0;0
+214937;52;Ranigunj-I;18;38880;3339;170;0;0;0;5;165;0;1;168;16;116;37;1.2;"High Creatinine";122;122;Normal;13.2;Normal;142;Prediabetes;1.1;Normal;175;C;390;"Within Normal Limits";23;0;0;0
+214943;51;Ranigunj-I;256;22999;793;69;0;0;0;1;68;0;63;6;2;64;3;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;320;NULL;26;1;0;0
+215437;56;Mahaboobabad;13;80408;2817;132;89;0;43;40;92;0;16;116;55;53;24;0.81;Normal;169;169;"Stage-2 Hypertension";13.2;Normal;109;Normal;0.95;Normal;174;D;330;"Minor ST-T Abnormalities";26;0;0;0
+215476;43;Ranigunj-I;16;43249;2032;144;0;0;1;142.5;1.5;0;1.5;143;140;1;3.5;1.1;Normal;138;138;Elevated;14.4;Normal;92;Normal;0.8;Normal;148;C;400;"Minor St-T Abnormalities";25;1;0;1
+215511;47;Ranigunj-I;22;37386;1275;147.5;0;0;0;147.5;0;0;4.5;139;19.5;7.5;116.5;0.6;Normal;130;130;Normal;15.5;Normal;158;Prediabetes;0.67;Normal;169;C;430;"Within Normal Limits";29;0;0;0
+215519;44;Ranigunj-I;40;34982;2929;149.5;0;0;0;8.5;141;0;3.5;146;16.5;87;46;0.46;Normal;115;115;Normal;16.8;Normal;154;Prediabetes;0.87;Normal;132;C;220;"Within Normal Limits";25;0;0;0
+215577;47;Ranigunj-I;17;33599;2107;151.5;0;0;0;150.5;1;0;35;115;86.5;49;14.5;0.9;Normal;141;141;"Stage-1 Hypertension";13;Normal;135;Normal;0.95;Normal;125;C;350;"Within Normal Limits";29;0;0;0
+215585;42;Ranigunj-I;18;40513;1967;144.5;0;0;0;143.5;1;0;2;93.5;79.5;5.5;10.5;1.3;"High Creatinine";122;122;Normal;12;"Borderline Low";141;Prediabetes;0.43;Normal;197;C;500;"Within Normal Limits";30;1;0;0
+215612;45;Ranigunj-I;19;37171;1931;138.5;0;0;0;138.5;0;0;3;135;127;5;6;1;Normal;140;140;Elevated;14.9;Normal;106;Normal;0.96;Normal;157;B;550;"Within Normal Limits";25;1;0;0
+215620;42;Ranigunj-I;13;44574;3159;150;0;0;0;1;149;0;3.5;144.5;127.5;5;15.5;0.54;Normal;131;131;Elevated;16.5;Normal;128;Normal;0.71;Normal;214;C;NULL;"Within Normal Limits";NULL;0;0;0
+215627;50;Ranigunj-I;26;36699;1962;141.5;0;0;0;139;2.5;0;12;128.5;102.5;24;14;0.9;Normal;130;130;Normal;10.2;"Borderline Low";125;Normal;0.98;Normal;152;C;260;"Within Normal Limits";30;0;0;0
+215641;51;Ranigunj-I;100;29407;1562;97;0;0;0;55;42;0;14.5;80.5;51.5;14.5;29;1;Normal;134;134;Elevated;15.2;Normal;95;Normal;0.98;Normal;152;B;560;"Within Normal Limits";28;0;0;0
+215646;53;Ranigunj-I;23;31994;2007;142;0;0;0;142;0;0;4;254.5;243.5;4.5;10.5;0.8;Normal;103;103;Normal;15.7;Normal;116;Normal;0.8;Normal;154;A;400;"Within Normal Limits";20;1;0;0
+215649;44;Ranigunj-I;12;50689;3877;201.5;0;0;0.5;23.5;178;0;7.5;194;32;142.5;27;0.84;Normal;131;131;Elevated;13.4;Normal;98;Normal;0.54;Normal;162;B;NULL;"Within Normal Limits";NULL;0;0;0
+215651;50;Ranigunj-I;17;33541;2213;146.5;0;0;0;120.5;26;0;6.5;143;122.5;15.5;11.5;1;Normal;109;109;Normal;13.8;Normal;93;Normal;0.97;Normal;161;A;480;"Within Normal Limits";26;0;0;0
+215955;52;Ranigunj-I;47;60496;2304;161.5;0;0;2;157;4.5;0;32;131.5;102;17.5;44;0.9;Normal;140;140;Elevated;16.5;Normal;135;Normal;0.96;Normal;176;B;NULL;"Within Normal Limits";NULL;0;0;0
+216024;53;Ranigunj-I;69;30156;1489;105;0;0;0;102;3;0;28;75;71.5;16.5;15;1.2;"High Creatinine";179;179;"Stage-2 Hypertension";15.6;Normal;139;Normal;1.1;Normal;191;D;360;"Within Normal Limits";27;1;0;0
+216613;55;Ranigunj-I;89;24327;2138;109.5;0;0;0;3.5;106;0;2;107.5;10;89;10.5;0.7;Normal;130;130;Normal;11.9;"Borderline Low";117;Normal;0.8;Normal;188;C;250;"Within Normal Limits";28;0;0;0
+216678;50;Ranigunj-I;47;39123;3176;165;0;0;0;0;165;0;1;163;114;34;16;1.3;"High Creatinine";179;179;"Stage-2 Hypertension";17.2;Normal;112;Normal;0.34;Normal;214;D;450;"Lvh Noted Adviced 2Decho";20;1;0;0
+216705;47;Ranigunj-I;18;43975;2185;146;0;0;0;145;1;0;14;132.5;49;92;5.5;0.91;Normal;140;140;Elevated;14.8;Normal;127;Normal;0.77;Normal;160;B;550;"Within Normal Limits";26;1;0;0
+217155;46;Ranigunj-I;138;37656;1391;111.5;0;0;0;110.5;1;0;16.5;92;80.5;7.5;20.5;0.8;Normal;131;131;Elevated;14.5;Normal;134;Normal;0.89;Normal;167;B;230;"Within Normal Limits";28;1;1;0
+217157;54;Ranigunj-I;46;73275;2906;234;0;0;0;234;0;0;62;171;131.5;27.5;74;0.67;Normal;124;124;Normal;13.7;Normal;105;Normal;1.55;"High Bilirubin";187;C;430;"Within Normal Limits";25;1;1;0
+217211;43;Ranigunj-I;21;37168;1227;147.5;0;0;0;147;0.5;0;16;132;120;16.5;11.5;1.5;"High Creatinine";151;151;"Stage-1 Hypertension";14;Normal;146;Prediabetes;0.69;Normal;229;C;500;"Within Normal Limits";27;1;0;0
+217269;49;Ranigunj-I;13;29410;1717;124;0;0;0.5;123;1;0;4.5;89.5;16;71.5;6.5;1;Normal;115;115;Normal;13.8;Normal;109;Normal;0.58;Normal;154;A;460;"Within Normal Limits";24;1;0;0
+217333;52;Ranigunj-I;47;43958;3543;181;0;0;0;7.5;173.5;0;2;175;25.5;141;10.5;0.9;Normal;178;178;"Stage-2 Hypertension";13;Normal;104;Normal;0.57;Normal;198;D;430;"Within Normal Limits";28;1;1;1
+217335;56;Ranigunj-I;53;39811;1608;130;0;0;0;130;0;0;7.5;122;15.5;60.5;53.5;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;360;NULL;32;1;1;1
+217344;53;Ranigunj-I;48;39608;2387;144;0;0;0;74.5;69.5;0;13;128;106.5;17.5;17;0.7;Normal;147;147;"Stage-1 Hypertension";12;"Borderline Low";116;Normal;0.74;Normal;226;C;450;"T Wave Inversions In V4, V5, V6";28;1;0;0
+217388;45;Ranigunj-I;46;34348;2233;120;0;0;0;5;115;0;43;74;67;24.5;25.5;0.95;Normal;114;114;Normal;13.4;Normal;137;Normal;0.75;Normal;99;A;390;"Within Normal Limits";24;0;0;0
+217391;52;Ranigunj-I;70;28705;1919;98.5;0;0;0;6.5;92;0;17;81.5;60.5;13;25;1.1;Normal;130;130;Normal;14.1;Normal;123;Normal;0.8;Normal;176;C;NULL;"MILD LVH";NULL;0;0;0
+217432;49;Ranigunj-I;55;31645;1884;136.5;0;0;0;136.5;0;0;2;135;20.5;112;4.5;1.2;"High Creatinine";117;117;Normal;13.8;Normal;140;Normal;1.2;Normal;139;C;500;"Within Normal Limits";26;0;0;0
+217465;50;Ranigunj-I;11;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;0;0;0
+217830;54;Ranigunj-I;41;36880;1820;132.5;0;0;0;132.5;0;0;5.5;123;61.5;9.5;57.5;0.95;Normal;125;125;Normal;10.6;"Borderline Low";120;Normal;0.65;Normal;154;C;300;"Within Normal Limits";25;0;0;0
+217989;48;Ranigunj-I;3;37003;1093;154;0;0;0;153;1;0;1.5;148.5;138;10;2;1;Normal;129;129;Normal;12;"Borderline Low";103;Normal;1.6;"High Bilirubin";231;C;470;"Within Normal Limits";27;1;0;0
+217990;58;Ranigunj-I;12;33387;2950;148;0;0;0;1;147;0;2;147;12;129;8;0.76;Normal;139;139;Elevated;12.4;"Borderline Low";153;Prediabetes;0.73;Normal;123;C;250;"Within Normal Limits";26;0;0;0
+218066;45;Ranigunj-I;20;37927;1253;149;0;0;0;0;149;0;23;125;9;19;120;1;Normal;152;152;"Stage-1 Hypertension";17.5;Normal;132;Normal;0.8;Normal;196;C;550;"Within Normal Limits";25;0;0;0
+218118;54;Ranigunj-I;18;23175;1168;86.5;0;0;0;86.5;0;0;1;85.5;74;5.5;7;1;Normal;122;122;Normal;10.5;"Borderline Low";105;Normal;0.69;Normal;237;C;250;"Within Normal Limits";35;0;0;0
+218246;48;Ranigunj-I;15;38985;1317;143.5;0;0;1;142.5;1;0;5.5;137.5;127;6.5;9.5;0.9;Normal;154;154;"Stage-1 Hypertension";14.5;Normal;87;Normal;0.89;Normal;165;C;NULL;"Within Normal Limits";NULL;0;0;0
+218249;41;Ranigunj-I;31;36342;1972;109.5;0;0;0;7;102.5;0;32;76.5;56;32;20.5;1.03;Normal;120;120;Normal;14.7;Normal;98;Normal;0.38;Normal;222;C;NULL;"Within Normal Limits";NULL;0;0;0
+220054;43;Ranigunj-I;21;36033;2488;121.5;0;0;0;7.5;114;0;3.5;116.5;105;8;7;1.2;"High Creatinine";120;120;Normal;16.2;Normal;128;Normal;0.8;Normal;172;C;NULL;"Within Normal Limits";NULL;0;0;0
+220992;45;Mahaboobnagar;10;115977;3683;206;2;187;17;55;151;139;43;13;152;32;11;1;Normal;108;108;Normal;10.6;"Borderline Low";126;Normal;0.76;Normal;208;C;NULL;"Within Normal Limits";NULL;0;0;0
+221418;38;Ranigunj-I;221;23258;1459;78;0;0;0;3;75;0;7;70;51.5;6.5;19;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;0;0;0
+221453;45;Mahaboobnagar;38;59365;1716;118;5;68;45;73;45;59;32;26;83;26;8;0.3;Normal;141;141;"Stage-1 Hypertension";12;"Borderline Low";132;Normal;1.24;"High Bilirubin";231;C;NULL;"Within Normal Limits";NULL;0;0;0
+235342;46;Ranigunj-I;9;38262;3341;158;0;0;2;2;156;0;2;153;23.5;127.5;4;0.57;Normal;137;137;Elevated;13.8;Normal;104;Normal;0.98;Normal;176;B;450;"Within Normal Limits";24;1;0;0
+235343;47;Ranigunj-I;22;38540;2252;165;0;0;0;162;3;0;0.5;164;15;125.5;24;1.07;Normal;112;112;Normal;13.2;Normal;103;Normal;0.46;Normal;177;C;510;"St Segiment Elevation";29;1;1;1
+235362;48;Ranigunj-I;64;33870;2528;122.5;0;0;2;4.5;118;0;13.5;110.5;105;11.5;7.5;0.67;Normal;147;147;"Stage-1 Hypertension";16.8;Normal;135;Normal;0.84;Normal;143;C;300;"Minor St-T Abnormalities";27;1;0;0
+235381;42;Ranigunj-I;3;4772;277;15.5;0;0;0;4.5;11;0;3.5;13;10;3.5;3;0.8;Normal;130;130;Normal;17.1;Normal;103;Normal;1.15;Normal;199;A;320;"Within Normal Limits";28;1;0;0
+235419;41;Ranigunj-I;28;33870;2772;141.5;0;0;0;10.5;131;0;6.5;135;27;26.5;88;0.73;Normal;117;117;Normal;13.6;Normal;152;Prediabetes;0.85;Normal;138;C;430;"Within Normal Limits";28;0;0;0
+235420;40;Ranigunj-I;13;1235;59;5;0;0;0;5;0;0;1;3;1.5;0;2.5;0.81;Normal;170;170;"Stage-2 Hypertension";15.2;Normal;95.8;Normal;1.13;Normal;154;D;380;"Within Normal Limits";22;1;0;0
+235424;49;Ranigunj-I;64;27975;1721;123.5;0;0;0;123.5;0;0;1;123;110.5;6.5;7;1.1;Normal;147;147;"Stage-1 Hypertension";13.9;Normal;127;Normal;1;Normal;176;C;250;"Within Normal Limits";27;1;0;0
+235435;39;Ranigunj-I;59;42367;1837;146.5;0;0;0;142;4.5;0;45;99.5;68;18.5;58;1.2;"High Creatinine";139;139;Elevated;12;"Borderline Low";135;Normal;0.8;Normal;242;C;270;"Within Normal Limits";25;1;0;0
+235462;54;Ranigunj-I;183;22169;1437;74;0;0;0;12;62;0;2;71;55;3;15;1.2;"High Creatinine";130;130;Normal;19;"Critical High";121;Normal;1.28;"High Bilirubin";225;E;NULL;"Within Normal Limits";NULL;0;0;0
+235469;47;Ranigunj-I;18;36917;3007;142.5;0;0;0;0.5;142;0;3;139.5;61.5;4;77;0.6;Normal;131;131;Elevated;14.2;Normal;95;Normal;0.7;Normal;253;D;610;"Minor St T Abnormalities";26;0;0;0
+235471;53;Ranigunj-I;27;46115;1941;160.5;0;0;0;155.5;5;0;24;135.5;109;16;34.5;0.9;Normal;150;150;"Stage-1 Hypertension";15.5;Normal;125;Normal;0.75;Normal;175;C;560;"Within Normal Limits";28;1;0;0
+235506;48;Ranigunj-I;9;68014;2488;191;0;0;0;191;0;0;139;51;177;4.5;8.5;0.5;Normal;115;115;Normal;13.5;Normal;129;Normal;0.8;Normal;104;A;310;"Within Normal Limits";26;0;0;0
+235522;41;Ranigunj-I;27;42165;1643;143;0;0;0;139;4;0;12;131;98;19;26;1;Normal;137;137;Elevated;13;Normal;121;Normal;0.98;Normal;120;B;NULL;"Within Normal Limits";NULL;0;0;0
+235556;48;Ranigunj-I;21;37651;1961;137.5;0;0;0.5;137.5;0;0;5;131;15;7;114;1.2;"High Creatinine";147;147;"Stage-1 Hypertension";14.2;Normal;122;Normal;0.9;Normal;169;C;NULL;"Within Normal Limits";NULL;0;0;0
+235621;52;Ranigunj-I;28;48116;2921;144.5;0;0;0;0.5;144;0;0;144.5;25.5;7;112;0.97;Normal;131;131;Elevated;14.9;Normal;106;Normal;0.57;Normal;151;B;300;"Within Normal Limits";30;0;0;0
+235646;54;Ranigunj-I;20;47610;2350;142.5;0;0;0;2.5;140;0;71;71.5;10;72;60.5;0.92;Normal;136;136;Elevated;14.9;Normal;113;Normal;0.8;Normal;187;C;NULL;"Minor St-T Abnormalities";NULL;0;0;0
+235663;48;Ranigunj-I;19;39809;3140;171;0;0;0;36;135;0;2;169;56;79;36;1.1;Normal;138;138;Elevated;10.7;"Borderline Low";96;Normal;0.8;Normal;234;C;520;"Within Normal Limits";24;0;0;0
+235667;50;Ranigunj-I;33;60573;3230;138.5;0;0;0;16.5;122;0;12.5;89.5;69;17;16;1.2;"High Creatinine";151;151;"Stage-1 Hypertension";14.2;Normal;120;Normal;0.52;Normal;200;C;400;"Minor ST-T Abnormalities";27;1;0;1
+235717;45;Ranigunj-I;33;23728;993;79;0;0;0;77.5;1.5;0;6;70.5;49;10.5;17;0.8;Normal;134;134;Elevated;13.5;Normal;85;Normal;0.33;Normal;189;C;500;"Minor St T Abnormalities";32;1;0;0
+235726;46;Ranigunj-I;20;42802;1207;145;0;0;0;143;2;0;31.5;113;91;12;41.5;0.8;Normal;130;130;Normal;14.5;Normal;135;Normal;1.1;Normal;187;A;500;"Within Normal Limits";27;1;0;0
+235733;47;Ranigunj-I;46;42084;1405;129.5;0;0;0;129.5;0;0;5;123;107.5;3.5;17;1;Normal;140;140;Elevated;14.3;Normal;114;Normal;0.84;Normal;156;B;430;"Within Normal Limits";23;1;0;0
+235737;49;Ranigunj-I;19;39831;2225;147;0;0;0;145;2;0;2.5;144.5;138.5;4.5;4;1.2;"High Creatinine";120;120;Normal;14.9;Normal;135;Normal;0.9;Normal;187;C;340;"Within Normal Limits";19;1;0;0
+235739;45;Ranigunj-I;23;33242;2629;137.5;0;0;0;1.5;136;0;2.5;136;122;10.5;6;0.68;Normal;121;121;Normal;15.9;Normal;126;Normal;1.03;Normal;199;A;340;"Within Normal Limits";22;0;0;0
+235745;49;Mahaboobabad;15;68517;2567;112;100;0;12;49;63;0;7;105;42;33;37;1;Normal;115;115;Normal;14.5;Normal;136;Normal;0.9;Normal;176;C;330;"Poor R wave Progression";17;1;0;0
+235751;52;Ranigunj-I;58;33963;1720;136;0;0;0;134;2;0;14;119.5;77;22.5;34;1;Normal;134;134;Elevated;18;Normal;112;Normal;0.86;Normal;231;C;460;"Within Normal Limits";26;0;0;0
+235771;46;Ranigunj-I;217;18413;1140;59.5;0;0;2;7.5;52;0;0.5;56.5;29;11.5;16.5;0.8;Normal;134;134;Elevated;14.8;Normal;110;Normal;1.2;Normal;166;B;NULL;"Within Normal Limits";NULL;0;0;0
+235777;44;Ranigunj-I;11;45585;3238;137.5;0;0;0;2.5;135;0;3;133.5;10;111.5;15;1;Normal;138;138;Elevated;17;Normal;136;Normal;1.13;Normal;226;C;NULL;"Within Normal Limits";NULL;0;0;0
+235792;43;Ranigunj-I;161;22796;1172;94.5;0;0;0;94.5;0;0;3.5;89;33;5;54.5;1.2;"High Creatinine";135;135;Elevated;14.2;Normal;112;Normal;0.9;Normal;175;C;360;"Within Normal Limits";29;1;0;0
+235806;40;Ranigunj-I;80;39864;2927;164;0;0;1;63;101;0;7.5;156;43;95.5;25;1.1;Normal;136;136;Elevated;14.8;Normal;101;Normal;0.4;Normal;137;C;250;"Minor St-T Abnormalities";28;0;1;0
+235822;49;Ranigunj-I;23;42174;1943;139.5;0;0;0;139.5;0;0;112.5;25.5;11;11;116;0.8;Normal;120;120;Normal;12;"Borderline Low";114;Normal;1.38;"High Bilirubin";208;C;400;"Within Normal Limits";22;1;0;0
+235849;47;Ranigunj-I;29;55811;1971;140.5;0;0;0;137;3.5;0;10.5;130.5;121.5;5.5;14;0.8;Normal;130;130;Normal;16.2;Normal;112;Normal;0.8;Normal;164;A;NULL;"Within Normal Limits";NULL;0;0;0
+235850;45;Ranigunj-I;46;43279;1836;142.5;0;0;0;126.5;16;0;32.5;108;48.5;64.5;27.5;1;Normal;131;131;Elevated;12.3;"Borderline Low";137;Normal;0.83;Normal;217;C;428;"Within Normal Limits";23;0;0;0
+235856;48;Ranigunj-I;66;44569;2171;141.5;0;0;0.5;95.5;46;0;11;93;65.5;15.5;23;0.7;Normal;148;148;"Stage-1 Hypertension";12.9;"Borderline Low";98;Normal;0.9;Normal;177;C;540;"Lvh Monitor Bp Advice 2Decho";30;0;0;0
+235857;49;Ranigunj-I;12;40168;3112;149.5;0;0;0;1.5;148;0;13;136.5;115.5;18.5;15.5;0.6;Normal;123;123;Normal;13.8;Normal;98;Normal;0.4;Normal;185;A;300;"Within Normal Limits";26;0;0;0
+235915;44;Ranigunj-I;24;47016;2011;146.5;0;0;0;16.5;130;0;4.5;141;73;36;36.5;0.9;Normal;113;113;Normal;15.3;Normal;116;Normal;0.9;Normal;166;A;NULL;"Within Normal Limits";NULL;0;0;0
+235932;46;Ranigunj-I;33;11890;892;45;0;0;0;5;40;0;0.5;13.5;7.5;3;3.5;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;380;NULL;29;0;0;0
+235940;49;Ranigunj-I;18;5903;253;21.5;0;0;1;19.5;2;0;3.5;20;14;4.5;5;0.9;Normal;140;140;Elevated;12.6;"Borderline Low";77;Normal;0.5;Normal;136;C;410;"Within Normal Limits";25;0;0;0
+235945;48;Ranigunj-I;16;42928;1763;143;0;0;0;143;0;0;7;134;114.5;7.5;19;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;330;NULL;22;1;0;0
+235949;42;Ranigunj-I;105;36089;1934;111;0;0;2;27;84;0;11;99;54;14.5;41.5;1.2;"High Creatinine";137;137;Elevated;14.8;Normal;110;Normal;0.9;Normal;144;C;400;"Within Normal Limits";26;1;0;0
+235958;46;Ranigunj-I;32;3689;234;14.5;0;0;0;4;10.5;0;3.5;10.5;4.5;2.5;7;0.9;Normal;140;140;Elevated;15.5;Normal;99;Normal;0.9;Normal;158;B;380;"Within Normal Limits";28;0;0;0
+235965;43;Ranigunj-I;43;3545;152;9.5;0;0;0;8.5;1;0;0.5;7;3.5;1.5;2.5;1;Normal;150;150;"Stage-1 Hypertension";14.5;Normal;135;Normal;0.89;Normal;167;C;350;"Within Normal Limits";24;1;0;0
+235966;42;Ranigunj-I;31;46818;3041;145;0;0;0;7;138;0;3;143;123.5;14.5;8;0.7;Normal;120;120;Normal;11.5;"Borderline Low";99;Normal;0.87;Normal;104;C;550;"Within Normal Limits";23;0;0;0
+235983;46;Ranigunj-I;25;47678;2688;146;0;0;0;7;139;0;5.5;138;95;7.5;41;0.8;Normal;144;144;"Stage-1 Hypertension";13;Normal;128;Normal;1;Normal;207;C;NULL;"Within Normal Limits";NULL;0;0;0
+236012;43;Ranigunj-I;124;39490;1898;112.5;0;0;0;3.5;109;0;55.5;55;36.5;52;22;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;500;NULL;26;1;0;1
+236017;49;Ranigunj-I;100;32157;2176;114.5;0;0;0;5.5;109;0;83;31;99;4.5;10.5;1.5;"High Creatinine";179;179;"Stage-2 Hypertension";14.5;Normal;149;Prediabetes;0.91;Normal;234;D;300;"Within Normal Limits";28;1;0;0
+236019;43;Ranigunj-I;20;56206;2939;173;0;0;0;50.5;122.5;0;11.5;162;117;23.5;33;1.1;Normal;143;143;"Stage-1 Hypertension";12.8;"Borderline Low";99;Normal;0.73;Normal;224;C;280;"Within Normal Limits";20;1;0;1
+236027;43;Ranigunj-I;14;45019;2950;141.5;0;0;0;3.5;138;0;6.5;136;123;7;12.5;0.9;Normal;157;157;"Stage-1 Hypertension";11.9;"Borderline Low";93;Normal;1;Normal;179;C;330;"Within Normal Limits";32;0;0;0
+236030;49;Ranigunj-I;51;39753;1644;132;0;0;0;130;2;0;2.5;128.5;118.5;4.5;8;0.9;Normal;140;140;Elevated;14.9;Normal;114;Normal;0.89;Normal;154;B;500;"Within Normal Limits";31;0;0;0
+236031;53;Ranigunj-I;20;43441;2001;143.5;0;0;0;142.5;1;0;9.5;62.5;11.5;18;42.5;1.1;Normal;132;132;Elevated;12;"Borderline Low";136;Normal;0.53;Normal;198;C;470;"Within Normal Limits";28;1;0;0
+236032;53;Ranigunj-I;11;39841;2829;147.5;0;0;0;0.5;147;0;42.5;93;43;41;51.5;0.98;Normal;127;127;Normal;13.4;Normal;143;Prediabetes;0.75;Normal;167;C;310;"Within Normal Limits";22;0;0;0
+236036;51;Ranigunj-I;21;36977;1718;133;0;0;0;113;20;0;19;111.5;67;27;36.5;1.1;Normal;130;130;Normal;14.6;Normal;102;Normal;0.96;Normal;162;A;NULL;"Within Normal Limits";NULL;0;0;0
+236060;45;Ranigunj-I;14;49901;3137;148.5;0;0;0;1.5;147;0;3.5;145;9;0;139.5;1;Normal;137;137;Elevated;13.8;Normal;120;Normal;0.98;Normal;204;C;350;"Within Normal Limits";30;1;0;0
+236068;44;Ranigunj-I;25;42614;1965;145.5;0;0;0;91;54.5;0;99;46;27.5;61;56.5;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;400;NULL;34;0;0;0
+236073;44;Ranigunj-I;151;22732;1056;67;0;0;0;43;24;0;14.5;53.5;28.5;16.5;23;1.3;"High Creatinine";160;160;"Stage-1 Hypertension";11;"Borderline Low";123;Normal;0.7;Normal;190;C;320;"Within Normal Limits";32;1;0;0
+236112;45;Ranigunj-I;146;24273;1103;76.5;0;0;0;47;29.5;0;36.5;39;22;27;26.5;0.9;Normal;110;110;Normal;12.9;"Borderline Low";124;Normal;0.9;Normal;169;C;NULL;"Within Normal Limits";NULL;0;0;0
+236128;44;Ranigunj-I;198;20927;1143;70.5;0;0;0;23;47.5;0;17.5;52.5;42;18.5;9.5;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;0;0;0
+236140;48;Ranigunj-I;17;41086;1805;144.5;0;0;0;139.5;5;0;20;122;76.5;24.5;41;1;"High Creatinine";149;149;Elevated;14.5;Normal;139;Normal;0.9;Normal;183;C;490;"Within Normal Limits";26;0;0;0
+236140;48;Ranigunj-I;17;41086;1805;144.5;0;0;0;139.5;5;0;20;122;76.5;24.5;41;1.3;"High Creatinine";140;140;Elevated;15.1;Normal;117;Normal;0.94;Normal;232;C;490;"Within Normal Limits";26;0;0;0
+236143;52;Ranigunj-I;216;22783;1403;73.5;0;0;0;7.5;66;0;0;105.5;51;37.5;17;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;360;NULL;24;1;1;0
+236193;43;Ranigunj-I;15;12963;704;49;0;0;0;49;0;0;8.5;41;27;13.5;9;0.8;Normal;149;149;"Stage-1 Hypertension";17;Normal;121;Normal;1.11;Normal;202;C;NULL;"Within Normal Limits";NULL;0;0;0
+236215;49;Ranigunj-I;19;34210;2038;139;0;0;0;114;25;0;4;135;39;77;23;1.4;"High Creatinine";137;137;Elevated;15.9;Normal;150;Prediabetes;1.03;Normal;204;C;380;"Within Normal Limits";24;1;0;0
+236226;44;Ranigunj-I;15;50868;2970;158;0;0;1;13;145;0;6.5;150.5;115;10.5;31.5;0.98;Normal;169;169;"Stage-2 Hypertension";13.4;Normal;147;Prediabetes;0.87;Normal;174;D;300;"Within Normal Limits";31;0;0;0
+236280;44;Ranigunj-I;15;53628;2248;162;0;0;1;8;154;0;43.5;112.5;97;16.5;42.5;0.2;Normal;129;129;Normal;13.9;Normal;87;Normal;1.3;"High Bilirubin";131;C;320;"Minor St T Abnormalities";21;1;0;1
+236286;48;Ranigunj-I;21;6368;371;21.5;0;0;0;9.5;12;0;3.5;20;12.5;6.5;4.5;1.4;"High Creatinine";117;117;Normal;18;Normal;136;Normal;1.24;"High Bilirubin";202;C;400;"Within Normal Limits";25;1;0;0
+236295;42;Ranigunj-I;26;42496;2968;160.5;0;0;3;40;120.5;0;5;154.5;48;29;82.5;1;Normal;134;134;Elevated;13.9;Normal;121;Normal;0.8;Normal;171;B;590;"Within Normal Limits";35;1;0;0
+236297;44;Ranigunj-I;70;36111;1673;122.5;0;0;0;120.5;2;0;8;112;94;6.5;19.5;1;Normal;158;158;"Stage-1 Hypertension";13.9;Normal;110;Normal;0.9;Normal;181;C;500;"Within Normal Limits";25;1;0;0
+236299;44;Ranigunj-I;24;48667;3062;154;0;0;0;11;143;0;15.5;139.5;87;24;44;1.06;Normal;140;140;Elevated;14.6;Normal;138;Normal;0.8;Normal;189;B;NULL;"Within Normal Limits";NULL;0;0;0
+236300;49;Ranigunj-I;14;37912;2975;148;0;0;0;11;137;0;4.5;141.5;113;15;18;0.76;Normal;111;111;Normal;16.9;Normal;159;Prediabetes;1.15;Normal;177;C;440;"Within Normal Limits";26;1;1;0
+236304;50;Ranigunj-I;15;51205;2792;148.5;0;0;0;44.5;104;0;5;144;101;6.5;41.5;1;Normal;133;133;Elevated;12.9;"Borderline Low";223;Diabetes;1.2;Normal;216;D;330;"Within Normal Limits";23;1;0;0
+236311;45;Ranigunj-I;12;35785;2855;140;0;0;0;2;138;0;7;129;87.5;12.5;36;0.72;Normal;138;138;Elevated;14.1;Normal;99;Normal;0.81;Normal;107;C;270;"Minor St T Abnormalities";29;1;0;0
+236312;40;Ranigunj-I;21;67817;3859;223.5;0;0;0;10.5;213;0;38;179.5;126.5;24;67;0.95;Normal;145;145;"Stage-1 Hypertension";16.2;Normal;141;Prediabetes;0.52;Normal;136;C;520;"Within Normal Limits";25;1;0;0
+236314;51;Ranigunj-I;18;43503;2936;145.5;0;0;0;11.5;134;0;5;139;121;10.5;12.5;1.1;Normal;123;123;Normal;17.1;Normal;108;Normal;1.08;Normal;207;C;320;"Minor ST-T Abnormalities";27;1;0;0
+236316;51;Ranigunj-I;17;38961;2216;155;0;0;0;142;13;0;14.5;140.5;73;53.5;28.5;0.8;Normal;120;120;Normal;15.9;Normal;123;Normal;1;Normal;159;A;NULL;"Within Normal Limits";NULL;0;0;0
+236317;42;Ranigunj-I;23;35694;1187;137;0;0;0;1;136;0;21;116;7.5;16.5;113;1.5;"High Creatinine";127;127;Normal;15.5;Normal;135;Normal;0.38;Normal;195;C;450;"Within Normal Limits";31;1;0;0
+236338;48;Ranigunj-I;22;41895;1977;143;0;0;0;142;1;0;22.5;120;23;82.5;37;0.9;Normal;150;150;"Stage-1 Hypertension";14.1;Normal;108;Normal;0.96;Normal;162;C;350;"Within Normal Limits";27;1;0;0
+236340;48;Ranigunj-I;28;34755;2066;103;0;0;0;1.5;101.5;0;0;104;72.5;21;10.5;0.48;Normal;135;135;Elevated;15.9;Normal;152;Prediabetes;1;Normal;222;C;430;"Within Normal Limits";30;0;0;0
+236346;43;Ranigunj-I;34;42250;2382;146;0;0;0;61;85;0;14;127.5;73.5;28;40;1.55;"High Creatinine";135;135;Elevated;11.8;"Borderline Low";138;Normal;1.1;Normal;118;C;NULL;"Within Normal Limits";NULL;0;0;0
+236347;48;Ranigunj-I;25;37245;1380;135;0;0;0;135;0;0;24.5;107.5;30.5;13.5;88;0.9;Normal;134;134;Elevated;12.3;"Borderline Low";96;Normal;0.7;Normal;175;C;300;"Within Normal Limits";28;0;0;0
+236353;48;Ranigunj-I;27;37802;2711;148;0;0;0;38;110;0;3.5;143.5;39.5;10.5;97;1.3;"High Creatinine";132;132;Elevated;15;Normal;127;Normal;1.24;"High Bilirubin";230;C;200;"Within Normal Limits";38;0;1;1
+236363;50;Ranigunj-I;43;39332;1740;161;0;0;0;158;3;0;19;133;61.5;25;65.5;0.8;Normal;137;137;Elevated;15.9;Normal;139;Normal;0.8;Normal;179;B;350;"Within Normal Limits";28;1;1;0
+236378;48;Ranigunj-I;24;34141;1836;148.5;0;0;0;144.5;4;0;2.5;145.5;132;7.5;8.5;0.9;Normal;140;140;Elevated;12.7;"Borderline Low";112;Normal;1.1;Normal;151;C;240;"Within Normal Limits";31;1;0;0
+236385;44;Ranigunj-I;43;44628;2486;134;0;0;0;19;115;0;8.5;118;76;8.5;42;0.9;Normal;138;138;Elevated;13.1;Normal;123;Normal;0.4;Normal;218;C;310;"Within Normal Limits";19;1;1;0
+236397;45;Ranigunj-I;33;36877;2236;133;0;0;0;57;76;0;15;112.5;96;12.5;19;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;390;NULL;35;1;0;0
+236467;48;Ranigunj-I;19;37720;1933;147;0;0;0;147;0;0;10;133;54.5;73;15.5;0.7;Normal;119;119;Normal;10.9;"Borderline Low";94;Normal;0.5;Normal;129;C;370;"Within Normal Limits";29;1;0;0
+236494;52;Ranigunj-I;21;44941;2164;150.5;0;0;0;105.5;45;0;10.5;137.5;44;25;79;0.8;Normal;114;114;Normal;12.8;"Borderline Low";109;Normal;1.2;Normal;193;C;300;"Intraventicular conduction defect ";20;1;0;0
+237054;45;Ranigunj-I;42;37947;2395;125.5;0;0;0;18.5;107;0;11;109.5;60.5;15;45;0.8;Normal;126;126;Normal;15;Normal;124;Normal;0.5;Normal;154;A;NULL;"Within Normal Limits";NULL;0;0;0
+237096;48;Ranigunj-I;29;36253;1921;146;0;0;0;146;0;0;9;137.5;49;38;59.5;1;Normal;140;140;Elevated;14.3;Normal;121;Normal;0.89;Normal;156;B;540;"Within Normal Limits";25;1;1;0
+237107;48;Ranigunj-I;76;50099;3286;166.5;0;0;1;6;160.5;0;18;148.5;69;27;70.5;0.7;Normal;127;127;Normal;10.9;"Borderline Low";139;Normal;0.74;Normal;193;C;NULL;"Within Normal Limits";NULL;0;0;0
+237238;47;Ranigunj-I;16;35169;1849;142.5;0;0;0;142.5;0;0;6.5;134;86.5;22.5;31.5;1.1;Normal;130;130;Normal;13.5;Normal;125;Normal;1.2;Normal;125;A;500;"Within Normal Limits";10;0;0;0
+237265;49;Ranigunj-I;11;40355;2884;151.5;0;0;0;0.5;151;0;130.5;20;135;4;11.5;0.94;Normal;164;164;"Stage-2 Hypertension";14.2;Normal;128.2;Normal;0.77;Normal;144;D;430;"Minor St-T Abnormalities";25;1;0;0
+237278;47;Ranigunj-I;32;36052;1907;243.5;0;0;0;242.5;1;0;175;62.5;37;18;182.5;1;Normal;166;166;"Stage-2 Hypertension";13;Normal;140;Normal;0.98;Normal;150;D;400;"Within Normal Limits";30;0;0;0
+237293;41;Ranigunj-I;148;34920;1894;105;0;0;0;18;87;0;5;97.5;55.5;17.5;29.5;1;Normal;131;131;Elevated;13.2;Normal;120;Normal;0.98;Normal;180;B;NULL;"Within Normal Limits";NULL;0;0;0
+237307;48;Ranigunj-I;5;57956;2027;155.5;0;0;0;153;2.5;0;118.5;37;23.5;5;127;1.2;"High Creatinine";130;130;Normal;12.1;"Borderline Low";140;Normal;1.17;Normal;195;C;NULL;"Within Normal Limits";NULL;0;0;0
+237309;49;Ranigunj-I;22;36096;2166;141.5;0;0;0;105.5;36;0;11;130;43.5;27;70.5;0.8;Normal;131;131;Elevated;14.2;Normal;129;Normal;0.5;Normal;182;B;300;"Within Normal Limits";27;1;0;0
+237311;47;Ranigunj-I;35;49578;2836;150.5;0;0;1;19.5;131;0;14.5;106;82;11;27.5;1.4;"High Creatinine";163;163;"Stage-2 Hypertension";13.7;Normal;113;Normal;0.97;Normal;190;D;300;"Within Normal Limits";27;1;0;0
+237314;40;Ranigunj-I;34;37531;2960;138;0;0;0;1;137;0;1;138;121;10;8;0.9;Normal;140;140;Elevated;13.2;Normal;122;Normal;0.9;Normal;192;B;430;"Within Normal Limits";27;0;0;0
+237335;41;Ranigunj-I;34;33292;1968;139.5;0;0;0;133.5;6;0;6.5;132.5;115.5;10;13.5;0.8;Normal;119;119;Normal;11.2;"Borderline Low";102;Normal;0.7;Normal;187;C;260;"Vpcs Noted , Advice 2D Echo , Electrolytes , Tsh";23;0;0;0
+237345;46;Ranigunj-I;14;58267;2225;181;0;0;0;175.5;5.5;0;23.5;160.5;120;24;40;0.98;Normal;149;149;"Stage-1 Hypertension";15.8;Normal;98;Normal;0.62;Normal;104;C;310;"Right Atrial Enlargement";26;0;0;0
+237347;44;Ranigunj-I;30;33102;1816;125.5;0;0;0;110.5;15;0;2.5;121;18;94.5;11;1;Normal;140;140;Elevated;14.3;Normal;109;Normal;0.95;Normal;162;B;460;"Within Normal Limits";28;1;0;0
+237358;43;Ranigunj-I;43;40725;1895;143.5;0;0;0;143.5;0;0;9.5;132;46;79;16.5;0.8;Normal;103;103;Normal;14.9;Normal;103;Normal;0.6;Normal;182;A;590;"Within Normal Limits";31;0;0;0
+237360;48;Ranigunj-I;90;33640;1375;111.5;0;0;0;110.5;1;0;1;109;85;21;4;0.6;Normal;121;121;Normal;13.6;Normal;111;Normal;0.4;Normal;201;C;250;"Within Normal Limits";32;0;0;0
+237384;49;Ranigunj-I;155;27833;1719;100;0;0;0;32;68;0;10.5;86.5;44.5;14;38.5;0.87;Normal;148;148;"Stage-1 Hypertension";16.9;Normal;99;Normal;0.7;Normal;99;C;310;"Within Normal Limits";26;1;1;0
+237460;48;Ranigunj-I;20;41959;1980;142.5;0;0;0;142.5;0;0;1;142.5;136;4.5;3;0.8;Normal;120;120;Normal;13.5;Normal;110;Normal;0.89;Normal;167;A;260;"Within Normal Limits";31;0;0;0
+237487;49;Ranigunj-I;59;40872;2449;122.5;0;0;0;3.5;119;0;3;118.5;23.5;1;97;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;450;NULL;21;0;0;0
+237488;44;Ranigunj-I;106;31871;1763;131.5;0;0;0;131.5;0;0;51.5;78.5;36.5;36;57.5;1.2;"High Creatinine";140;140;Elevated;14;Normal;110;Normal;0.9;Normal;187;C;NULL;"Within Normal Limits";NULL;0;0;0
+237489;49;Ranigunj-I;33;52047;2018;135.5;0;0;0;105;30.5;0;10;128.5;104;12;22.5;0.7;Normal;150;150;"Stage-1 Hypertension";16;Normal;106;Normal;0.54;Normal;204;C;350;"Within Normal Limits";25;1;0;0
+237538;53;Ranigunj-I;12;40851;2789;144;0;0;0;6;138;0;92;54;39.5;8.5;98;1.01;Normal;158;158;"Stage-1 Hypertension";12.8;"Borderline Low";77.6;Normal;1.25;"High Bilirubin";199;C;500;"Within Normal Limits";23;0;0;0
+237634;46;Ranigunj-I;27;39241;2066;126.5;0;0;0;62.5;64;0;7.5;114.5;65;22.5;34.5;1;Normal;120;120;Normal;14.2;Normal;124;Normal;0.95;Normal;165;A;NULL;"Within Normal Limits";NULL;0;0;0
+237801;50;Ranigunj-I;27;51969;1681;76;0;0;0;76;0;0;0.5;77;12.5;63;2;0.9;Normal;170;170;"Stage-2 Hypertension";15.5;Normal;89;Normal;0.98;Normal;176;D;460;"Within Normal Limits";31;0;0;0
+237834;50;Ranigunj-I;149;27210;1287;101.5;0;0;0;101.5;0;0;8.5;92;65.5;12.5;22.5;0.84;Normal;140;140;Elevated;17.9;Normal;149;Prediabetes;0.9;Normal;164;C;300;"Minor St-T Abnormalities";28;0;0;0
+237836;47;Ranigunj-I;200;663;27;2;0;0;0;1;1;0;1;1;1;1;0;1;Normal;135;135;Elevated;11.3;"Borderline Low";96;Normal;0.59;Normal;199;C;400;"Within Normal Limits";28;1;0;0
+237846;47;Ranigunj-I;24;37007;1272;145;0;0;0;144.5;0.5;0;6.5;136;18;18;106.5;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;280;NULL;29;1;0;1
+237861;39;Ranigunj-I;38;34602;1219;255.5;0;0;0;255.5;0;0;14;107.5;29.5;68.5;23.5;1;Normal;150;150;"Stage-1 Hypertension";14.3;Normal;124;Normal;0.89;Normal;159;C;250;"Within Normal Limits";26;1;1;0
+237871;46;Ranigunj-I;30;35114;1744;139;0;0;0;137;2;0;9.5;125;98;16.5;20;1.03;Normal;133;133;Elevated;12;"Borderline Low";141;Prediabetes;0.5;Normal;199;C;400;"tall t wavws";24;1;0;0
+237933;39;Ranigunj-I;27;42302;2533;133;0;0;2;3;130;0;6;129;76;14.5;44.5;1.2;"High Creatinine";142;142;"Stage-1 Hypertension";14.6;Normal;136;Normal;1;Normal;234;C;NULL;"Minor St-T Abnormalities";NULL;0;0;0
+237934;38;Ranigunj-I;75;38141;1846;126;0;0;0;113;13;0;21.5;105;41;25.5;60;1.3;"High Creatinine";140;140;Elevated;10.5;"Borderline Low";137;Normal;1.1;Normal;207;C;390;"ST-T abnormalities, Monitor BP";24;0;0;0
+237935;39;Ranigunj-I;7;1263;51;3;0;0;0;1;2;0;0;3;1.5;0.5;1;0.8;Normal;140;140;Elevated;12.5;"Borderline Low";115;Normal;0.64;Normal;216;C;310;"Minor ST T abnormalities";30;1;0;0
+237937;42;Ranigunj-I;21;65221;2353;134.5;0;0;1;125.5;9;0;85.5;50;39;8;88.5;0.7;Normal;134;134;Elevated;15;Normal;130;Normal;0.62;Normal;220;C;500;"Within Normal Limits";30;0;0;1
+237938;41;Ranigunj-I;179;17520;826;53;0;0;0;38;15;0;9;43;26.5;7.5;18;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;450;NULL;26;1;0;0
+237940;46;Ranigunj-I;22;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;340;NULL;28;1;0;0
+237941;42;Ranigunj-I;14;38554;3019;147;0;0;2;1;146;0;3.5;143.5;29.5;8;109.5;0.53;Normal;111;111;Normal;15.7;Normal;113;Normal;0.73;Normal;118;A;340;"Within Normal Limits";21;0;0;0
+237944;45;Ranigunj-I;93;27934;1413;100.5;0;0;0;100;0.5;0;5.5;94.5;35;58;7;1.1;Normal;125;125;Normal;13;Normal;103;Normal;0.49;Normal;203;C;480;"Within Normal Limits";21;0;0;0
+237945;47;Ranigunj-I;62;38667;2593;130.5;0;0;0;4.5;126;0;3;126.5;108.5;8.5;12.5;0.9;Normal;130;130;Normal;13.5;Normal;120;Normal;1;Normal;140;A;430;"Within Normal Limits";29;1;0;0
+237946;40;Ranigunj-I;152;19702;1003;62;0;0;0;22;40;0;12.5;46.5;35.5;12;11.5;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;0;0;0
+237970;43;Ranigunj-I;17;5959;297;21;0;0;0;21;0;0;3.5;17;11.5;6;3;1.1;Normal;104;104;Normal;13.8;Normal;124;Normal;0.66;Normal;199;A;280;"Within Normal Limits";17;0;0;0
+237979;38;Ranigunj-I;11;49393;2927;148;0;0;0;9.5;138.5;0;11;137;73.5;13.5;61;1;Normal;115;115;Normal;13.2;Normal;102;Normal;1.1;Normal;166;A;600;"Within Normal Limits";22;0;0;0
+237988;39;Ranigunj-I;44;35960;1844;129;0;0;0;116;13;0;6;122;95;13.5;19.5;0.8;Normal;126;126;Elevated;15.6;Normal;139;Normal;1.1;Normal;159;B;NULL;"Within Normal Limits";NULL;0;0;0
+238004;46;Ranigunj-I;3;68807;2372;162;0;0;0;162;0;0;139.5;23;153;2;7.5;1.2;"High Creatinine";134;134;Elevated;16.1;Normal;119;Normal;0.8;Normal;156;C;590;"Within Normal Limits";27;0;0;0
+238008;41;Ranigunj-I;58;32478;1417;112.5;0;0;0;109.5;3;0;3.5;108.5;84.5;11.5;16;1;Normal;126;126;Elevated;14.5;Normal;110;Normal;0.8;Normal;175;B;NULL;"Within Normal Limits";NULL;0;0;0
+238034;40;Ranigunj-I;22;43842;1492;142;0;0;0;137;5;0;2;140;125;8;9;0.73;Normal;122;122;Normal;14.9;Normal;116;Normal;0.94;Normal;189;A;500;"Within Normal Limits";27;1;1;0
+238047;39;Ranigunj-I;39;49182;2720;148;0;0;0;15;133;0;4;142;117;6.5;22.5;1;Normal;120;120;Normal;11.9;"Borderline Low";102;Normal;0.95;Normal;229;C;330;"Within Normal Limits";22;1;0;0
+238050;39;Ranigunj-I;11;8234;461;30.5;0;0;0;19.5;11;0;2;28.5;17;5.5;8;0.66;Normal;110;110;Normal;16.8;Normal;118;Normal;1;Normal;107;A;570;"Within Normal Limits";24;0;0;0
+238053;46;Ranigunj-I;35;42062;2859;138;0;0;0;4;134;0;3;133;112.5;11;12.5;0.8;Normal;130;130;Normal;16;Normal;120;Normal;1.22;"High Bilirubin";200;C;460;"Within Normal Limits";26;1;0;0
+238108;48;Ranigunj-I;18;43080;3020;144.5;0;0;0;2.5;142;0;3;140;119.5;9.5;14;0.8;Normal;152;152;"Stage-1 Hypertension";14.9;Normal;117;Normal;0.7;Normal;189;C;NULL;"Within Normal Limits";NULL;0;0;0
+238114;51;Ranigunj-I;42;32369;1496;112;0;0;0;103;9;0;18.5;91.5;52.5;20.5;37;0.67;Normal;130;130;Normal;14.8;Normal;117;Normal;0.93;Normal;118;A;NULL;"Within Normal Limits";NULL;0;0;0
+238124;38;Ranigunj-I;71;6012;335;20.5;0;0;0;5.5;15;0;2.5;16;10;2;6.5;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;530;NULL;24;1;0;0
+238144;50;Ranigunj-I;41;46035;2378;159.5;0;0;0;107;52.5;0;12.5;143;76;36;43.5;1;Normal;152;152;"Stage-1 Hypertension";10.9;"Borderline Low";124;Normal;0.5;Normal;216;C;NULL;"Within Normal Limits";NULL;0;0;0
+238146;47;Ranigunj-I;52;43389;2524;125;0;0;0;10;115;0;10.5;113;79;13;31.5;1.2;"High Creatinine";178;178;"Stage-2 Hypertension";14.4;Normal;107;Normal;0.57;Normal;218;D;NULL;"Within Normal Limits";NULL;0;0;0
+238152;41;Ranigunj-I;12;59175;2649;169.5;0;0;2;101.5;68;0;9.5;162.5;120;12;40;1;Normal;152;152;"Stage-1 Hypertension";16;Normal;106;Normal;0.56;Normal;241;C;580;"Within Normal Limits";25;1;0;0
+238217;41;Ranigunj-I;162;26461;1627;83.5;0;0;1;0.5;83;0;3;80.5;36.5;8;39;0.33;Normal;152;152;"Stage-1 Hypertension";14.5;Normal;140;Normal;1.02;Normal;177;C;NULL;"Within Normal Limits";NULL;0;0;0
+238218;46;Ranigunj-I;26;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;0;0;0
+238223;39;Ranigunj-I;10;51909;3451;171.5;0;0;4;3.5;168;0;14;149.5;112.5;21.5;29.5;0.89;Normal;145;145;"Stage-1 Hypertension";11.5;"Borderline Low";85;Normal;1;Normal;129;C;NULL;"Within Normal Limits";NULL;0;0;0
+238238;50;Ranigunj-I;29;390;18;1.5;0;0;0;1.5;0;0;0;1.5;1.5;0;0;0.7;Normal;149;149;"Stage-1 Hypertension";10.9;"Borderline Low";129;Normal;1.03;Normal;213;C;400;"Within Normal Limits";24;1;0;0
+238252;43;Ranigunj-I;60;33802;1779;125.5;0;0;0;122.5;3;0;28;95.5;17;14.5;92;1.1;Normal;150;150;"Stage-1 Hypertension";13.8;Normal;115;Normal;0.8;Normal;175;C;390;"Within Normal Limits";22;0;1;0
+238262;49;Ranigunj-I;25;59665;4372;232.5;0;0;0;21.5;211;0;13.5;208.5;88;42.5;91.5;0.4;Normal;127;127;Normal;11.5;"Borderline Low";96;Normal;0.5;Normal;210;C;170;"Minor St T Abnormalities";20;0;0;0
+238265;46;Ranigunj-I;22;47608;2042;146;0;0;1;12;134;0;18;126;67.5;11.5;65;1.2;"High Creatinine";122;122;Normal;16.7;Normal;132;Normal;0.53;Normal;232;C;270;"Within Normal Limits";25;0;0;0
+238269;40;Ranigunj-I;281;12286;600;45;0;0;0;41;4;0;4;41;26;9.5;9.5;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;550;NULL;21;1;1;0
+238305;50;Ranigunj-I;20;32935;1673;130.5;0;0;0;126.5;4;0;9.5;113;68;20;34.5;1.1;Normal;160;160;"Stage-1 Hypertension";13.5;Normal;121;Normal;1.1;Normal;154;C;400;"Within Normal Limits";24;0;0;0
+238308;42;Ranigunj-I;87;35722;1623;124;0;0;0;121;3;0;4;118;95.5;10;16.5;1;Normal;134;134;Elevated;14.3;Normal;102;Normal;0.95;Normal;156;B;430;"Within Normal Limits";25;1;0;0
+238310;39;Ranigunj-I;21;43639;3021;146.5;0;0;0;3.5;143;0;4.5;142;113.5;12.5;20.5;1.1;Normal;137;137;Elevated;14;Normal;134;Normal;0.94;Normal;199;B;550;"Within Normal Limits";24;1;0;0
+238346;43;Ranigunj-I;63;33008;1484;90;0;0;0;12;78;0;49.5;40.5;21.5;50.5;18;1.4;"High Creatinine";100;100;Normal;12.9;"Borderline Low";109;Normal;0.43;Normal;231;C;NULL;"Within Normal Limits";NULL;0;0;0
+238356;47;Ranigunj-I;35;38948;1764;135;0;0;0;128;7;0;6.5;99.5;60;17.5;28.5;1;Normal;150;150;"Stage-1 Hypertension";14.9;Normal;119;Normal;0.7;Normal;187;C;300;"Within Normal Limits";24;0;0;0
+238362;40;Ranigunj-I;76;31181;1179;90;0;0;0;77;13;0;13;77;64;9.5;16.5;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;390;NULL;35;0;0;0
+238383;39;Ranigunj-I;90;26661;1334;77;0;0;0;10;67;0;29;48;36.5;27;13.5;0.98;Normal;122;122;Normal;12.8;"Borderline Low";105;Normal;0.93;Normal;193;C;NULL;"Within Normal Limits";NULL;0;0;0
+238396;44;Ranigunj-I;15;6075;255;9.5;0;0;0;4;5.5;0;2;7.5;3.5;1;5;0.99;Normal;148;148;"Stage-1 Hypertension";15.3;Normal;135;Normal;0.82;Normal;169;C;450;"Within Normal Limits";22;1;0;0
+238399;44;Ranigunj-I;25;40596;2429;142.5;0;0;1;73;69.5;0;3;137;121;9.5;9.5;1.1;Normal;148;148;"Stage-1 Hypertension";16.1;Normal;134;Normal;0.36;Normal;194;C;320;"Within Normal Limits";28;1;0;0
+238401;42;Ranigunj-I;35;40639;2881;122.5;0;0;0;5;117.5;0;3.5;117;11.5;95;14;0.5;Normal;127;127;Normal;14.1;Normal;97;Normal;0.8;Normal;139;A;530;"Within Normal Limits";21;0;0;0
+238404;46;Ranigunj-I;134;26248;1393;101;0;0;0;97;4;0;6;95;75.5;10.5;15;1;Normal;120;120;Normal;14.3;Normal;105;Normal;0.98;Normal;158;C;210;"LEFT VENTRICULAR  HYPERTHROPHY";21;0;0;0
+238412;48;Ranigunj-I;15;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;0;0;0
+238416;49;Ranigunj-I;50;40335;2095;129.5;0;0;0;69;60.5;0;8;115.5;76;19;28.5;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;500;NULL;24;0;0;0
+238421;39;Ranigunj-I;28;41375;1923;181.5;0;0;0;177.5;4;0;13;164;121;25.5;30.5;0.9;Normal;149;149;"Stage-1 Hypertension";14;Normal;108;Normal;0.82;Normal;152;C;450;"Within Normal Limits";28;1;1;0
+238427;46;Ranigunj-I;21;71801;3529;291.5;0;0;0;289;2.5;0;98.5;182.5;155;39;87;0.8;Normal;131;131;Elevated;15.9;Normal;114;Normal;1;Normal;165;B;430;"Within Normal Limits";26;1;0;0
+238432;42;Ranigunj-I;16;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;0;0;0
+238437;49;Ranigunj-I;39;35930;1894;149;0;0;0;149;0;0;15.5;127.5;107.5;11;24.5;0.9;Normal;127;127;Normal;13.2;Normal;108;Normal;0.2;Normal;161;A;450;"Within Normal Limits";29;0;0;0
+238446;40;Ranigunj-I;30;36226;1593;148.5;0;0;0;141.5;7;0;32.5;109.5;60.5;17;64.5;0.58;Normal;147;147;"Stage-1 Hypertension";14.5;Normal;100;Normal;1.11;Normal;214;C;500;"Minor St-T Abnormalities";22;0;0;0
+238448;42;Ranigunj-I;21;44437;2933;144;0;0;2;11.5;132.5;0;5.5;162;59.5;44;64;1.1;Normal;136;136;Elevated;14.1;Normal;70.6;Normal;0.9;Normal;200;C;550;"Incomplete Lbbb";28;1;0;0
+238469;50;Ranigunj-I;36;37375;1657;126.5;0;0;0;122;4.5;0;20;105;72;20.5;32.5;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;460;NULL;28;1;0;0
+238483;41;Ranigunj-I;37;27309;1316;106;0;0;0;100;6;0;10.5;91;42.5;30.5;28.5;1;Normal;131;131;"Stage-1 Hypertension";14.5;Normal;139;Normal;0.9;Normal;149;C;550;"Within Normal Limits";28;1;0;0
+238488;44;Ranigunj-I;55;40968;2031;117;0;0;0;60.5;56.5;0;15;99;66;19.5;28.5;1.2;"High Creatinine";144;144;"Stage-1 Hypertension";15.5;Normal;139;Normal;0.9;Normal;179;C;NULL;"Within Normal Limits";NULL;0;0;0
+238500;39;Ranigunj-I;155;31874;1809;95.5;0;0;2;15.5;80;0;6.5;89;72.5;6.5;16.5;0.75;Normal;150;150;"Stage-1 Hypertension";13.9;Normal;133;Normal;0.85;Normal;168;C;360;"Within Normal Limits";28;1;0;0
+238502;46;Ranigunj-I;89;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;0;0;0
+238511;48;Ranigunj-I;265;17174;777;42;0;0;0;23;19;0;8;32.5;20.5;6;14;1.4;"High Creatinine";120;120;Normal;14;Normal;105;Normal;0.8;Normal;145;C;NULL;"Minor St-T Abnormalities";NULL;0;0;0
+238521;41;Ranigunj-I;18;63902;2633;212;0;0;0;209;3;0;12.5;239;121;69;61.5;1;Normal;137;137;Elevated;11.6;"Borderline Low";146;Prediabetes;0.6;Normal;193;C;640;"Within Normal Limits";28;1;0;0
+238522;40;Ranigunj-I;17;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1.2;"High Creatinine";139;139;Elevated;16.2;Normal;119;Normal;1.3;"High Bilirubin";144;C;440;"Poor R Wave Progression";27;1;0;0
+238534;40;Ranigunj-I;24;40010;2259;126;0;0;0;41;85;0;11;111.5;60;17.5;45;0.9;Normal;120;120;Normal;12;"Borderline Low";118;Normal;0.61;Normal;215;C;300;"Within Normal Limits";26;0;0;0
+238539;50;Ranigunj-I;145;23722;1171;87.5;0;0;0;84.5;3;0;8;78.5;50;17;19.5;1.3;"High Creatinine";142;142;"Stage-1 Hypertension";15.2;Normal;128;Normal;0.8;Normal;187;C;NULL;"Within Normal Limits";NULL;0;0;0
+238540;43;Ranigunj-I;64;47394;1978;142;0;0;1;112.5;29.5;0;25.5;116;92;22.5;27;1;Normal;120;120;Normal;13.8;Normal;123;Normal;0.8;Normal;178;C;360;"ST depressions";22;1;1;0
+238542;49;Ranigunj-I;176;20892;1548;77.5;0;0;1;2.5;75;0;29.5;46;34;12;29.5;0.8;Normal;134;134;Elevated;13.9;Normal;132;Normal;1;Normal;178;B;400;"Within Normal Limits";26;1;0;0
+238543;39;Ranigunj-I;22;50308;2245;154.5;0;0;0;133.5;21;0;5;148;97;20.5;35.5;1;Normal;130;130;Normal;16;Normal;121;Normal;0.65;Normal;135;A;350;"Within Normal Limits";25;0;0;0
+238545;46;Ranigunj-I;47;56796;1984;151.5;0;0;0;150.5;1;0;3;148;137;0;14;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;250;NULL;18;1;0;0
+238547;51;Ranigunj-I;211;27262;1724;86;0;0;0;7;79;0;7;77;53;10.5;20.5;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;0;0;0
+238556;49;Ranigunj-I;22;38680;1300;145;0;0;1;144;1;0;6.5;137;106.5;19.5;17.5;0.9;Normal;113;113;Normal;11.5;"Borderline Low";106;Normal;0.98;Normal;233;C;470;"Within Normal Limits";24;0;0;0
+238559;41;Ranigunj-I;17;47945;2119;163;0;0;0;140;23;0;8;150.5;127.5;11;20;1;Normal;155;155;"Stage-1 Hypertension";11.4;"Borderline Low";113;Normal;0.98;Normal;155;C;350;"Within Normal Limits";22;0;0;0
+238560;43;Ranigunj-I;17;58096;2565;172.5;0;0;0;156.5;16;0;28.5;143.5;86;39;47;1.3;"High Creatinine";135;135;Elevated;14.1;Normal;110;Normal;1.2;Normal;178;C;450;"Within Normal Limits";28;0;0;0
+238570;50;Ranigunj-I;16;36283;1947;145.5;0;0;0;143.5;2;0;4.5;139;44.5;67;32;1.1;Normal;141;141;"Stage-1 Hypertension";13;Normal;134;Normal;0.69;Normal;218;C;450;"Within Normal Limits";22;0;0;0
+238580;44;Ranigunj-I;18;117;7;0.5;0;0;0;0.5;0;0;0;0.5;0;0.5;0;0.73;Normal;124;124;Normal;15.6;Normal;168;Prediabetes;1.02;Normal;208;C;480;"Within Normal Limits";22;1;1;0
+238586;50;Ranigunj-I;216;10202;508;40.5;0;0;0;40.5;0;0;4;35.5;16.5;8;15;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;550;NULL;26;1;0;0
+238612;45;Ranigunj-I;32;37519;1559;130;0;0;0;130;0;0;1;127.5;115;5;8.5;1;Normal;140;140;Elevated;15.5;Normal;87;Normal;0.87;Normal;178;B;NULL;"Within Normal Limits";NULL;0;0;0
+238614;38;Ranigunj-I;80;32756;1620;81;0;0;0;6.5;74.5;0;29.5;51;34;29.5;17;0.9;Normal;140;140;Elevated;13.4;Normal;89;Normal;1;Normal;159;B;NULL;"Within Normal Limits";NULL;0;0;0
+238615;46;Ranigunj-I;43;59209;2029;87;0;0;0;82;5;0;18;67.5;40;15;30.5;0.98;Normal;109;109;Normal;12.5;"Borderline Low";124;Normal;1.01;Normal;164;C;560;"Within Normal Limits";26;0;1;0
+238621;42;Ranigunj-I;88;28380;1409;83;0;0;1;39.5;43.5;0;19.5;64;36;27.5;20;0.8;Normal;126;126;Normal;13.8;Normal;96;Normal;1;Normal;125;A;320;"Within Normal Limits";32;1;0;0
+238625;45;Ranigunj-I;21;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;0;0;0
+238642;48;Ranigunj-I;50;36468;2309;129;0;0;0;25;104;0;7;114;56.5;20.5;44;0.98;Normal;178;178;"Stage-2 Hypertension";13.8;Normal;119;Normal;1.2;Normal;187;D;350;"Within Normal Limits";30;1;0;0
+238655;43;Ranigunj-I;54;42524;2028;144;0;0;0;105;39;0;13;127;78.5;31;30.5;0.9;Normal;135;135;Elevated;14.5;Normal;128;Normal;0.68;Normal;186;B;250;"Within Normal Limits";23;1;0;0
+238727;41;Ranigunj-I;216;23623;1267;73;0;0;0;37;36;0;7;64.5;45.5;8;18;1.1;Normal;120;120;Normal;15.2;Normal;105;Normal;0.9;Normal;168;A;NULL;"Within Normal Limits";NULL;0;0;0
+238735;38;Ranigunj-I;222;11643;694;37.5;0;0;1;4.5;33;0;6.5;31;17;5;15.5;0.8;Normal;140;140;Elevated;15;Normal;85;Normal;1;Normal;178;B;NULL;"Within Normal Limits";NULL;0;0;0
+238744;40;Ranigunj-I;3;4518;208;16.5;0;0;0;16.5;0;0;5.5;11;6.5;2;8;0.8;Normal;120;120;Normal;12;"Borderline Low";126;Normal;0.66;Normal;240;C;530;"Within Normal Limits";25;0;0;0
+238800;39;Ranigunj-I;150;26968;1388;71;0;0;0;15;56;0;15.5;55;36.5;17;17;1;Normal;140;140;Elevated;14.3;Normal;119;Normal;0.89;Normal;163;B;NULL;"Within Normal Limits";NULL;0;0;0
+238918;47;Ranigunj-I;14;44083;2026;122.5;0;0;0;10;112.5;0;65.5;55;38;73.5;9;0.75;Normal;106;106;Normal;12.8;"Borderline Low";98;Normal;0.95;Normal;160;C;440;"Within Normal Limits";27;0;0;0
+238920;44;Ranigunj-I;61;38740;2312;117.5;0;0;1;19;98.5;0;13;102;58.5;18.5;38;0.76;Normal;142;142;"Stage-1 Hypertension";13;Normal;136;Normal;0.9;Normal;220;C;350;"Within Normal Limits";26;0;0;0
+238924;44;Ranigunj-I;77;32667;1506;110.5;0;0;0;103.5;7;0;6;99;42.5;46;16.5;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;0;0;0
+238927;50;Ranigunj-I;15;47271;2312;158.5;0;0;0;23.5;135;0;10;148.5;75.5;52;31;0.9;Normal;135;135;"Stage-1 Hypertension";14.2;Normal;83;Normal;0.9;Normal;218;C;NULL;"Within Normal Limits";NULL;0;0;0
+271571;54;Ranigunj-I;22;34500;2026;147.5;0;0;0;147.5;0;0;3;143;83.5;58;4.5;1.1;Normal;124;124;Normal;15.6;Normal;132;Normal;1.2;Normal;184;A;320;"Within Normal Limits";32;1;0;1
+271857;58;Ranigunj-I;21;40357;1664;139;0;0;0;138;1;0;26;60.5;57;11;18.5;1.1;Normal;120;120;Normal;15;Normal;142;Prediabetes;0.9;Normal;156;C;520;"Within Normal Limits";21;0;0;0
+274229;39;Ranigunj-I;150;46000;2240;93;0;0;0;30;63;0;15;75.5;47.5;16.5;26.5;1;Normal;169;169;"Stage-2 Hypertension";13;Normal;130;Normal;0.74;Normal;247;D;NULL;"Within Normal Limits";NULL;0;0;0
+274309;49;Ranigunj-I;146;22965;825;96.5;0;0;0;96.5;0;0;8;89;25;11.5;60.5;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;0;0;0
+274357;38;Ranigunj-I;8;50805;3077;152;0;0;0;5.5;146.5;0;3;149;52.5;5;94.5;0.9;Normal;126;126;Normal;14.5;Normal;134;Normal;0.98;Normal;167;A;300;"Within Normal Limits";25;0;0;0
+274358;39;Ranigunj-I;14;45547;2720;149.5;0;0;0;26.5;123;0;12;138.5;85;17;48.5;0.87;Normal;175;175;"Stage-2 Hypertension";13.4;Normal;118;Normal;0.79;Normal;164;D;NULL;Tachycardia;NULL;0;0;0
+280728;59;Mahaboobnagar;5;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0.98;Normal;112;112;Normal;11.8;"Borderline Low";134;Normal;0.54;Normal;154;C;650;"Within Normal Limits";25;1;0;0
+280732;57;Mahaboobnagar;5;75831;2278;212;110;0;102;204;8;2;137;69;34;64;110;0.9;Normal;130;130;Normal;16.5;Normal;135;Normal;0.75;Normal;158;A;176;"Within Normal Limits";24;1;1;0
+281174;58;Mahaboobnagar;4;66143;3436;196;195;0;1;79;117;0;8;187;38;10;147;1.2;"High Creatinine";143;143;"Stage-1 Hypertension";15;Normal;148;Prediabetes;1.07;Normal;202;C;200;"Within Normal Limits";25;0;0;0
+281260;57;Mahaboobnagar;58;81490;2693;154;24;67;60;50;104;28;53;46;59;28;40;0.9;Normal;177;177;"Stage-2 Hypertension";17.5;Normal;95;Normal;0.73;Normal;165;D;250;"LVH MONITOR bp advice 2decho";21;1;0;1
+281268;57;Mahaboobnagar;16;116884;3687;215;14;170;31;58;157;116;66;30;147;54;11;1;Normal;147;147;"Stage-1 Hypertension";14.9;Normal;122;Normal;0.9;Normal;172;C;185;"Within Normal Limits";17;0;0;0
+281270;59;Mahaboobnagar;25;86396;2610;165;8;98;59;75;90;52;67;27;73;49;24;1.5;"High Creatinine";117;117;Normal;13.6;Normal;102;Normal;0.47;Normal;214;C;NULL;"Intraventricular conduction defect without evidence of MI";NULL;0;0;0
+281311;59;Mahaboobnagar;22;16529;724;43;40;0;3;14;29;0;2;41;20;10;13;0.6;Normal;172;172;"Stage-2 Hypertension";18;Normal;106;Normal;1.21;"High Bilirubin";205;D;400;"Within Normal Limits";24;1;0;1
+291045;59;Ranigunj-I;27;38512;3229;162;0;0;0;1;161;0;4.5;157.5;14;36.5;111.5;1;Normal;153;153;"Stage-1 Hypertension";15;Normal;130;Normal;0.98;Normal;152;C;270;"Within Normal Limits";22;1;0;0
+319937;55;Ranigunj-I;32;36476;1161;142;0;0;0;142;0;0;2.5;139;4;5;132.5;1;Normal;140;140;Elevated;11;"Borderline Low";129;Normal;1.06;Normal;200;C;280;"Within Normal Limits";23;1;0;0
+321579;56;Ranigunj-I;13;54508;1881;142;0;0;0;137.5;4.5;0;82.5;59.5;120;5;17;0.73;Normal;125;125;Normal;14.9;Normal;170;Prediabetes;0.83;Normal;196;C;500;"Within Normal Limits";25;1;1;0
+342844;54;Mahaboobabad;12;72496;2538;156;154;0;2;155;1;0;0;156;45;5;106;0.78;Normal;148;148;"Stage-1 Hypertension";13;Normal;127;Normal;0.4;Normal;204;C;340;"Within Normal Limits";23;0;0;0
+342864;55;Mahaboobabad;7;68157;2392;168;166;0;2;168;0;0;6;162;118;7;43;1.2;"High Creatinine";126;126;Normal;16.2;Normal;101;Normal;0.9;Normal;209;C;310;"Within Normal Limits";26;0;0;0
+342912;58;Mahaboobabad;1;8589;285;12;8;0;3;12;0;0;3;9;7;1;4;1;Normal;139;139;Elevated;14;Normal;89;Normal;1;Normal;195;B;520;"Within Normal Limits";25;0;0;0
+342914;59;Mahaboobabad;2;70289;2773;199;198;0;1;199;0;0;0;199;12;97;90;0.9;Normal;123;123;Normal;13.7;Normal;320;Diabetes;0.85;Normal;187;D;280;"Within Normal Limits";21;0;1;1
+343208;55;Mahaboobabad;6;86564;2842;210;210;0;0;210;0;0;2;208;39;3;168;0.8;Normal;146;146;"Stage-1 Hypertension";17;Normal;123;Normal;1.2;Normal;198;C;420;"Within Normal Limits";23;1;1;0
+343276;58;Mahaboobabad;12;70764;2387;139;138;0;1;139;0;0;0;139;56;2;81;0.9;Normal;127;127;Normal;16.5;Normal;290;Diabetes;0.68;Normal;168;D;311;"Within Normal Limits";26;0;0;0
+600032;54;Mahaboobabad;23;12385;435;21;19;0;1;13;8;0;6;15;10;6;5;1;Normal;152;152;"Stage-1 Hypertension";14.8;Normal;109;Normal;0.82;Normal;158;C;270;"Within Normal Limits";26;1;0;1
+650135;52;Mahaboobabad;11;76743;2748;200;200;0;0;200;0;0;0;200;192;0;8;1.19;"High Creatinine";119;119;Normal;12;"Borderline Low";128;Normal;0.6;Normal;217;C;330;"Within Normal Limits";23;0;0;0
+650261;59;Mahaboobabad;82;55725;1969;136;135;0;1;136;0;0;1;135;33;10;93;1.2;"High Creatinine";160;160;"Stage-1 Hypertension";12.4;"Borderline Low";112;Normal;1;Normal;172;C;NULL;"Within Normal Limits";NULL;0;0;0
+650289;59;Mahaboobabad;31;35332;1215;87;87;0;0;87;0;0;0;87;19;9;59;0.8;Normal;147;147;"Stage-1 Hypertension";12.5;"Borderline Low";93;Normal;0.96;Normal;145;C;360;"ST Abnormalities";56;1;0;0
+650290;59;Mahaboobabad;9;66796;2337;138;135;0;3;136;2;0;4;134;56;26;56;0.9;Normal;133;133;Elevated;13;Normal;132;Normal;0.74;Normal;175;C;NULL;"Incomplete LBBB";NULL;0;0;0
+650323;57;Mahaboobabad;9;66005;2589;181;181;0;0;181;0;0;0;181;19;82;80;1.1;Normal;112;112;Normal;14.3;Normal;138;Normal;1;Normal;195;A;600;"Within Normal Limits";25;1;0;0
+650535;55;Mahaboobabad;9;64482;2329;170;170;0;0;170;0;0;1;169;161;1;8;1.2;"High Creatinine";183;183;"Hypertension Critical";14.9;Normal;104;Normal;1.1;Normal;148;E;NULL;"Within Normal Limits";NULL;0;0;0
+650589;59;Mahaboobabad;4;32445;1224;78;76;0;0;77;1;0;0;78;6;37;35;1;Normal;119;119;Normal;15.4;Normal;141;Prediabetes;0.9;Normal;182;C;520;"Within Normal Limits";27;0;0;0
+650605;58;Mahaboobabad;123;7148;250;20;18;0;0;20;0;0;2;18;14;2;4;0.9;Normal;140;140;Elevated;14.2;Normal;133;Normal;0.95;Normal;158;B;280;"Within Normal Limits";20;1;0;1
+650845;55;Mahaboobabad;4;57674;1962;139;138;0;1;138;1;0;2;137;24;7;108;0.7;Normal;123;123;Normal;14.6;Normal;163;Prediabetes;0.95;Normal;147;C;300;"Within Normal Limits";30;1;0;0
+650872;53;Mahaboobabad;47;36261;1155;97;4;0;0;97;0;0;93;4;60;35;2;0.7;Normal;119;119;Normal;12.8;"Borderline Low";147;Prediabetes;0.96;Normal;149;C;320;"Within Normal Limits";24;1;0;0
+650892;56;Mahaboobabad;16;68420;2455;176;176;0;0;176;0;0;4;172;164;5;7;1;Normal;130;130;"Stage-1 Hypertension";15.1;Normal;79;Normal;1;Normal;152;C;210;"Within Normal Limits";20;0;0;0
+650922;57;Mahaboobabad;6;89727;3189;217;215;0;2;216;1;0;2;215;193;1;23;0.9;Normal;130;130;Normal;15.2;Normal;261;Diabetes;0.6;Normal;132;D;300;"Within Normal Limits";23;1;0;0
+650930;54;Mahaboobabad;7;62786;3033;182;180;0;2;83;99;0;0;182;113;4;65;1;Normal;133;133;Elevated;13.2;Normal;112;Normal;0.69;Normal;168;C;280;"Rhythm irregular adviced holter and echo";25;1;0;1
+650945;57;Mahaboobabad;5;71204;2560;179;178;0;1;178;1;0;0;179;163;3;13;1.2;"High Creatinine";139;139;Elevated;14.1;Normal;133;Normal;0.8;Normal;189;C;160;"Within Normal Limits";23;0;0;0
+650956;57;Mahaboobabad;23;27077;1292;72;72;0;0;31;41;0;0;72;43;0;29;1;Normal;124;124;Normal;15.9;Normal;102;Normal;0.85;Normal;154;A;270;"Within Normal Limits";32;1;0;0
+651024;53;Mahaboobabad;16;71626;3405;191;190;0;1;88;103;0;0;191;183;0;8;1;Normal;148;148;"Stage-1 Hypertension";13.1;Normal;80;Normal;0.68;Normal;152;C;370;"Within Normal Limits";22;0;0;0
+651276;52;Mahaboobabad;6;67300;2130;177;2;0;1;176;1;0;174;3;126;51;0;0.9;Normal;156;156;"Stage-1 Hypertension";14.1;Normal;175;Prediabetes;0.87;Normal;143;C;470;"Within Normal Limits";28;1;0;0
+651344;57;Mahaboobabad;12;75424;2664;192;189;0;3;192;0;0;6;186;146;5;41;0.8;Normal;125;125;Elevated;13.2;Normal;79;Normal;0.95;Normal;146;C;361;"low voltage complexes,  advice echo";24;0;0;0
+651345;55;Mahaboobabad;6;45269;1630;115;115;0;0;115;0;0;1;114;111;0;4;0.7;Normal;129;129;Elevated;13.2;Normal;138;Normal;0.48;Normal;178;B;300;"Within Normal Limits";20;0;0;0
+651365;52;Mahaboobabad;6;74207;3467;196;196;0;0;95;101;0;0;196;188;3;5;1;Normal;152;152;"Stage-1 Hypertension";14.2;Normal;92;Normal;0.85;Normal;195;C;530;"Within Normal Limits";21;1;0;0
+651391;54;Mahaboobabad;6;65533;3243;184;182;0;2;69;115;0;10;174;82;31;71;0.95;Normal;110;110;Normal;15.2;Normal;180;Prediabetes;0.8;Normal;187;C;280;"Within Normal Limits";23;1;0;0
+651803;46;Mahaboobabad;9;57993;2810;162;162;0;0;72;90;0;6;156;53;32;77;0.9;Normal;142;142;"Stage-1 Hypertension";14.2;Normal;142;Prediabetes;0.58;Normal;152;C;325;"Within Normal Limits";22;0;0;0
+651928;48;Mahaboobabad;20;48714;1563;128;12;0;0;127;1;0;117;11;105;19;4;0.9;Normal;142;142;"Stage-1 Hypertension";16.1;Normal;136;Normal;0.85;Normal;152;C;411;"Within Normal Limits";19;0;0;0
+651929;49;Mahaboobabad;1;42452;1352;114;5;0;0;114;0;0;110;4;30;81;3;0.9;Normal;109;109;Normal;14.4;Normal;76;Normal;0.8;Normal;251;D;470;"Within Normal Limits";20;1;0;0
+651930;49;Mahaboobabad;79;34506;1103;84;7;0;0;84;0;0;77;7;72;7;5;0.91;Normal;140;140;Elevated;13.8;Normal;128;Normal;0.8;Normal;177;B;302;"Within Normal Limits";18;0;0;0
+651934;47;Mahaboobabad;9;67367;2157;164;24;0;1;164;0;0;141;23;55;98;11;0.9;Normal;137;137;Elevated;14.2;Normal;82;Normal;0.58;Normal;158;B;320;"Within Normal Limits";27;1;0;0
+651943;49;Mahaboobabad;11;66430;2395;189;187;0;2;189;0;0;4;185;158;4;27;0.9;Normal;132;132;Elevated;12.9;"Borderline Low";122;Normal;0.69;Normal;157;C;NULL;"Within Normal Limits";NULL;0;0;0
+652176;54;Mahaboobabad;4;74585;2681;191;190;0;1;191;0;0;0;191;169;3;19;1;Normal;135;135;Elevated;14;Normal;200;Prediabetes;0.58;Normal;157;C;383;"Within Normal Limits";18;0;0;0
+652345;43;Mahaboobabad;14;67840;3122;174;174;0;0;87;87;0;1;173;163;1;10;0.98;Normal;125;125;Normal;16.4;Normal;118;Normal;0.85;Normal;159;A;490;"Within Normal Limits";28;1;0;0
+652350;46;Mahaboobabad;7;68828;3467;174;171;0;3;30;144;0;6;168;52;46;76;1;Normal;117;117;Normal;16;Normal;102;Normal;1.2;Normal;152;A;280;"Within Normal Limits";27;1;1;1
+652352;46;Mahaboobabad;10;55382;1775;141;8;0;1;141;0;0;134;7;56;83;2;1;Normal;122;122;Normal;15.4;Normal;112;Normal;0.6;Normal;159;A;320;"Within Normal Limits";27;0;0;0
+652355;50;Mahaboobabad;10;65675;2338;169;169;0;0;169;0;0;1;168;27;2;140;1;Normal;155;155;"Stage-1 Hypertension";15.9;Normal;123;Normal;0.85;Normal;175;C;229;"Intraventricular conduction defect? Lbbb without evi of MI";22;0;0;0
+652357;46;Mahaboobabad;14;70405;2564;184;183;0;1;181;3;0;1;183;92;1;91;0.89;Normal;135;135;Elevated;16.2;Normal;117;Normal;0.7;Normal;305;D;400;"Within Normal Limits";26;1;0;0
+652377;52;Mahaboobabad;11;72323;2611;188;187;0;1;186;2;0;1;187;94;3;91;1;Normal;134;134;Elevated;17.1;Normal;106;Normal;0.78;Normal;215;C;290;"Within Normal Limits";21;0;0;0
+652380;54;Mahaboobabad;127;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;0;0;0
+652425;47;Mahaboobabad;6;75096;2671;165;165;0;0;165;0;0;2;163;89;5;71;0.9;Normal;164;164;"Stage-2 Hypertension";15.6;Normal;210;Diabetes;0.95;Normal;188;D;330;"Within Normal Limits";24;1;0;0
+652429;51;Mahaboobabad;9;78873;2802;193;193;0;0;193;0;0;5;188;35;2;156;1;Normal;133;133;Elevated;14.3;Normal;110;Normal;1;Normal;154;B;381;"Within Normal Limits";20;0;0;0
+652432;51;Mahaboobabad;4;73140;2549;188;184;0;4;188;0;0;5;183;112;11;65;0.9;Normal;141;141;"Stage-1 Hypertension";12.6;"Borderline Low";180;Prediabetes;0.74;Normal;149;C;330;"Within Normal Limits";31;1;0;0
+652455;52;Mahaboobabad;9;65290;2218;164;153;0;11;164;0;0;11;153;65;18;81;0.87;Normal;139;139;Elevated;15.2;Normal;111;Normal;0.9;Normal;168;B;470;"Within Normal Limits";24;1;0;0
+652810;54;Mahaboobabad;11;54416;1891;136;134;0;2;136;0;0;1;135;27;5;104;0.7;Normal;108;108;Normal;13.9;Normal;111;Normal;0.87;Normal;169;A;480;"Within Normal Limits";22;1;0;0
+652811;46;Mahaboobabad;18;70073;2512;184;183;0;1;183;1;0;3;181;145;6;33;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;283;NULL;23;0;0;0
+652818;48;Mahaboobabad;5;67411;2689;178;178;0;0;143;35;0;1;177;144;7;27;1.33;"High Creatinine";160;160;"Hypertension Critical";17;Normal;126;Normal;0.5;Normal;203;E;360;"Within Normal Limits";19;0;1;1
+652819;46;Mahaboobabad;8;67461;2268;161;149;0;12;161;0;0;2;159;69;12;80;0.7;Normal;138;138;Elevated;12.9;"Borderline Low";115;Normal;0.87;Normal;156;C;330;"Within Normal Limits";19;1;0;1
+652829;51;Mahaboobabad;5;74866;2551;187;177;0;10;187;0;0;3;183;63;19;104;0.85;Normal;110;110;Normal;14.9;Normal;109;Normal;0.98;Normal;185;A;600;"Within Normal Limits";30;0;0;0
+652870;42;Mahaboobabad;7;55194;1754;142;8;0;1;141;1;0;133;9;78;60;4;0.8;Normal;123;123;Normal;15.6;Normal;117;Normal;0.65;Normal;196;A;365;"Within Normal Limits";21;0;0;0
+652873;42;Mahaboobabad;2;64546;2043;169;2;0;1;169;0;0;166;3;97;71;1;0.9;Normal;102;102;Normal;14.1;Normal;169;Prediabetes;0.56;Normal;154;C;520;"Within Normal Limits";23;1;1;0
+652878;44;Mahaboobabad;17;73992;2418;165;104;0;61;138;27;0;23;142;89;38;38;1;Normal;118;118;Normal;14.7;Normal;254;Diabetes;0.85;Normal;147;D;350;"Within Normal Limits";28;1;0;0
+652880;51;Mahaboobabad;31;62594;2369;144;143;0;1;143;1;0;5;139;54;28;62;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;420;NULL;24;1;1;1
+652901;45;Mahaboobabad;6;65743;2772;170;167;0;3;112;58;0;9;161;61;30;79;0.9;Normal;134;134;Elevated;14.1;Normal;203;Diabetes;0.69;Normal;158;D;470;"Within Normal Limits";25;1;0;0
+652935;52;Mahaboobabad;17;54422;2024;142;142;0;0;138;4;0;1;141;78;21;43;1;Normal;134;134;Elevated;13.7;Normal;132;Normal;0.89;Normal;152;C;310;2decho;27;1;0;0
+652936;51;Mahaboobabad;10;69417;2201;179;3;0;0;179;0;0;177;2;143;35;1;0.8;Normal;148;148;"Stage-1 Hypertension";14;Normal;114;Normal;0.58;Normal;174;C;500;"T inversions and qs complexes in lead 3, monitor BP";28;0;0;0
+652955;47;Mahaboobabad;21;66660;2160;74;19;0;27;30;44;0;70;4;17;54;3;1;Normal;128;128;Normal;17.2;Normal;160;Prediabetes;0.9;Normal;161;C;500;"Within Normal Limits";21;1;0;1
+652971;46;Mahaboobabad;7;87745;2697;178;28;0;150;80;98;0;62;116;94;73;11;0.9;Normal;150;150;"Stage-1 Hypertension";16.2;Normal;140;Normal;0.94;Normal;195;C;320;"Within Normal Limits";20;1;0;0
+653008;44;Mahaboobabad;21;45556;1452;125;2;0;0;125;0;0;123;2;72;52;1;0.8;Normal;148;148;"Stage-1 Hypertension";14;Normal;99;Normal;0.65;Normal;154;C;300;"left axis deviation";28;0;1;0
+653094;48;Mahaboobabad;10;7349;243;3;3;0;0;2;1;0;2;1;2;1;0;0.9;Normal;133;133;Elevated;14.1;Normal;93;Normal;0.74;Normal;169;B;400;"Within Normal Limits";26;1;0;0
+653158;48;Mahaboobabad;81;35838;1346;67;63;0;4;18;49;0;9;58;36;24;7;0.9;Normal;149;149;"Stage-1 Hypertension";16.2;Normal;195;Prediabetes;0.69;Normal;185;C;200;"Within Normal Limits";22;1;0;0
+653160;47;Mahaboobabad;23;68578;2397;134;131;0;3;126;8;0;1;133;33;8;93;0.81;Normal;120;120;Normal;14.2;Normal;92;Normal;0.78;Normal;154;C;150;"Minor ST-T Abnormalities";21;1;0;0
+653206;48;Mahaboobabad;5;68907;2544;141;132;0;9;105;36;0;15;126;54;29;58;1.2;"High Creatinine";130;130;Normal;13.6;Normal;107;Normal;0.3;Normal;168;C;350;"Within Normal Limits";26;0;0;0
+653231;43;Mahaboobabad;5;73736;2684;139;116;0;23;36;103;0;16;123;70;49;20;1.32;"High Creatinine";131;131;Elevated;15;Normal;138;Normal;0.9;Normal;214;C;470;"Within Normal Limits";30;1;0;1
+653234;53;Mahaboobabad;5;88984;2722;175;26;0;149;72;103;0;54;121;101;67;7;1.2;"High Creatinine";126;126;Normal;17.3;Normal;101;Normal;0.9;Normal;187;C;210;LAHB;23;0;0;0
+653246;49;Mahaboobabad;7;55678;1769;123;1;0;5;117;6;0;121;2;68;55;0;1.2;"High Creatinine";166;166;"Stage-2 Hypertension";13.9;Normal;133;Normal;0.95;Normal;128;D;480;"LOW VOLTAGE QRS";23;1;0;0
+653258;50;Mahaboobabad;17;74403;2670;159;151;0;8;150;9;0;18;141;75;18;66;0.9;Normal;138;138;Elevated;11.8;"Borderline Low";166;Prediabetes;0.44;Normal;152;C;450;"Within Normal Limits";21;1;0;0
+653504;40;Mahaboobabad;1;58952;1892;149;14;0;1;149;0;0;136;13;66;77;6;0.9;Normal;136;136;Elevated;15.2;Normal;118;Normal;0.65;Normal;154;B;440;"Within Normal Limits";27;1;0;0
+653509;38;Mahaboobabad;86;50597;1760;98;95;0;3;84;14;0;4;94;38;17;43;0.7;Normal;160;160;"Stage-1 Hypertension";15.9;Normal;110;Normal;0.87;Normal;189;C;330;"MINOR  ST-T ABNORMALITIES";26;1;0;0
+653544;36;Mahaboobabad;18;61821;2139;110;98;0;12;108;2;0;10;100;42;18;50;0.9;Normal;150;150;"Stage-1 Hypertension";16.7;Normal;143;Prediabetes;0.87;Normal;168;C;380;"Within Normal Limits";24;0;0;0
+653552;52;Mahaboobabad;20;65832;2290;122;116;0;6;105;17;0;9;113;65;15;42;1.2;"High Creatinine";129;129;Normal;12.4;"Borderline Low";104;Normal;0.9;Normal;198;C;470;"Within Normal Limits";25;0;0;0
+653582;45;Mahaboobabad;27;67384;2326;134;121;0;12;104;30;0;12;122;55;31;48;0.76;Normal;130;130;Elevated;14.9;Normal;215;Diabetes;0.69;Normal;164;D;440;"Minor ST-T Abnormalities";30;1;0;0
+653748;42;Mahaboobabad;4;76397;2545;121;103;0;18;10;111;0;5;116;52;67;2;1;Normal;130;130;Normal;15.6;Normal;112;Normal;0.6;Normal;209;C;NULL;"Within Normal Limits";NULL;0;0;0
+653751;37;Mahaboobabad;1;73532;2345;151;6;0;13;133;18;0;150;1;95;56;0;0.9;Normal;155;155;"Stage-1 Hypertension";15.2;Normal;130;Normal;0.95;Normal;175;C;500;"Within Normal Limits";30;0;0;0
+677680;46;Ranigunj-I;67;36507;1855;134;0;0;0;110;24;0;10.5;114.5;78.5;16;30.5;1;Normal;141;141;"Stage-1 Hypertension";13;Normal;120;Normal;0.89;Normal;152;C;NULL;"Within Normal Limits";NULL;0;0;0
+825585;57;Mahaboobabad;21;66106;2314;146;144;0;2;144;2;0;2;144;60;7;79;1;Normal;140;140;Elevated;15.4;Normal;120;Normal;1;Normal;191;B;290;"Within Normal Limits";28;1;0;0
+825882;43;Mahaboobabad;9;28183;986;65;65;0;0;65;0;0;2;63;29;9;27;1;Normal;133;133;Elevated;14.4;Normal;130;Normal;0.95;Normal;185;B;540;"Within Normal Limits";27;1;0;0
+920273;52;Mahaboobnagar;29;15425;610;32;26;0;6;4;28;0;8;24;8;19;5;1.1;Normal;141;141;"Stage-1 Hypertension";14.6;Normal;166;Prediabetes;1.4;"High Bilirubin";184;C;NULL;"QS IN LEAD 3 MONITOR BP";NULL;0;0;0
+990220;41;Mahaboobnagar;28;19211;837;44;25;0;19;9;35;0;16;23;14;8;17;1.4;"High Creatinine";103;103;Normal;16.4;Normal;144;Prediabetes;0.8;Normal;192;C;NULL;"Within Normal Limits";NULL;0;0;0
+205824;60;Ranigunj-I;0;37038;2076;147.5;0;0;0;136.5;11;0;36.5;112;54.5;43.5;50.5;1;Normal;130;130;Normal;14.9;Normal;132;Normal;0.96;Normal;154;A;410;"Within Normal Limits";23;1;0;0
+204189;57;Ranigunj-I;0;44760;1819;152;0;0;0;151;1;0;48;103;13.5;5;132.5;0.9;Normal;130;130;Normal;13.1;Normal;117;Normal;0.7;Normal;214;C;420;"Within Normal Limits";19;1;0;0
+208536;54;Ranigunj-I;1;8200;412;28;0;0;0;23.5;4.5;0;1.5;26.5;19;5.5;3.5;1;Normal;160;160;"Stage-1 Hypertension";13.8;Normal;101;Normal;0.94;Normal;165;C;290;"Within Normal Limits";31;0;0;0
+652914;49;Mahaboobabad;0;95415;2859;191;21;0;170;90;101;0;68;123;104;80;7;1.2;"High Creatinine";115;115;Normal;12.1;"Borderline Low";103;Normal;0.96;Normal;152;C;590;"Within Normal Limits";17;1;0;0
+150906;54;Mahaboobnagar;0;3547;121;11;5;0;6;10;1;0;2;9;4;4;3;0.81;Normal;138;138;Elevated;13.8;Normal;87;Normal;0.89;Normal;131;C;225;"Intraventricular Conduction Defect? Lbbb Without Evi Of Mi";25;0;0;0
+204628;54;Ranigunj-I;0;34595;2089;149;0;0;0;148;1;0;2;145;10;127;10;1.2;"High Creatinine";142;142;"Stage-1 Hypertension";19;"Critical High";139;Normal;0.91;Normal;242;E;570;"Within Normal Limits";31;0;0;1
+207741;59;Ranigunj-I;0;32769;2096;149.5;0;0;0;149.5;0;0;2.5;145.5;5;137;6;1.1;Normal;139;139;Elevated;15.5;Normal;132;Normal;0.79;Normal;195;B;490;"Within Normal Limits";25;0;0;0
+214561;46;Ranigunj-I;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;0;0;0
+210423;51;Ranigunj-I;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;0;0;0
+217307;45;Ranigunj-I;0;10049;535;39.5;0;0;0;39.5;0;0;21.5;18;5;4;30.5;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;400;NULL;21;1;0;0
+206437;59;Ranigunj-I;0;40152;1741;143;0;0;0;142;1;0;35.5;102.5;62;25;51;1;Normal;140;140;Elevated;14;Normal;121;Normal;0.98;Normal;150;B;400;"Within Normal Limits";20;1;0;0
