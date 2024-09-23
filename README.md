@@ -86,9 +86,12 @@
  pip install --upgrade pip setuptools #to upgrade
  pip cache purge
 
-## 9. Commit the changes
+## 9. Add setup.py file
 
-## 7. Commit changes to github
+Add the standard code from setup.py.
+Enter the right source code name.
+
+## 10. Commit changes to github
     
     ```console
     git add .
@@ -101,6 +104,38 @@
     ```console
     git push -u origin main
     ```
+
+     OR the same can be done in vscode using the menu to the right side where you see an icon for source control
+
+## 11. Implement Logging
+
+Add the standard code from -init_.py file kept in src folder.
+
+Save the file.
+This will help in debugging the code
+
+## 12. Set-up of Utils (functionality that we will be using frequently)
+
+Go to common.py file
+Past the code and save
+
+## 13. Commit changes to github
+    
+    ```console
+    git add .
+    ```
+
+    ```console
+    git commit -m 'exception, logger, and utils added"
+    ```
+
+    ```console
+    git push -u origin main
+    ```
+
+     OR the same can be done in vscode using the menu to the right side where you see an icon for source control
+
+
 
 
 
