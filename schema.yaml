@@ -37,5 +37,5 @@ COLUMNS:
   smoke : int64  
   tobacco : int64  
 
-TARGET COLUMN:
+TARGET_COLUMN:
   name: tot_opd_kms

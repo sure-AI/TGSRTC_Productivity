@@ -30,8 +30,11 @@ class ModelTrainerConfig:
     train_data_path: Path
     test_data_path: Path
     model_name: str
-    alpha: float
-    l1_ratio: float
+    penalty: str #added for LR
+    solver: str  #added for LR
+    C: float     #added for LR
+    #alpha: float
+    #l1_ratio: float
     target_column: str
 
 

@@ -1,1 +1,8 @@
-key: val
+ElasticNet:
+  alpha: 0.9
+  l1_ratio: 0.8
+  
+LogisticRegression:
+  penalty: 'l1'
+  solver: 'liblinear'
+  C: 1.0

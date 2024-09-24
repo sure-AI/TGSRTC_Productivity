@@ -255,7 +255,7 @@ An artifacts folder should get created and in the data_validation folder the fil
 
 ## 19. DATA TRANSFORMATION
 
-### A. Create a folder called 03_data_transformation
+### A. Create a folder called 03_data_transformation in research folder
 
 Add the research script. HEre I am seleting only the relevant columns and doing one-hot coding and test train split
 
@@ -294,5 +294,44 @@ An artifacts folder should get created and in the data_transformation folder the
      OR the same can be done in vscode using the menu to the right side where you see an icon for source control
 
 
+## 21. MODEL TRAINING
+    
+### A. Create a folder called 04_model_training in research folder
+
+Add the research script. Here I am implementing a logistic regression and hence the imports and parameters are set accordingly.
+
+### B. Apply modular code
+
+Update config.yaml - DONE
+Update schema.yaml - ALREADY DONE
+Update params.yaml - DONE (Important)
+Update the entity - DONE 
+Update the configuration manager in src config - DONE (Sets Paths)
+Update the components - DONE 
+Update the pipeline - DONE
+Update the main.py - DONE
+Update the app.py - NA
+
+### C. Delete artifacts folder and run main.py
+
+Python main.py
+
+An artifacts folder should get created and in the model_training folder the .pkl file will get stored  
+
+## 22. Commit changes to github
+    
+    ```console
+    git add .
+    ```
+
+    ```console
+    git commit -m 'exception, logger, and utils added"
+    ```
+
+    ```console
+    git push -u origin main
+    ```
+
+     OR the same can be done in vscode using the menu to the right side where you see an icon for source control
 
 
