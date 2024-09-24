@@ -253,11 +253,45 @@ An artifacts folder should get created and in the data_validation folder the fil
      OR the same can be done in vscode using the menu to the right side where you see an icon for source control
 
 
+## 19. DATA TRANSFORMATION
 
+### A. Create a folder called 03_data_transformation
 
+Add the research script. HEre I am seleting only the relevant columns and doing one-hot coding and test train split
 
+### B. Apply modular code
 
+Update config.yaml - DONE
+Update schema.yaml - ALREADY DONE
+Update params.yaml - NA
+Update the entity - DONE 
+Update the configuration manager in src config - DONE (Sets Paths)
+Update the components - DONE (Does the real validation)
+Update the pipeline - DONE
+Update the main.py - DONE
+Update the app.py 
 
+### C. Delete artifacts folder and run main.py
+
+Python main.py
+
+An artifacts folder should get created and in the data_transformation folder the test.csv and train.csv will get stored
+
+## 20. Commit changes to github
+    
+    ```console
+    git add .
+    ```
+
+    ```console
+    git commit -m 'exception, logger, and utils added"
+    ```
+
+    ```console
+    git push -u origin main
+    ```
+
+     OR the same can be done in vscode using the menu to the right side where you see an icon for source control
 
 
 
