@@ -6,21 +6,17 @@ data_ingestion:
   source_URL: https://github.com/sure-AI/TGSRTC_Productivity/raw/refs/heads/main/tprod.zip
   local_data_file: artifacts/data_ingestion/data.zip
   unzip_dir: artifacts/data_ingestion
-  
-
 
 
 data_validation:
   root_dir: artifacts/data_validation
-  unzip_data_dir: artifacts/data_ingestion/winequality-red.csv
+  unzip_data_dir: artifacts/data_ingestion/TGSRTC_Productivity.csv
   STATUS_FILE: artifacts/data_validation/status.txt
-
 
 
 data_transformation:
   root_dir: artifacts/data_transformation
-  data_path: artifacts/data_ingestion/winequality-red.csv
-
+  data_path: artifacts/data_ingestion/TGSRTC_Productivity.csv
 
 
 model_trainer:
@@ -28,7 +24,6 @@ model_trainer:
   train_data_path: artifacts/data_transformation/train.csv
   test_data_path: artifacts/data_transformation/test.csv
   model_name: model.joblib
-
 
 
 model_evaluation:

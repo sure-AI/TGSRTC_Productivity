@@ -1,1 +1,41 @@
-key: val
+COLUMNS:
+  employee_id: int64  
+  age: int64  
+  depot: object 
+  absent_days: int64  
+  tot_opd_kms: int64 
+  hours: int64  
+  tot_schedules: float64
+  palle_schedules: float64
+  suplux_schedules: int64  
+  express_schedules: float64
+  day_schedules : float64
+  night_schedules : float64
+  bus_age_0to5 : int64  
+  bus_age_5to10 : float64
+  bus_age_above10 : float64
+  bus_kms_0to5l : float64
+  bus_kms_5to10l : float64
+  bus_kms_above10l : float64
+  creatinine_value : float64
+  creatinine_interpret : object 
+  blood_pressure_systolic : int64  
+  blood_pressure_diastolic : int64  
+  blood_pressure_interpret : object 
+  hemoglobin_value : float64
+  hemoglobin_interpret : object 
+  glucose_random_value : float64
+  glucose_interpret : object 
+  bilirubin_value : float64
+  bilirubin_interpret : object 
+  total_cholestrol : int64  
+  final_grading : object 
+  PERF: float64
+  ECG_interpret : object 
+  BMI : float64
+  alcohol : int64  
+  smoke : int64  
+  tobacco : int64  
+
+TARGET COLUMN:
+  name: tot_opd_kms

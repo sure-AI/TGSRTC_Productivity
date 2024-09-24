@@ -202,6 +202,57 @@ python main.py
 Note: Delete the artifacts folder before running this.
 Upon successful execution the artifacts gets created
 
+## 17. Data Validation
+
+### A. First do the notebook research
+
+Create a new file in the research folder called 02_data_validation.ipynb
+
+### B. Update config.yaml
+
+### C. Update schema.yaml
+
+### D. Run the .ipynb file
+
+Artifacts should now have a folder 'data_validation'
+This should have a file called status.txt which will store True or False
+
+### E. NOW do the modular coding
+
+Update config.yaml - DONE
+Update schema.yaml - ALREADY DONE
+Update params.yaml - NA
+Update the entity - DONE 
+Update the configuration manager in src config - DONE (Sets Paths)
+Update the components - DONE (Does the real validation)
+Update the pipeline - DONE
+Update the main.py - DONE
+Update the app.py 
+
+### F. Delete artifacts folder and run main.py
+
+Python main.py
+
+An artifacts folder should get created and in the data_validation folder the file called status.txt should get store with a value "True" in it
+
+
+## 18. Commit changes to github
+    
+    ```console
+    git add .
+    ```
+
+    ```console
+    git commit -m 'exception, logger, and utils added"
+    ```
+
+    ```console
+    git push -u origin main
+    ```
+
+     OR the same can be done in vscode using the menu to the right side where you see an icon for source control
+
+
 
 
 
