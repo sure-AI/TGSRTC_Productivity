@@ -1,8 +1,7 @@
 import pandas as pd
 import os
 from TGSRTC_Productivity import logger
-from sklearn.linear_model import ElasticNet
-
+#from sklearn.linear_model import ElasticNet
 #import joblib
 from TGSRTC_Productivity.entity.config_entity import ModelTrainerConfig
 from sklearn.linear_model import LogisticRegression

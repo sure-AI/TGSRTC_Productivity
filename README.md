@@ -298,7 +298,7 @@ An artifacts folder should get created and in the data_transformation folder the
     
 ### A. Create a folder called 04_model_training in research folder
 
-Add the research script. Here I am implementing a logistic regression and hence the imports and parameters are set accordingly.
+Add the research script and test. Here I am implementing a logistic regression and hence the imports and parameters are set accordingly.
 
 ### B. Apply modular code
 
@@ -325,7 +325,7 @@ An artifacts folder should get created and in the model_training folder the .pkl
     ```
 
     ```console
-    git commit -m 'exception, logger, and utils added"
+    git commit -m 'model trainer added"
     ```
 
     ```console
@@ -334,4 +334,60 @@ An artifacts folder should get created and in the model_training folder the .pkl
 
      OR the same can be done in vscode using the menu to the right side where you see an icon for source control
 
+## 23. MODEL EVALUATION
+    
+### A. Link Github repository on Dagshub
 
+    Under Remote --> Experiments, see the URI
+    MLFLOW_TRACKING_URI=https://dagshub.com/sure-AI/TGSRTC_Productivity.mlflow
+    
+    import mlflow with mlflow.start_run(): mlflow.log_param('parameter name', 'value') mlflow.log_metric('metric name', 1)
+
+### B. Run each of the commands in gitbash:
+
+    '''bash
+
+    export MLFLOW_TRACKING_URI=https://dagshub.com/sure-AI/TGSRTC_Productivity.mlflow
+
+    export MLFLOW_TRACKING_USERNAME=sure-AI
+
+    export MLFLOW_TRACKING_PASSWORD=Iwdwis100%
+
+
+### C. Create a folder called 05_model_evaluation in research folder
+
+Add the research script and test.
+
+### D. Apply modular code
+
+Update config.yaml - DONE
+Update schema.yaml - ALREADY DONE
+Update params.yaml - DONE (Important)
+Update the entity - DONE 
+Update the configuration manager in src config - DONE (Sets Paths)
+Update the components - DONE 
+Update the pipeline - DONE
+Update the main.py - DONE
+Update the app.py - NA
+
+### E. Delete artifacts folder and run main.py
+
+Python main.py
+
+An artifacts folder should get created and in ML Flow directory the experiment should get recorded
+
+## 24. Commit changes to github
+    
+    ```console
+    git add .
+    ```
+
+    ```console
+    git commit -m 'model trainer added"
+    ```
+
+    ```console
+    git push -u origin main
+    ```
+
+     OR the same can be done in vscode using the menu to the right side where you see an icon for source control
