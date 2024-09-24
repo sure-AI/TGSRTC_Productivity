@@ -391,3 +391,9 @@ An artifacts folder should get created and in ML Flow directory the experiment s
     ```
 
      OR the same can be done in vscode using the menu to the right side where you see an icon for source control
+
+
+## 25. Creating the prediction pipeline
+
+### A. Create a folder in pipeline called prediction.py
+
