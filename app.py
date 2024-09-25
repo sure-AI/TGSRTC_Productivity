@@ -128,7 +128,7 @@ def productivity_dashboard():
                 ax.set_ylabel('Annual kilometers per driver')
                 ax.set_title(f'Productivity by Employee: {selected_depot}')
 
-                 # Hide x-axis tick labels
+                # Hide x-axis tick labels
                 ax.set_xticks([])
                 
                 # Add a red average line
@@ -171,7 +171,7 @@ def productivity_dashboard():
                 ax.set_ylabel('Annual kilometers per driver')
                 ax.set_title(f'Avg productivity by Age: {selected_depot1}')
 
-                 # Hide x-axis tick labels
+                # Hide x-axis tick labels
                 ax.set_xticks([])
                 
                 # Add a red average line
@@ -219,7 +219,7 @@ def productivity_dashboard():
                 ax.set_ylabel('Annual absent days per driver')
                 ax.set_title(f'Absenteeism by Employee: {selected_depot4}')
 
-                 # Hide x-axis tick labels
+                # Hide x-axis tick labels
                 ax.set_xticks([])
                 
                 # Add a red average line
@@ -277,7 +277,7 @@ def health_dashboard():
                 ax.set_ylabel('Creatinine Value')
                 ax.set_title(f'Creatinine Value By Age: {selected_depot2}')
 
-                 # Hide x-axis tick labels
+                # Hide x-axis tick labels
                 ax.set_xticks([])
                 
                 # Add a red average line
@@ -475,12 +475,7 @@ elif option == "Safety Dashboard (Data)":
     
 elif option == "Accidents Predictor (AI)":
     accidents_predictor()
-    
 
-
-if __name__ == "__main__":
-	# app.run(host="0.0.0.0", port = 8080, debug=True)
-	app.run(host="0.0.0.0", port = 8080)
 
 
 
