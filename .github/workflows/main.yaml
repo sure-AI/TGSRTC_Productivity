@@ -96,7 +96,3 @@ jobs:
       - name: Clean previous images and containers
         run: |
          docker system prune -f
-
-      - name: Run Streamlit app
-        run: |
-          streamlit run app.py --server.address=0.0.0.0
