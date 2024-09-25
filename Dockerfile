@@ -1,15 +1,29 @@
-# Use the official Python 3.12 image as the base image
-FROM python:3.12
+# Use the official Python 3.8 Alpine image as the base image
+FROM python:3.8-alpine
 
-# Update package lists, install CMake, build tools, and AWS CLI
-RUN apt update -y && apt install awscli -y
+# Install necessary packages, including build tools and AWS CLI
+RUN apk update && apk add --no-cache \
+    gcc \
+    g++ \
+    make \
+    cmake \
+    libffi-dev \
+    musl-dev \
+    linux-headers \
+    bash \
+    aws-cli
 
 # Set the working directory in the container
 WORKDIR /app
 
 # Copy the rest of the application code to the container
 COPY . /app
-RUN pip install -r requirements.txt
 
-# Command to run the Python application
-CMD ["python3", "app.py"]
+# Install Python dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Expose the port for Streamlit
+EXPOSE 8501
+
+# Run the Streamlit app
+CMD ["streamlit", "run", "app.py", "--server.address=0.0.0.0"]
