@@ -19,6 +19,9 @@ WORKDIR /app
 # Copy the rest of the application code to the container
 COPY . /app
 
+# Upgrade pip to the latest version
+RUN pip install --upgrade pip
+
 # Install Python dependencies
 RUN pip install -r requirements.txt
 
