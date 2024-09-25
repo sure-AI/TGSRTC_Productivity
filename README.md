@@ -395,5 +395,120 @@ An artifacts folder should get created and in ML Flow directory the experiment s
 
 ## 25. Creating the prediction pipeline
 
-### A. Create a folder in pipeline called prediction.py
+### A. Create a folder in pipeline called prediction.py and copy the code
+
+## 26. Creating the app.py
+
+### B. Create the code using streamlit for creating the dashboards
+
+## 27. Create a file called main.yaml in github folder and copy the code
+
+### 28. CI/CD implementation
+
+AWS-CICD-Deployment-with-Github-Actions
+
+1. Login to AWS console.
+
+2. Create IAM user for deployment
+#with specific access 
+
+AmazonEC2ContainerRegistryFullAccess
+AmazonEC2FullAccess
+
+3. In the user, go to security credentials --> create access key --> command line interface
+
+4. Download the access key .csv file
+
+5. Creating the ECR respository to store the docker image
+
+Got to ECR in AWS -- Create Respository
+
+Name: tgsrtc_prod
+
+enter create respository
+
+6. Copy the URI 
+
+975050311903.dkr.ecr.us-east-1.amazonaws.com/tgsrtc_prod
+
+7. Create the EC2 Ubuntu machine
+
+Go to EC2 service in AWS
+
+Click on launch instance
+
+Instace select 2GB RAM t2. small
+
+Select key pair, examplekeypair
+
+In instances, click on that instance ID
+
+Click on connect --> Terminal gets launched
+
+run all these commends in the terminal 
+
+sudo apt-get update -y
+sudo apt-get upgrade
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+sudo usermod -aG docker ubuntu
+newgrp docker
+
+
+Check if docker is working by typing 
+docker --version
+
+8. Configure EC2 as self-hosted runner
+
+go to github and in the project folder, go to settings
+
+--> actions --> runners --> new self hosted runner
+
+Select Linux format
+
+Execute the commands given there in the EC2 terminal
+
+# Create a folder
+$ mkdir actions-runner && cd actions-runner
+
+# Download the latest runner package
+
+$ curl -o actions-runner-linux-x64-2.319.1.tar.gz -L https://github.com/actions/runner/releases/download/v2.319.1/actions-runner-linux-x64-2.319.1.tar.gz
+
+# Optional: Validate the hash
+
+$ echo "3f6efb7488a183e291fc2c62876e14c9ee732864173734facc85a1bfb1744464  actions-runner-linux-x64-2.319.1.tar.gz" | shasum -a 256 -c
+
+# Extract the installer
+
+$ tar xzf ./actions-runner-linux-x64-2.319.1.tar.gz
+
+# Create the runner and start the configuration experience
+
+$ ./config.sh --url https://github.com/sure-AI/TGSRTC_Productivity --token BIBW3STLN546XFYXO2LYHG3G6QPVA
+
+Copied!# Last step, run it!
+
+$ ./run.sh
+
+AWS will show " Listening to jobs'
+
+9. Set up github secrets
+
+Got to github --> settings --> secrets and variables --> New resository secret
+
+AWS_ACCESS_KEY_ID=
+
+AWS_SECRET_ACCESS_KEY=
+
+AWS_REGION = us-east-1
+
+AWS_ECR_LOGIN_URI = 975050311903.dkr.ecr.us-east-1.amazonaws.com
+
+ECR_REPOSITORY_NAME = tgsrtc_prod
+
+
+
+
+
 
