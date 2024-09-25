@@ -507,7 +507,9 @@ AWS_ECR_LOGIN_URI = 975050311903.dkr.ecr.us-east-1.amazonaws.com
 
 ECR_REPOSITORY_NAME = tgsrtc_prod
 
+10. In app.py add some code at the end 
 
+11. Commit code in git hub
 
 
 
