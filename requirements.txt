@@ -11,9 +11,9 @@ pyYAML
 pymysql
 tqdm
 ensure
-joblib
+#joblib
 types-PyYAML
-Flask
-Flask-Cors
+#Flask
+#Flask-Cors
 Pyarrow
 -e .
