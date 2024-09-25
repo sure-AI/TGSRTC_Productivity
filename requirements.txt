@@ -15,5 +15,6 @@ ensure
 types-PyYAML
 #Flask
 #Flask-Cors
+streamlit
 Pyarrow
 -e .
