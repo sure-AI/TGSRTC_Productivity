@@ -8,6 +8,9 @@ from pathlib import Path
 import seaborn as sns
 from TGSRTC_Productivity.pipeline.prediction import PredictionPipeline
 
+# Set page configuration
+st.set_page_config(page_title="TGSRTC")
+
 # Set up the sidebar with options
 st.sidebar.header("ESG Options")
 # Assuming option1, option2, and option3 are selected from separate selectboxes
@@ -476,12 +479,6 @@ elif option == "Safety Dashboard (Data)":
     
 elif option == "Accidents Predictor (AI)":
     accidents_predictor()
-
-
-if __name__ == '__main__':
-    import os
-    port = int(os.environ.get("PORT", 8501))
-    st.run(app, host='0.0.0.0', port=port)
 
 
 
