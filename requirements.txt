@@ -17,4 +17,5 @@ types-PyYAML
 #Flask-Cors
 streamlit
 Pyarrow
+seaborn
 -e .
