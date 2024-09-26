@@ -31,7 +31,7 @@ def load_model():
         return None
 
 # Model loaded once, reused across predictions
-model = load_model()
+#model = load_model()
 
 def load_csv_data():
     try:
