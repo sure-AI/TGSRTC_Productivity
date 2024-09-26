@@ -3,7 +3,7 @@ sqlalchemy
 #graphviz
 mlflow
 notebook
-numpy==2.1.1
+numpy==1.24.0
 scikit-learn
 matplotlib
 python-box
