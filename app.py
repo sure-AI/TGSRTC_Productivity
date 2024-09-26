@@ -1,5 +1,6 @@
 import streamlit as st
 import pickle
+import os
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -477,7 +478,10 @@ elif option == "Accidents Predictor (AI)":
     accidents_predictor()
 
 
-
+if __name__ == '__main__':
+    import os
+    port = int(os.environ.get("PORT", 8501))
+    st.run(app, host='0.0.0.0', port=port)
 
 
 
