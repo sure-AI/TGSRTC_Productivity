@@ -512,5 +512,29 @@ ECR_REPOSITORY_NAME = tgsrtc_prod
 11. Commit code in git hub
 
 
+CI/CD Issues
+
+1. On aws EC2 Ubuntu terminal. keep clearing the images and volumes that are not used.
+
+./run.sh to initiate the runner
+
+df -h -- to get the details of the dockers file
+
+docker image prune -- to prune the images
+
+docker volume prune to prune the volumes
+
+docker stop TGSRTC_prod -- to stop the docker file
+
+docker rm TGSRTC_prod -- to remove the docker file
+
+docker system prune -a --volumes -- to delete volumes
+
+
+2. How to enable HTTPS for the app
+
+sudo apt-get update
+
+
 
 
