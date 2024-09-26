@@ -9,7 +9,7 @@ matplotlib
 python-box
 pyYAML
 #pymysql
-#tqdm
+tqdm
 ensure
 #joblib
 types-PyYAML
