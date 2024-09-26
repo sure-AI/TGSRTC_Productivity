@@ -417,7 +417,7 @@ AmazonEC2FullAccess
 
 3. In the user, go to security credentials --> create access key --> command line interface
 
-4. Download the access key .csv file
+4. Download the access key .csv file and save it
 
 5. Creating the ECR respository to store the docker image
 
@@ -437,7 +437,7 @@ Go to EC2 service in AWS
 
 Click on launch instance
 
-Instace select 2GB RAM t2. small
+Instace select 8GB RAM t2. Large
 
 Select key pair, examplekeypair
 
@@ -448,7 +448,7 @@ Click on connect --> Terminal gets launched
 run all these commends in the terminal 
 
 sudo apt-get update -y
-sudo apt-get upgrade
+sudo apt-get upgrade -y
 curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
 sudo usermod -aG docker ubuntu
@@ -469,6 +469,7 @@ Select Linux format
 Execute the commands given there in the EC2 terminal
 
 # Create a folder
+
 $ mkdir actions-runner && cd actions-runner
 
 # Download the latest runner package
@@ -497,9 +498,9 @@ AWS will show " Listening to jobs'
 
 Got to github --> settings --> secrets and variables --> New resository secret
 
-AWS_ACCESS_KEY_ID=
+AWS_ACCESS_KEY_ID
 
-AWS_SECRET_ACCESS_KEY=
+AWS_SECRET_ACCESS_KEY
 
 AWS_REGION = us-east-1
 
