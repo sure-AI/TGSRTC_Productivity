@@ -532,9 +532,9 @@ docker rm TGSRTC_prod -- to remove the docker file
 docker system prune -a --volumes -- to delete volumes
 
 
-2. How to enable HTTPS for the app
+12. Do the security setting to suit the application.
 
-sudo apt-get update
+Add a security setting to listen to port 8510 (as the application is streamlit)
 
 
 
