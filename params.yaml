@@ -6,3 +6,10 @@ LogisticRegression:
   penalty: 'l1'
   solver: 'liblinear'
   C: 1.0
+
+RandomForestClassifier:
+  n_estimators: 300         
+  max_depth: 15             
+  min_samples_split: 4      
+  max_features: 'sqrt'      
+  random_state: 42           

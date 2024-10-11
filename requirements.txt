@@ -1,21 +1,17 @@
 pandas 
 sqlalchemy
-#graphviz
 mlflow
 notebook
-numpy==1.21.2
+numpy
 scikit-learn
 matplotlib
 python-box
 pyYAML
-#pymysql
 tqdm
 ensure
-#joblib
 types-PyYAML
-#Flask
-#Flask-Cors
 streamlit
 Pyarrow
 seaborn
+altair
 -e .

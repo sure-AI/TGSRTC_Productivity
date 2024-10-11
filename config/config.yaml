@@ -10,13 +10,13 @@ data_ingestion:
 
 data_validation:
   root_dir: artifacts/data_validation
-  unzip_data_dir: artifacts/data_ingestion/TGSRTC_Productivity.csv
+  unzip_data_dir: artifacts/data_ingestion/tprod.csv
   STATUS_FILE: artifacts/data_validation/status.txt
 
 
 data_transformation:
   root_dir: artifacts/data_transformation
-  data_path: artifacts/data_ingestion/TGSRTC_Productivity.csv
+  data_path: artifacts/data_ingestion/tprod.csv
 
 
 model_trainer:
@@ -33,3 +33,7 @@ model_evaluation:
   #model_path: artifacts/model_trainer/model.joblib
   model_path: artifacts/model_trainer/model.pkl
   metric_file_name: artifacts/model_evaluation/metrics.json
+
+model_prediction:
+  model_path: artifacts/model_trainer/model.pkl
+  data_path: artifacts/data_ingestion/tprod.csv

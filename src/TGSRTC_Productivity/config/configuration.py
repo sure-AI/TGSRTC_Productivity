@@ -5,6 +5,7 @@ from TGSRTC_Productivity.entity.config_entity import DataValidationConfig
 from TGSRTC_Productivity.entity.config_entity import DataTransformationConfig
 from TGSRTC_Productivity.entity.config_entity import ModelTrainerConfig
 from TGSRTC_Productivity.entity.config_entity import ModelEvaluationConfig
+from TGSRTC_Productivity.entity.config_entity import ModelPredictionConfig
 
 class ConfigurationManager:
     def __init__(
@@ -64,7 +65,7 @@ class ConfigurationManager:
     
     def get_model_trainer_config(self) -> ModelTrainerConfig:
         config = self.config.model_trainer
-        params = self.params.LogisticRegression
+        params = self.params.RandomForestClassifier
         schema =  self.schema.TARGET_COLUMN
 
         create_directories([config.root_dir])
@@ -74,13 +75,18 @@ class ConfigurationManager:
             train_data_path = config.train_data_path,
             test_data_path = config.test_data_path,
             model_name = config.model_name,
-            penalty = params.penalty,
-            solver = params.solver,
-            C = params.C,
+            #penalty = params.penalty,
+            #solver = params.solver,
+            #C = params.C,
             #l1_ratio = params.l1_ratio,
             #alpha = params.alpha,
             #l1_ratio = params.l1_ratio,
-            target_column = schema.name
+            n_estimators = params.n_estimators,      
+            max_depth = params.max_depth,        
+            min_samples_split = params.min_samples_split,  
+            max_features = params.max_features,
+            random_state = params.random_state,
+            target_column = schema.name,
             
         )
 
@@ -88,7 +94,7 @@ class ConfigurationManager:
     
     def get_model_evaluation_config(self) -> ModelEvaluationConfig:
         config = self.config.model_evaluation
-        params = self.params.LogisticRegression
+        params = self.params.RandomForestClassifier
         schema =  self.schema.TARGET_COLUMN
 
         create_directories([config.root_dir])
@@ -104,5 +110,16 @@ class ConfigurationManager:
         )
 
         return model_evaluation_config
+    
+    
+    def get_model_prediction_config(self) -> ModelPredictionConfig:
+        config = self.config.model_prediction
+
+        model_prediction_config = ModelPredictionConfig(
+            model_path=config.model_path,
+            data_path=config.data_path,
+        )
+
+        return model_prediction_config
     
     

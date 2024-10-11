@@ -9,6 +9,8 @@ COLUMNS:
   palle_schedules: float64
   suplux_schedules: int64  
   express_schedules: float64
+  cityord_schedules: float64
+  metroexp_schedules : float64
   day_schedules : float64
   night_schedules : float64
   bus_age_0to5 : int64  
@@ -28,7 +30,8 @@ COLUMNS:
   glucose_interpret : object 
   bilirubin_value : float64
   bilirubin_interpret : object 
-  total_cholestrol : int64  
+  total_cholestrol : int64 
+  cholestrol_interpret : object 
   final_grading : object 
   PERF: float64
   ECG_interpret : object 
@@ -38,4 +41,4 @@ COLUMNS:
   tobacco : int64  
 
 TARGET_COLUMN:
-  name: tot_opd_kms
+  name: hours_category

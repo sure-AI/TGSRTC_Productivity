@@ -3,99 +3,306 @@ import pickle
 import os
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
 from pathlib import Path
-import seaborn as sns
-from TGSRTC_Productivity.pipeline.prediction import PredictionPipeline
+from TGSRTC_Productivity.pipeline.stage_06_model_prediction import ModelPredictionPipeline
+import altair as alt
 
 # Set page configuration
 st.set_page_config(page_title="TGSRTC")
 
-# Set up the sidebar with options
-st.sidebar.header("ESG Options")
+
+# Initialize the model prediction pipeline
+pipeline = ModelPredictionPipeline()
+
+
+# Load data from CSV into a pandas DataFrame
+data = pipeline.load_and_fetch_data()
+
+selected_depot = st.sidebar.selectbox('Select Depot', ['Mahaboobnagar', 'Mahaboobabad', 'Ranigunj-I'])
+
 # Assuming option1, option2, and option3 are selected from separate selectboxes
-option = st.sidebar.radio("Select your choice", 
-                               ["Productivity Dashboard (Data)","Productivity Predictor (AI)","Productivity Factors (AI)",  
-                               "Health Dashboard (Data)", "Absenteeism Predictor (AI)", "Health Calculator (AI)", "Health Factors (AI)",
-                               "Safety Dashboard (Data)", "Accidents Predictor (AI)"
+
+# Custom CSS to add space between the radio options
+st.markdown("""
+    <style>
+    .streamlit-expander {
+        margin-bottom: 10px;  /* Adjust space between options here */
+    }
+    div[role="radiogroup"] > label {
+        margin-bottom: 15px;  /* Adjust space between radio buttons */
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
+option = st.sidebar.radio("Select your choice:", 
+                               ["Productivity Baseline FY2023-24","Productivity Potential (AI Tool)",
+                               "Health & Productivity",  
+                               "Monthly Productivity Monitoring FY2024-25"
                                ])
-
-# Load the model once globally for optimization
-#@st.cache(allow_output_mutation=True)
-def load_model():
-    try:
-        model = PredictionPipeline()
-        return model
-    except Exception as e:
-        st.error(f"Error loading model: {e}")
-        return None
-
-# Model loaded once, reused across predictions
-#model = load_model()
-
-def load_csv_data():
-    try:
-        data = pd.read_csv(Path('artifacts/data_ingestion/TGSRTC_Productivity.csv'))
-        return data
-    except Exception as e:
-        st.error(f"Error loading data: {e}")
-        return None
-    
-data = load_csv_data()
-
 
 # Define functions for each option
 def productivity_predictor():
     st.title("TGSRTC   ESG   DASHBOARD")
-    st.header("Productivity Calculator (AI)")
+    st.header("1. Productivity Calculator (AI)")
     st.text("Predicting driver productivity in KM based on health parameters")
     
-    col1, col2, col3 = st.columns([2,1,2])
+    #col1, col2, col3 = st.columns([2,1,2])
     
-    with col1:
+    #with col1:
         # Collect inputs from user
-        depot_feature = st.selectbox('Select Depot', ['Mahboobnagar', 'Mahboobabad', 'Ranigunj-I'])
-        feature_1 = st.slider('Age', min_value=35.0, max_value=60.0, step=1.0)
-        feature_2 = st.slider('Creatinine', min_value=0.0, max_value=2.0, step=.1)
-        feature_3 = st.slider('Blood Pressure', min_value=100.0, max_value=220.0, step=1.0)
-        feature_4 = st.slider('Blood Sugar', min_value=70.0, max_value=300.0, step=1.0)
-        feature_5 = st.slider('Bilirubin', min_value=0.5, max_value=2.0, step=0.1)
-        feature_6 = st.slider('Cholestrol', min_value=100.0, max_value=300.0, step=1.0)
+        #depot_feature = st.selectbox('Select Depot', ['Mahboobnagar', 'Mahboobabad', 'Ranigunj-I'])
+        
+    feature_age = st.slider('Age', min_value=35.0, max_value=60.0, step=1.0)
+    feature_crea = st.selectbox('Creatinine', options=['Normal', 'High'])
+    feature_bp = st.selectbox('BP', options=['Normal', 'Elevated', 'Stage-1', 'Stage-2', 'Critical'])
+    feature_glu = st.selectbox('Glucose', options=['Normal', 'Pre-Diabetes', 'Diabetes'])
+    feature_bili = st.selectbox('Bilirubin', options=['Normal', 'High'])
+    feature_chole = st.selectbox('Cholestrol', options=['Normal', 'Borderline', 'High'])
+    feature_ECG = st.selectbox('ECG', options=['Within Limits', 'Abnormal'])
+    feature_night = st.slider('Night Shift %', min_value=0, max_value=100, step=25)
+    feature_palle = st.slider('Pallevelugu Schedules %', min_value=0, max_value=100, step=25)
+    feature_cityord = st.slider('City Ordinary %', min_value=0, max_value=100, step=25)
+    feature_metrolux = st.slider('Metro Express %', min_value=0, max_value=100, step=25)
 
-    # One-hot encoding the depot feature
-    if depot_feature == "Mahboobabad":
-        feature_7, feature_8, feature_9 = 1, 0, 0
-    elif depot_feature == "Mahboobnagar":
-        feature_7, feature_8, feature_9 = 0, 1, 0
+    # One-hot encoding for depot
+    if selected_depot == "Mahaboobabad":
+        feature_depot_mn, feature_depot_rg = 0, 0
+    elif selected_depot == "Mahaboobnagar":
+        feature_depot_mn, feature_depot_rg = 1, 0
     else:
-        feature_7, feature_8, feature_9 = 0, 0, 1
+        feature_depot_mn, feature_depot_rg = 0, 1
+        
+    # One-hot encoding for creatinine
+    feature_crea = 1 if feature_crea == "Normal" else 0
+        
+    # One-hot encoding for blood pressure
+    if feature_bp == "Normal":
+        feature_bp_norm, feature_bp_stage_1, feature_bp_stage_2, feature_bp_criti = 1, 0, 0, 0
+    elif feature_bp == "Elevated":
+        feature_bp_norm, feature_bp_stage_1, feature_bp_stage_2, feature_bp_criti = 0, 0, 0, 0
+    elif feature_bp == "Stage-1":
+        feature_bp_norm, feature_bp_stage_1, feature_bp_stage_2, feature_bp_criti = 0, 1, 0, 0
+    elif feature_bp == "Stage-2":
+        feature_bp_norm, feature_bp_stage_1, feature_bp_stage_2, feature_bp_criti = 0, 0, 1, 0
+    else:
+        feature_bp_norm, feature_bp_stage_1, feature_bp_stage_2, feature_bp_criti = 0, 0, 0, 1
+
+    # One-hot encoding for glucose
+    if feature_glu == "Normal":
+        feature_glu_norm, feature_glu_pre = 1, 0
+    elif feature_glu == "Pre-Diabetes":
+        feature_glu_norm, feature_glu_pre = 0, 1
+    else:
+        feature_glu_norm, feature_glu_pre = 0, 0
+
+    # One-hot encoding for bilirubin
+    feature_bili = 1 if feature_bili == "Normal" else 0
+        
+    # One-hot encoding for cholesterol
+    if feature_chole == "Normal":
+        feature_chole_norm, feature_chole_bord = 1, 0
+    elif feature_chole == "Borderline":
+        feature_chole_norm, feature_chole_bord = 0, 1
+    else:
+        feature_chole_norm, feature_chole_bord = 0, 0
+        
+    # One-hot encoding for ECG
+    feature_ECG = 1 if feature_ECG == "Within Limits" else 0
 
     # Store inputs in a data frame
-    input_data = pd.DataFrame([[feature_1, feature_2, feature_3, feature_4, feature_5, feature_6, 
-                                feature_7, feature_8, feature_9]],
-                              columns=['age', 'creatinine_value', 'blood_pressure_diastolic', 'glucose_random_value', 
-                                       'bilirubin_value', 'total_cholestrol', 
-                                       'depot_Mahaboobabad', 'depot_Mahaboobnagar', 'depot_Ranigunj-I'])
+    input_data = pd.DataFrame([[
+                                feature_age, 
+                                feature_depot_mn, 
+                                feature_depot_rg, 
+                                feature_crea, 
+                                feature_bp_criti,
+                                feature_bp_norm, 
+                                feature_bp_stage_1,
+                                feature_bp_stage_2,
+                                feature_glu_norm,
+                                feature_glu_pre, 
+                                feature_bili, 
+                                feature_chole_bord, 
+                                feature_chole_norm, 
+                                feature_ECG, 
+                                feature_night, 
+                                feature_palle, 
+                                feature_cityord, 
+                                feature_metrolux               
+                                ]],
+                        
+                                columns=[
+                                    'age', 
+                                    'depot_Mahaboobnagar', 
+                                    'depot_Ranigunj-I',
+                                    'creatinine_interpret_Normal', 
+                                    'blood_pressure_interpret_Hypertension Critical', 
+                                    'blood_pressure_interpret_Normal', 
+                                    'blood_pressure_interpret_Stage-1 Hypertension', 
+                                    'blood_pressure_interpret_Stage-2 Hypertension', 
+                                    'glucose_interpret_Normal',
+                                    'glucose_interpret_Prediabetes', 
+                                    'bilirubin_interpret_Normal',
+                                    'cholestrol_interpret_Borderline',
+                                    'cholestrol_interpret_Normal',
+                                    'ECG_interpret_Within Normal Limits',
+                                    'night_percent',
+                                    'palle_percent',
+                                    'cityord_percent',
+                                    'metroexp_percent'
+                                    ])
     
     st.subheader('Prediction')
 
+# age,
+# depot_Mahaboobnagar,
+# depot_Ranigunj-I,
+# creatinine_interpret_Normal,
+# blood_pressure_interpret_Hypertension Critical,
+# blood_pressure_interpret_Normal,
+# blood_pressure_interpret_Stage-1 Hypertension,
+# blood_pressure_interpret_Stage-2 Hypertension,
+# glucose_interpret_Normal,
+# glucose_interpret_Prediabetes,
+# bilirubin_interpret_Normal,
+# cholestrol_interpret_Borderline,
+# cholestrol_interpret_Normal,
+# ECG_interpret_Within Normal Limits,
+# night_percent,
+# palle_percent,
+# cityord_percent,
+# metroexp_percent    
+    
     # Prediction button
     if st.button('Predict Performance'):
-        if model is not None:
-            try:
-                # Make prediction
-                prediction = model.predict(input_data)
-                st.success(f'Annual Driver Productivity (in KM): {prediction[0]}')
-            except Exception as e:
-                st.error(f"Error during prediction: {e}")
+         
+        try:  
+            prediction = pipeline.make_prediction(input_data)  # Call the pipeline to make predictions            
+            st.success(f'Annual Driver Productivity (in Hours): {prediction[0] * 1000 + 500:.0f}')
+        except Exception as e:
+            st.error(f"Error during prediction: {e}")
         else:
             st.error("Model could not be loaded.")   
+            
+    st.header("2. Driver productivity potential (AI Tool)")
+    st.write("- See the potential for each driver in hours annually")
+    st.write("- Analyse the prediction and discuss with driver")
+    st.write("**Note: Accuracy of predictions will improve over time**")
+   
+    if data is not None:
+    
+        # Ensure the depot column exists
+        if 'depot' not in data.columns:
+            st.error("Depot column not found in dataset")
+        else:
+                
+            # Filter the data based on the selected depot
+            filtered_data7 = data[data['depot'] == selected_depot]
+            
+            if filtered_data7.empty:
+                st.warning("No data available for the selected depot.")
+            else:
+                               
+                filtered_data7['Prediction Value'] = None  # You can also use an empty string ""
+                
+                # Iterate over each driver in the DataFrame and make predictions
+            for index, row in filtered_data7.iterrows():
+                # Extract individual features
+                feature_age = row['age']
+                
+                # One-hot encoding for depot
+                if row['depot'] == "Mahaboobabad":
+                    feature_depot_mn, feature_depot_rg = 0, 0
+                elif selected_depot == "Mahaboobnagar":
+                    feature_depot_mn, feature_depot_rg = 1, 0
+                else:
+                    feature_depot_mn, feature_depot_rg = 0, 1
+                
+                # One-hot encoding for creatinine
+                feature_crea = 1 if row['creatinine_interpret'] == "Normal" else 0
+                
+                # One-hot encoding for blood pressure
+                if row['blood_pressure_interpret'] == "Normal":
+                    feature_bp_norm, feature_bp_stage_1, feature_bp_stage_2, feature_bp_criti = 1, 0, 0, 0
+                elif row['blood_pressure_interpret'] == "Elevated":
+                    feature_bp_norm, feature_bp_stage_1, feature_bp_stage_2, feature_bp_criti = 0, 0, 0, 0
+                elif row['blood_pressure_interpret'] == "Stage-1 Hypertension":
+                    feature_bp_norm, feature_bp_stage_1, feature_bp_stage_2, feature_bp_criti = 0, 1, 0, 0
+                elif row['blood_pressure_interpret'] == "Stage-2 Hypertension":
+                    feature_bp_norm, feature_bp_stage_1, feature_bp_stage_2, feature_bp_criti = 0, 0, 1, 0
+                else:
+                    feature_bp_norm, feature_bp_stage_1, feature_bp_stage_2, feature_bp_criti = 0, 0, 0, 1
+
+                # One-hot encoding for glucose
+                feature_glu_norm, feature_glu_pre = 0, 0
+                if row['glucose_interpret'] == "Normal":
+                    feature_glu_norm, feature_glu_pre = 1, 0
+                elif row['glucose_interpret'] == "Prediabetes":
+                    feature_glu_norm, feature_glu_pre = 0, 1
+
+                # One-hot encoding for bilirubin
+                feature_bili = 1 if row['bilirubin_interpret'] == "Normal" else 0
+
+                # One-hot encoding for cholesterol
+                feature_chole_norm, feature_chole_bord = 0, 0
+                if row['cholestrol_interpret'] == "Normal":
+                    feature_chole_norm, feature_chole_bord = 1, 0
+                elif row['cholestrol_interpret'] == "Borderline":
+                    feature_chole_norm, feature_chole_bord = 0, 1
+                
+                # One-hot encoding for ECG
+                feature_ECG = 1 if row['ECG_interpret'] == "Within Limits" else 0
+
+                # Extract numeric features
+                # Handle division by zero for each feature
+                feature_night = (row['night_schedules'] / row['tot_schedules'] * 100) if row['tot_schedules'] > 0 else 0
+                feature_palle = (row['palle_schedules'] / row['tot_schedules'] * 100) if row['tot_schedules'] > 0 else 0
+                feature_cityord = (row['cityord_schedules'] / row['tot_schedules'] * 100) if row['tot_schedules'] > 0 else 0
+                feature_metrolux = (row['metroexp_schedules'] / row['tot_schedules'] * 100) if row['tot_schedules'] > 0 else 0
+
+                # Create a DataFrame row for the current driver with all features
+                input_data = pd.DataFrame([[feature_age, feature_depot_mn, feature_depot_rg, feature_crea, feature_bp_criti, feature_bp_norm,
+                                            feature_bp_stage_1, feature_bp_stage_2, feature_glu_norm,
+                                            feature_glu_pre, feature_bili, feature_chole_bord, feature_chole_norm,
+                                            feature_ECG, feature_night, feature_palle, feature_cityord, feature_metrolux]],
+                                            columns=[
+                                            'age', 'depot_Mahaboobnagar', 'depot_Ranigunj-I','creatinine_interpret_Normal', 'blood_pressure_interpret_Hypertension Critical',
+                                            'blood_pressure_interpret_Normal', 'blood_pressure_interpret_Stage-1 Hypertension',
+                                            'blood_pressure_interpret_Stage-2 Hypertension', 'glucose_interpret_Normal',
+                                            'glucose_interpret_Prediabetes', 'bilirubin_interpret_Normal', 'cholestrol_interpret_Borderline',
+                                            'cholestrol_interpret_Normal', 'ECG_interpret_Within Normal Limits', 'night_percent',
+                                            'palle_percent', 'cityord_percent', 'metroexp_percent'])
+
+                # Predict the productivity using your prediction pipeline
+                prediction = pipeline.make_prediction(input_data)  # Call the prediction model
+                
+                # Store the predicted value in the DataFrame
+                filtered_data7.at[index, 'Predicted Value'] = prediction[0] * 1000 + 500
+                
+            selected_columns = filtered_data7[['employee_id','final_grading','hours','Predicted Value']]
+                
+            # Rename the columns
+            selected_columns = selected_columns.rename(columns={
+                'employee_id': 'Employee ID',
+                'final_grading': 'GHC2 Grade',
+                'hours': 'Annual Hours',
+                'Prediction Value': 'Driver Potential, Hours',
+                    
+                })
+                
+            st.write(f"**Driver productivity potential for : {selected_depot}**")
+            st.dataframe(selected_columns)  
+    else:
+            st.error("Failed to load data.") 
                 
 
 def productivity_dashboard():
     st.title("TGSRTC   ESG   DASHBOARD")
-    st.header("Productivity Dashboard (Data)")
-     
+    st.header("1. Annual Depot Productivity FY 2023-24, KM")
+    st.write("- Some drivers have very high KM/Year; many drivers have low productivity")
+    st.write("- On the graph, identify the drivers with very high KM and with very low KM")  
+    st.write("- Highly stressed drivers are at risk of burnout")  
+    st.write("- Reasons for low productivity needs to be understood and addressed")  
     # Display the data
     #st.write(data)  
 
@@ -107,9 +314,9 @@ def productivity_dashboard():
             st.error("Depot column not found in dataset")
         else:
         # Create a depot filter
-            depot_options = data['depot'].unique()  # Get unique depot values
-            selected_depot = st.selectbox("Select Depot:", depot_options, key='depot_select')
-        
+            #depot_options = data['depot'].unique()  # Get unique depot values
+            #selected_depot = st.selectbox("Select Depot:", depot_options, key='depot_select')
+            
             # Filter the data based on the selected depot
             filtered_data = data[data['depot'] == selected_depot]
             
@@ -120,77 +327,51 @@ def productivity_dashboard():
             sorted_data = filtered_data.sort_values(by='tot_opd_kms', ascending=False)
             
             # Calculate the average of tot_opd_kms
-            average_opd_kms = sorted_data['tot_opd_kms'].mean()
+            median_opd_kms = sorted_data['tot_opd_kms'].median()
+            
+            # Calculate a dynamic width based on the number of bars (employee IDs)
+            num_bars = len(sorted_data)
+            bar_width = 10  # You can adjust this value to make the bars wider or narrower
+            chart_width = num_bars * bar_width
         
             if filtered_data.empty:
                 st.warning("No data available for the selected depot.")
             else:
-                # Create the bar graph with matplotlib
-                fig, ax = plt.subplots()
-                ax.bar(sorted_data['employee_id'], sorted_data['tot_opd_kms'])
-                ax.set_xlabel('Employee ID')
-                ax.set_ylabel('Annual kilometers per driver')
-                ax.set_title(f'Productivity by Employee: {selected_depot}')
+                                
+                # Create a bar chart using Altair with hover annotations and sorted data
+                bar_chart = alt.Chart(sorted_data).mark_bar().encode(
+                    x=alt.X('employee_id', sort=None, title='Employee ID', 
+                            axis=alt.Axis(ticks=False, labels=False)),  # Remove tick marks and set label angle to prevent truncation
+                    y=alt.Y('tot_opd_kms', title='Total OPD Kilometers'),  # Add label for y-axis
+                    tooltip=['employee_id', 'tot_opd_kms']
+                ).properties(
+                    title=f'Productivity by Employee: {selected_depot}',  # Correctly display selected depot in the title
+                    width=chart_width
+                )
 
-                # Hide x-axis tick labels
-                ax.set_xticks([])
-                
-                # Add a red average line
-                ax.axhline(average_opd_kms, color='red', linestyle='--', label=f'Average: {average_opd_kms:.2f}')
-                
-                # Show legend
-                ax.legend()
-                
-                # Display the plot in Streamlit
-                st.pyplot(fig)
-    else:
-            st.error("Failed to load data.") 
-    
-    #PRODUCTIVITY VS AGE GRAPH
-    
-    # Check if data loaded correctly
-    if data is not None:
-    
-        # Ensure the depot column exists
-        if 'depot' not in data.columns:
-            st.error("Depot column not found in dataset")
-        else:
-        # Create a depot filter
-            depot_options1 = data['depot'].unique()  # Get unique depot values
-            selected_depot1 = st.selectbox("Select Depot:", depot_options1, key ='depot_select1')
-        
-            # Filter the data based on the selected depot
-            filtered_data1 = data[data['depot'] == selected_depot1]
-            
-            # Calculate the average of tot_opd_kms
-            average_opd_kms1 = filtered_data1['tot_opd_kms'].mean()
-        
-            if filtered_data1.empty:
-                st.warning("No data available for the selected depot.")
-            else:
-                # Create the bar graph with matplotlib
-                fig, ax = plt.subplots()
-                ax.bar(filtered_data1['age'], filtered_data1['tot_opd_kms'])
-                ax.set_xlabel('Age, Years')
-                ax.set_ylabel('Annual kilometers per driver')
-                ax.set_title(f'Avg productivity by Age: {selected_depot1}')
+                # Create a red dotted line at the median value
+                median_line = alt.Chart(pd.DataFrame({'median_opd_kms': [median_opd_kms]})).mark_rule(
+                    color='red',
+                    strokeDash=[5, 5]  # Dotted line
+                ).encode(
+                    y='median_opd_kms:Q'  # Specify the y-axis for the median line
+                )
 
-                # Hide x-axis tick labels
-                ax.set_xticks([])
-                
-                # Add a red average line
-                ax.axhline(average_opd_kms1, color='red', linestyle='--', label=f'Average: {average_opd_kms1:.2f}')
-                
-                # Show legend
-                ax.legend()
-                
-                # Display the plot in Streamlit
-                st.pyplot(fig)
+                # Combine the bar chart and the median line
+                final_chart = bar_chart + median_line
+
+                # Display the chart in Streamlit
+                st.altair_chart(final_chart, use_container_width=True)
     else:
-            st.error("Failed to load data.") 
-            
+                st.error("Failed to load data.") 
+    
+               
     #ABSENTEEISM BY DEPOT
     # Check if data loaded correctly
+    st.header("2. Annual Depot Absenteeism FY 2023-24, Days")
+    st.write("- Some drivers have very high absenteeism (Absent+Leave+Sick Leave); many drivers have low absenteeism")
+    st.write("- On the graph identify the derivers with very high and very low absenteeism")
+    st.write("- Reasons for high absenteeism should be understood; very low absenteeism should also be discouraged")
     if data is not None:
     
         # Ensure the depot column exists
@@ -198,57 +379,64 @@ def productivity_dashboard():
             st.error("Depot column not found in dataset")
         else:
         # Create a depot filter
-            depot_options4 = data['depot'].unique()  # Get unique depot values
-            selected_depot4 = st.selectbox("Select Depot:", depot_options4, key='depot_select4')
+            #depot_options4 = data['depot'].unique()  # Get unique depot values
+            #selected_depot4 = st.selectbox("Select Depot:", depot_options4, key='depot_select4')
         
             # Filter the data based on the selected depot
-            filtered_data4 = data[data['depot'] == selected_depot4]
+            filtered_data4 = data[data['depot'] == selected_depot]
             
             # Ensure that employee_id is treated as text
             filtered_data4['employee_id'] = filtered_data4['employee_id'].astype(str)
             
             # Sort data by tot_opd_kms in ascending order
-            sorted_data4 = filtered_data4.sort_values(by='absent_days', ascending=False)
+            sorted_data4 = filtered_data4.sort_values(by='hours', ascending=False)
             
             # Calculate the average of tot_opd_kms
-            average_absent_days = sorted_data4['absent_days'].mean()
+            median_hours = sorted_data4['hours'].median()
+        
+            num_bars = len(sorted_data4)
+            bar_width = 10  # You can adjust this value to make the bars wider or narrower
+            chart_width = num_bars * bar_width
         
             if filtered_data.empty:
                 st.warning("No data available for the selected depot.")
             else:
-                # Create the bar graph with matplotlib
-                fig, ax = plt.subplots()
-                ax.bar(sorted_data4['employee_id'], sorted_data4['absent_days'])
-                ax.set_xlabel('Employee ID')
-                ax.set_ylabel('Annual absent days per driver')
-                ax.set_title(f'Absenteeism by Employee: {selected_depot4}')
+                                
+                # Create a bar chart using Altair with hover annotations and sorted data
+                bar_chart = alt.Chart(sorted_data4).mark_bar().encode(
+                    x=alt.X('employee_id', sort=None, title='Employee ID', 
+                            axis=alt.Axis(ticks=False, labels=False)),  # Remove tick marks and set label angle to prevent truncation
+                    y=alt.Y('hours', title='Total Absent Days - A+L+SL'),  # Add label for y-axis
+                    tooltip=['employee_id', 'hours']
+                ).properties(
+                    title=f'Absenteeism by Employee: {selected_depot}',  # Correctly display selected depot in the title
+                    width=chart_width
+                )
 
-                # Hide x-axis tick labels
-                ax.set_xticks([])
-                
-                # Add a red average line
-                ax.axhline(average_absent_days, color='red', linestyle='--', label=f'Average: {average_absent_days:.2f}')
-                
-                # Show legend
-                ax.legend()
-                
-                # Display the plot in Streamlit
-                st.pyplot(fig)
+                # Create a red dotted line at the median value
+                median_line = alt.Chart(pd.DataFrame({'median_hours': [median_hours]})).mark_rule(
+                    color='red',
+                    strokeDash=[5, 5]  # Dotted line
+                ).encode(
+                    y='median_hours:Q'  # Specify the y-axis for the median line
+                )
+
+                # Combine the bar chart and the median line
+                final_chart = bar_chart + median_line
+
+                # Display the chart in Streamlit
+                st.altair_chart(final_chart, use_container_width=True)
     else:
             st.error("Failed to load data.") 
 
-def key_productivity_factors():
-    st.title("TGSRTC   ESG   DASHBOARD")
-    st.header("Health factors impacting productivity")
-    st.text("AI model being developed")
-    
-def health_dashboard():
-    st.title("TGSRTC   ESG   DASHBOARD")
-    st.header("Health Dashboard")
-    
-    #CREATININE VS AGE
-    
+
+    #PRODUCTIVITY IN HOURS
     # Check if data loaded correctly
+    st.header("3. Annual Depot Productivity FY 2023-24, Hours")
+
+    st.write("- Hours is a better measure of productivity as normalizes the different bus services like slow city routes and fast inter city services etc.")
+    st.write("- Go to the graph to identify the really over worked employees and employees who are unable to work")
+    
     if data is not None:
     
         # Ensure the depot column exists
@@ -256,48 +444,61 @@ def health_dashboard():
             st.error("Depot column not found in dataset")
         else:
         # Create a depot filter
-            depot_options2 = data['depot'].unique()  # Get unique depot values
-            selected_depot2 = st.selectbox("Select Depot:", depot_options2, key ='depot_select2')
+            #depot_options8 = data['depot'].unique()  # Get unique depot values
+            #selected_depot8 = st.selectbox("Select Depot:", depot_options8, key='depot_select8')
         
             # Filter the data based on the selected depot
-            filtered_data2 = data[data['depot'] == selected_depot2]
+            filtered_data8 = data[data['depot'] == selected_depot]
             
             # Ensure that employee_id is treated as text
-            filtered_data2['employee_id'] = filtered_data2['employee_id'].astype(str)
+            filtered_data8['employee_id'] = filtered_data8['employee_id'].astype(str)
             
             # Sort data by tot_opd_kms in ascending order
-            sorted_data2 = filtered_data2.sort_values(by='creatinine_value', ascending=False)
+            sorted_data8 = filtered_data8.sort_values(by='hours', ascending=False)
             
             # Calculate the average of tot_opd_kms
-            average_creatinine_value = filtered_data2['creatinine_value'].mean()
-            
-            if filtered_data2.empty:
+            median_hours = sorted_data8['hours'].median()
+        
+            num_bars = len(sorted_data8)
+            bar_width = 10  # You can adjust this value to make the bars wider or narrower
+            chart_width = num_bars * bar_width
+        
+            if filtered_data.empty:
                 st.warning("No data available for the selected depot.")
             else:
-                # Create the bar graph with matplotlib
-                fig, ax = plt.subplots()
-                ax.bar(sorted_data2['employee_id'], sorted_data2['creatinine_value'])
-                ax.set_xlabel('Employee ID')
-                ax.set_ylabel('Creatinine Value')
-                ax.set_title(f'Creatinine Value By Age: {selected_depot2}')
+                                
+                # Create a bar chart using Altair with hover annotations and sorted data
+                bar_chart = alt.Chart(sorted_data8).mark_bar().encode(
+                    x=alt.X('employee_id', sort=None, title='Employee ID', 
+                            axis=alt.Axis(ticks=False, labels=False)),  # Remove tick marks and set label angle to prevent truncation
+                    y=alt.Y('hours', title='Total Hours'),  # Add label for y-axis
+                    tooltip=['employee_id', 'hours']
+                ).properties(
+                    title=f'Annual Productivity by Employee (Hours): {selected_depot}',  # Correctly display selected depot in the title
+                    width=chart_width
+                )
 
-                # Hide x-axis tick labels
-                ax.set_xticks([])
-                
-                # Add a red average line
-                ax.axhline(average_creatinine_value, color='red', linestyle='--', label=f'Average: {average_creatinine_value:.2f}')
-                
-                # Show legend
-                ax.legend()
-                
-                # Display the plot in Streamlit
-                st.pyplot(fig)
+                # Create a red dotted line at the median value
+                median_line = alt.Chart(pd.DataFrame({'median_hours': [median_hours]})).mark_rule(
+                    color='red',
+                    strokeDash=[5, 5]  # Dotted line
+                ).encode(
+                    y='median_hours:Q'  # Specify the y-axis for the median line
+                )
+
+                # Combine the bar chart and the median line
+                final_chart = bar_chart + median_line
+
+                # Display the chart in Streamlit
+                st.altair_chart(final_chart, use_container_width=True)
     else:
-            st.error("Failed to load data.") 
-   
-   #BLOOD_PRESSURE VS AGE
-   
-    # Check if data loaded correctly
+            st.error("Failed to load data.")
+            
+                       
+# Productivity by Cholestrol Level
+    st.header("4. Annual Depot Productivity (Hours) FY 2023-24 by Cholestrol Level (GHC2)")
+    st.write("- Blue box indicates where most drivers productivity levels are")
+    st.write("- Red circles indicate individual depot drivers")
     if data is not None:
     
         # Ensure the depot column exists
@@ -305,180 +506,468 @@ def health_dashboard():
             st.error("Depot column not found in dataset")
         else:
         # Create a depot filter
-            depot_options3 = data['depot'].unique()  # Get unique depot values
-            selected_depot3 = st.selectbox("Select Depot:", depot_options3, key ='depot_select3')
+            #depot_options7 = data['depot'].unique()  # Get unique depot values
+            #selected_depot7 = st.selectbox("Select Depot:", depot_options7, key ='depot_select7')
         
             # Filter the data based on the selected depot
-            filtered_data3 = data[data['depot'] == selected_depot3]
-            
-            # Calculate the average of tot_opd_kms
-            average_blood_pressure_value = filtered_data3['blood_pressure_diastolic'].mean()
-            
-            if filtered_data3.empty:
-                st.warning("No data available for the selected depot.")
-            else:
-                # Create the bar graph with matplotlib
-                fig, ax = plt.subplots()
-                ax.bar(filtered_data3['age'], filtered_data3['blood_pressure_diastolic'])
-                ax.set_xlabel('Age, Years')
-                ax.set_ylabel('Blood Pressure Diastolic')
-                ax.set_title(f'Blood pressure By Age: {selected_depot3}')
-
-                 # Hide x-axis tick labels
-                ax.set_xticks([])
-                
-                # Add a red average line
-                ax.axhline(average_blood_pressure_value, color='red', linestyle='--', label=f'Average: {average_blood_pressure_value:.2f}')
-                
-                # Show legend
-                ax.legend()
-                
-                # Display the plot in Streamlit
-                st.pyplot(fig)
-    else:
-            st.error("Failed to load data.") 
-            
-    #BLOOD GLUCOSE VS AGE
-   
-    # Check if data loaded correctly
-    if data is not None:
-    
-        # Ensure the depot column exists
-        if 'depot' not in data.columns:
-            st.error("Depot column not found in dataset")
-        else:
-        # Create a depot filter
-            depot_options5 = data['depot'].unique()  # Get unique depot values
-            selected_depot5 = st.selectbox("Select Depot:", depot_options5, key ='depot_select5')
-        
-            # Filter the data based on the selected depot
-            filtered_data5 = data[data['depot'] == selected_depot5]
-            
-            # Calculate the average of tot_opd_kms
-            average_glucose_random_value = filtered_data5['glucose_random_value'].mean()
-            
-            if filtered_data3.empty:
-                st.warning("No data available for the selected depot.")
-            else:
-                # Create the bar graph with matplotlib
-                fig, ax = plt.subplots()
-                ax.bar(filtered_data5['age'], filtered_data5['glucose_random_value'])
-                ax.set_xlabel('Age, Years')
-                ax.set_ylabel('Blood Glucose')
-                ax.set_title(f'Blood Glucose By Age: {selected_depot5}')
-
-                 # Hide x-axis tick labels
-                ax.set_xticks([])
-                
-                # Add a red average line
-                ax.axhline(average_glucose_random_value, color='red', linestyle='--', label=f'Average: {average_glucose_random_value:.2f}')
-                
-                # Show legend
-                ax.legend()
-                
-                # Display the plot in Streamlit
-                st.pyplot(fig)
-    else:
-            st.error("Failed to load data.") 
-            
-    # Check if data loaded correctly
-    if data is not None:
-    
-        # Ensure the depot column exists
-        if 'depot' not in data.columns:
-            st.error("Depot column not found in dataset")
-        else:
-        # Create a depot filter
-            depot_options6 = data['depot'].unique()  # Get unique depot values
-            selected_depot6 = st.selectbox("Select Depot:", depot_options6, key ='depot_select6')
-        
-            # Filter the data based on the selected depot
-            filtered_data6 = data[data['depot'] == selected_depot6]
-            
-            # Calculate the average of tot_opd_kms
-            #average_glucose_random_value = filtered_data5['glucose_random_value'].mean()
+            filtered_data7 = data[data['depot'] == selected_depot]
             
             # Sort data by tot_opd_kms in ascending order
-            sorted_data6 = filtered_data6.sort_values(by='final_grading', ascending=True)
+            sorted_data7 = filtered_data7.sort_values(by='final_grading', ascending=True)
             
-            if filtered_data6.empty:
+            if filtered_data7.empty:
                 st.warning("No data available for the selected depot.")
             else:
                 # Create the bar graph with matplotlib
-                fig, ax = plt.subplots()
-                sns.boxplot(x='final_grading', y='glucose_random_value', data=sorted_data6, ax=ax)
-                ax.set_xlabel('Health Grade')
-                ax.set_ylabel('Blood Glucose')
-                ax.set_title(f'Blood Glucose By Health Grade: {selected_depot6}')
+                                
+                # Create a box plot
+                box_plot = alt.Chart(sorted_data7).mark_boxplot(size=60).encode(
+                    x=alt.X('final_grading:N', title='Cholestrol Level'),
+                    y=alt.Y('tot_opd_kms:Q', title='Annual KMs Per Driver')
+                ).properties(
+                    title=f'Annual KMs By Cholestrol Level: {selected_depot}'
+                )
+                
+                # Create a swarm plot (jittered points)
+                swarm_plot = alt.Chart(sorted_data7).mark_point(
+                    color='red',
+                    size=60
+                ).encode(
+                    x=alt.X('final_grading:N', title='Cholestrol Level'),
+                    y=alt.Y('tot_opd_kms:Q', title='Annual KMs Per Driver'),
+                    tooltip=['employee_id', 'tot_opd_kms']
+                ).transform_calculate(
+                    jitter='sqrt(-2*log(random()))*cos(2*PI*random())'  # Simulate jittering
+                ).encode(
+                    x=alt.X('final_grading:N', title='Cholestrol Level', axis=alt.Axis(labelAngle=0)),
+                    y=alt.Y('tot_opd_kms:Q', title='Annual KMs Per Driver')
+                )
+                
+                # Combine both the box plot and the swarm plot
+                final_chart = box_plot + swarm_plot
 
+                # Display the chart in Streamlit
+                st.altair_chart(final_chart, use_container_width=True)
+    else:
+            st.error("Failed to load data.") 
+
+# PAbsenteeism by Cholestrol Level
+    st.header("5. Annual Depot Absenteeism (Days) FY 2023-24 by Cholestrol Level (GHC2)")
+    st.write("- Blue box indicates where most drivers absent levels are")
+    st.write("- Red circles indicate individual depot drivers")
+    if data is not None:
+    
+        # Ensure the depot column exists
+        if 'depot' not in data.columns:
+            st.error("Depot column not found in dataset")
+        else:
+        # Create a depot filter
+            #depot_options7 = data['depot'].unique()  # Get unique depot values
+            #selected_depot7 = st.selectbox("Select Depot:", depot_options7, key ='depot_select7')
+        
+            # Filter the data based on the selected depot
+            filtered_data7 = data[data['depot'] == selected_depot]
+            
+            # Sort data by tot_opd_kms in ascending order
+            sorted_data7 = filtered_data7.sort_values(by='final_grading', ascending=True)
+            
+            if filtered_data7.empty:
+                st.warning("No data available for the selected depot.")
+            else:
+                # Create the bar graph with matplotlib
+                                
+                # Create a box plot
+                box_plot = alt.Chart(sorted_data7).mark_boxplot(size=60).encode(
+                    x=alt.X('final_grading:N', title='Cholestrol Level'),
+                    y=alt.Y('hours:Q', title='Absent Days - A+L+SL')
+                ).properties(
+                    title=f'Annual Absent Days By Cholestrol Level: {selected_depot}'
+                )
                 
-                # Add a red average line
-                #ax.axhline(average_glucose_random_value, color='red', linestyle='--', label=f'Average: {average_glucose_random_value:.2f}')
+                # Create a swarm plot (jittered points)
+                swarm_plot = alt.Chart(sorted_data7).mark_point(
+                    color='red',
+                    size=60
+                ).encode(
+                    x=alt.X('final_grading:N'),
+                    y=alt.Y('hours:Q'),
+                    tooltip=['employee_id', 'hours']
+                ).transform_calculate(
+                    jitter='sqrt(-2*log(random()))*cos(2*PI*random())'  # Simulate jittering
+                ).encode(
+                    x=alt.X('final_grading:N', title='Cholestrol Level', axis=alt.Axis(labelAngle=0)),
+                    #y=alt.Y('hours:Q', title='Annual absent days Per Driver')
+                )
                 
-                # Show legend
-                ax.legend()
+                # Combine both the box plot and the swarm plot
+                final_chart = box_plot + swarm_plot
+
+                # Display the chart in Streamlit
+                st.altair_chart(final_chart, use_container_width=True)
+    else:
+            st.error("Failed to load data.") 
+
+
+    # DRIVER DATA
+    st.header("6. Driver productivity data")
+    st.write("- See their relative performance in the above graphs")
+    st.write("- Discuss reasons for performance")
+    st.write("- Sort the date in the table by clicking on the header")
+    if data is not None:
+    
+        # Ensure the depot column exists
+        if 'depot' not in data.columns:
+            st.error("Depot column not found in dataset")
+        else:
                 
-                # Display the plot in Streamlit
-                st.pyplot(fig)
+            # Filter the data based on the selected depot
+            filtered_data7 = data[data['depot'] == selected_depot]
+            
+            if filtered_data7.empty:
+                st.warning("No data available for the selected depot.")
+            else:
+                selected_columns = filtered_data7[['employee_id','tot_opd_kms','hours','absent_days','final_grading']]
+                # Display the table in Streamlit
+                
+                # Rename the columns
+                selected_columns = selected_columns.rename(columns={
+                    'employee_id': 'Employee ID',
+                    'tot_opd_kms': 'Annual KM',
+                    'hours': 'Annual Hours',
+                    'absent_days': 'Annual Absent Days',
+                    'final_grading': 'GHC2 Grade'
+                })
+                
+                st.write(f"**Driver Productivity and Health Data FY 2023-24 for : {selected_depot}**")
+                st.dataframe(selected_columns)  
+    else:
+            st.error("Failed to load data.") 
+
+
+
+def health_dashboard():
+    st.title("TGSRTC   ESG   DASHBOARD")
+    st.header("1. Benchmarking health and productivity of a specific driver")
+    
+    if data is not None:
+    
+        # Ensure the depot column exists
+        if 'depot' not in data.columns:
+            st.error("Depot column not found in dataset")
+        else:
+        # Create a depot filter
+            #depot_options7 = data['depot'].unique()  # Get unique depot values
+            #selected_depot7 = st.selectbox("Select Depot:", depot_options7, key ='depot_select7')
+        
+            # Filter the data based on the selected depot
+            filtered_data7 = data[data['depot'] == selected_depot]
+            
+            # Get the employee_id column for the selected depot
+            employee_ids = filtered_data7['employee_id'].tolist()
+            
+            # Sort data by tot_opd_kms in ascending order
+            sorted_data7 = filtered_data7.sort_values(by='final_grading', ascending=True)
+            
+            # Create a selection box with employee_ids from the filtered depot
+            selected_employee = st.sidebar.selectbox("Select a depot driver", employee_ids)
+            st.write(f"Yellow dot in the graph below shows the selected employee: {selected_employee}")
+                        
+            if filtered_data7.empty:
+                st.warning("No data available for the selected depot.")
+            else:
+                # Create the bar graph with matplotlib
+                                
+                # Create a box plot
+                box_plot = alt.Chart(sorted_data7).mark_boxplot(size=60).encode(
+                    x=alt.X('final_grading:N', title='Cholestrol Level'),
+                    y=alt.Y('tot_opd_kms:Q', title='Annual KMs Per Driver')
+                ).properties(
+                    title=f'Annual KMs By Cholestrol Level: {selected_depot}'
+                )
+                
+                # Create a swarm plot (jittered points)
+                swarm_plot = alt.Chart(sorted_data7).mark_point(
+                    color='red',
+                    size=60
+                ).encode(
+                    x=alt.X('final_grading:N', title='Cholestrol Level'),
+                    y=alt.Y('tot_opd_kms:Q', title='Annual KMs Per Driver'),
+                    tooltip=['employee_id', 'tot_opd_kms']
+                ).transform_calculate(
+                    jitter='sqrt(-2*log(random()))*cos(2*PI*random())'  # Simulate jittering
+                ).encode(
+                    x=alt.X('final_grading:N', title='Cholestrol Level', axis=alt.Axis(labelAngle=0)),
+                    y=alt.Y('tot_opd_kms:Q', title='Annual KMs Per Driver')
+                )
+                
+                # Highlight the selected employee with a larger yellow dot
+                highlighted_employee = alt.Chart(sorted_data7[sorted_data7['employee_id'] == selected_employee]).mark_point(
+                    color='yellow',
+                    size=250, filled=True
+                ).encode(
+                    x=alt.X('final_grading:N', title='Cholestrol Level'),
+                    y=alt.Y('tot_opd_kms:Q'),
+                    tooltip=['employee_id', 'tot_opd_kms']
+                )
+
+                # Combine the box plot, swarm plot, highlighted employee point, and the custom legend
+                final_chart = (box_plot + swarm_plot + highlighted_employee)
+              
+                # Display the chart in Streamlit
+                st.altair_chart(final_chart, use_container_width=True)
+    else:
+            st.error("Failed to load data.") 
+    
+    #HOURS OF A SPECIFIC DRIVER        
+    st.header("2. Benchmarking health and hours of a specific driver")
+    st.write(f"Yellow dot in the graph below shows the selected employee: {selected_employee}")
+    if data is not None:
+    
+        # Ensure the depot column exists
+        if 'depot' not in data.columns:
+            st.error("Depot column not found in dataset")
+        else:
+        # Create a depot filter
+                                    
+            if filtered_data7.empty:
+                st.warning("No data available for the selected depot.")
+            else:
+                # Create the bar graph with matplotlib
+                                
+                # Create a box plot
+                box_plot = alt.Chart(sorted_data7).mark_boxplot(size=60).encode(
+                    x=alt.X('final_grading:N', title='Cholestrol Level'),
+                    y=alt.Y('hours:Q', title='Annual hours per Driver')
+                ).properties(
+                    title=f'Annual hours By Cholestrol Level: {selected_depot}'
+                )
+                
+                # Create a swarm plot (jittered points)
+                swarm_plot = alt.Chart(sorted_data7).mark_point(
+                    color='red',
+                    size=60
+                ).encode(
+                    x=alt.X('final_grading:N', title='Cholestrol Level'),
+                    y=alt.Y('hours:Q', title='Annual hours per Driver'),
+                    tooltip=['employee_id', 'hours']
+                ).transform_calculate(
+                    jitter='sqrt(-2*log(random()))*cos(2*PI*random())'  # Simulate jittering
+                ).encode(
+                    x=alt.X('final_grading:N', title='Cholestrol Level', axis=alt.Axis(labelAngle=0)),
+                    y=alt.Y('hours:Q', title='Annual hours per Driver')
+                )
+                
+                # Highlight the selected employee with a larger yellow dot
+                highlighted_employee = alt.Chart(sorted_data7[sorted_data7['employee_id'] == selected_employee]).mark_point(
+                    color='yellow',
+                    size=250, filled=True
+                ).encode(
+                    x=alt.X('final_grading:N', title='Cholestrol Level'),
+                    y=alt.Y('hours:Q'),
+                    tooltip=['employee_id', 'hours']
+                )
+
+                # Combine the box plot, swarm plot, highlighted employee point, and the custom legend
+                final_chart = (box_plot + swarm_plot + highlighted_employee)
+              
+                # Display the chart in Streamlit
+                st.altair_chart(final_chart, use_container_width=True)
+    else:
+            st.error("Failed to load data.") 
+    
+    
+    #ABSENTEEISM OF A SPECIFIC DRIVER        
+    st.header("3. Benchmarking health and absenteeism of a specific driver")
+    st.write(f"Yellow dot in the graph below shows the selected employee: {selected_employee}")
+    if data is not None:
+    
+        # Ensure the depot column exists
+        if 'depot' not in data.columns:
+            st.error("Depot column not found in dataset")
+        else:
+        # Create a depot filter
+                                    
+            if filtered_data7.empty:
+                st.warning("No data available for the selected depot.")
+            else:
+                # Create the bar graph with matplotlib
+                                
+                # Create a box plot
+                box_plot = alt.Chart(sorted_data7).mark_boxplot(size=60).encode(
+                    x=alt.X('final_grading:N', title='Cholestrol Level'),
+                    y=alt.Y('hours:Q', title='Annual Absenteeism per Driver')
+                ).properties(
+                    title=f'Annual Absenteeism By Cholestrol Level: {selected_depot}'
+                )
+                
+                # Create a swarm plot (jittered points)
+                swarm_plot = alt.Chart(sorted_data7).mark_point(
+                    color='red',
+                    size=60
+                ).encode(
+                    x=alt.X('final_grading:N', title='Cholestrol Level'),
+                    y=alt.Y('hours:Q', title='Annual Absenteeism per Driver'),
+                    tooltip=['employee_id', 'hours']
+                ).transform_calculate(
+                    jitter='sqrt(-2*log(random()))*cos(2*PI*random())'  # Simulate jittering
+                ).encode(
+                    x=alt.X('final_grading:N', title='Cholestrol Level', axis=alt.Axis(labelAngle=0)),
+                    y=alt.Y('hours:Q', title='Annual Absenteeism per Driver')
+                )
+                
+                # Highlight the selected employee with a larger yellow dot
+                highlighted_employee = alt.Chart(sorted_data7[sorted_data7['employee_id'] == selected_employee]).mark_point(
+                    color='yellow',
+                    size=250, filled=True
+                ).encode(
+                    x=alt.X('final_grading:N', title='Cholestrol Level'),
+                    y=alt.Y('hours:Q'),
+                    tooltip=['employee_id', 'hours']
+                )
+
+                # Combine the box plot, swarm plot, highlighted employee point, and the custom legend
+                final_chart = (box_plot + swarm_plot + highlighted_employee)
+              
+                # Display the chart in Streamlit
+                st.altair_chart(final_chart, use_container_width=True)
     else:
             st.error("Failed to load data.") 
             
-def absenteeism_calc():
-    st.title("TGSRTC   ESG   DASHBOARD")
-    st.header("Employee Absenteeism (AI)")
-    st.text("Predict leaves based on health records. AI model under development")
+    #GLUCOSE OF A SPECIFIC DRIVER        
+    st.header("4. Benchmarking Glucose and hours of a specific driver")
+    st.write(f"Yellow dot in the graph below shows the selected employee: {selected_employee}")
+    if data is not None:
     
-def health_calc():
-    st.title("TGSRTC   ESG   DASHBOARD")
-    st.header("Health Calculator (AI)")
-    st.text("Predict Health Grade Based on Health Record")
+        # Ensure the depot column exists
+        if 'depot' not in data.columns:
+            st.error("Depot column not found in dataset")
+        else:
+        # Create a depot filter
+                                    
+            if filtered_data7.empty:
+                st.warning("No data available for the selected depot.")
+            else:
+                # Create the bar graph with matplotlib
+                                
+                # Create a box plot
+                box_plot = alt.Chart(sorted_data7).mark_boxplot(size=60).encode(
+                    x=alt.X('glucose_interpret:N', title='Sugar Level', sort=['Normal', 'Prediabetes', 'Diabetes']),
+                    y=alt.Y('hours:Q', title='Annual hours per Driver')
+                ).properties(
+                    title=f'Annual hours By Sugar Level: {selected_depot}'
+                )
+                
+                # Create a swarm plot (jittered points)
+                swarm_plot = alt.Chart(sorted_data7).mark_point(
+                    color='red',
+                    size=60
+                ).encode(
+                    x=alt.X('glucose_interpret:N', title='Sugar Level', sort=['Normal', 'Prediabetes', 'Diabetes']),
+                    y=alt.Y('hours:Q', title='Annual hours per Driver'),
+                    tooltip=['employee_id', 'hours']
+                ).transform_calculate(
+                    jitter='sqrt(-2*log(random()))*cos(2*PI*random())'  # Simulate jittering
+                ).encode(
+                    x=alt.X('glucose_interpret:N', title='Sugar Level', axis=alt.Axis(labelAngle=0), sort=['Normal', 'Prediabetes', 'Diabetes']),
+                    y=alt.Y('hours:Q', title='Annual hours per Driver')
+                )
+                
+                # Highlight the selected employee with a larger yellow dot
+                highlighted_employee = alt.Chart(sorted_data7[sorted_data7['employee_id'] == selected_employee]).mark_point(
+                    color='yellow',
+                    size=250, filled=True
+                ).encode(
+                    x=alt.X('glucose_interpret:N', title='Sugar Level', sort=['Normal', 'Prediabetes', 'Diabetes']),
+                    y=alt.Y('hours:Q'),
+                    tooltip=['employee_id', 'hours']
+                )
+
+                # Combine the box plot, swarm plot, highlighted employee point, and the custom legend
+                final_chart = (box_plot + swarm_plot + highlighted_employee)
+              
+                # Display the chart in Streamlit
+                st.altair_chart(final_chart, use_container_width=True)
+    else:
+            st.error("Failed to load data.") 
+            
+    #BP OF A SPECIFIC DRIVER        
+    st.header("5. Benchmarking BP and hours of a specific driver")
+    st.write(f"Yellow dot in the graph below shows the selected employee: {selected_employee}")
+    if data is not None:
     
-def key_health_factors():
-    st.title("TGSRTC   ESG   DASHBOARD")
-    st.header("Key Health Factors (AI)")
-    st.text("Operational factors that impact health. AI model under development")
+        # Ensure the depot column exists
+        if 'depot' not in data.columns:
+            st.error("Depot column not found in dataset")
+        else:
+        # Create a depot filter
+                                    
+            if filtered_data7.empty:
+                st.warning("No data available for the selected depot.")
+            else:
+                # Create the bar graph with matplotlib
+                                
+                # Create a box plot
+                box_plot = alt.Chart(sorted_data7).mark_boxplot(size=60).encode(
+                    x=alt.X('blood_pressure_interpret:N', title='BP Level', sort=['Normal','Elevated','Stage-1 Hypertension','Stage-2 Hypertension','Hypertension Critical']),
+                    y=alt.Y('hours:Q', title='Annual hours per Driver')
+                ).properties(
+                    title=f'Annual hours By BP Level: {selected_depot}'
+                )
+                
+                # Create a swarm plot (jittered points)
+                swarm_plot = alt.Chart(sorted_data7).mark_point(
+                    color='red',
+                    size=60
+                ).encode(
+                    x=alt.X('blood_pressure_interpret:N', title='BP Level', sort=['Normal','Elevated','Stage-1 Hypertension','Stage-2 Hypertension','Hypertension Critical']),
+                    y=alt.Y('hours:Q', title='Annual hours per Driver'),
+                    tooltip=['employee_id', 'hours']
+                ).transform_calculate(
+                    jitter='sqrt(-2*log(random()))*cos(2*PI*random())'  # Simulate jittering
+                ).encode(
+                    x=alt.X('blood_pressure_interpret:N', title='BP Level', axis=alt.Axis(labelAngle=0), sort=['Normal','Elevated','Stage-1 Hypertension','Stage-2 Hypertension','Hypertension Critical']),
+                    y=alt.Y('hours:Q', title='Annual hours per Driver')
+                )
+                
+                # Highlight the selected employee with a larger yellow dot
+                highlighted_employee = alt.Chart(sorted_data7[sorted_data7['employee_id'] == selected_employee]).mark_point(
+                    color='yellow',
+                    size=250, filled=True
+                ).encode(
+                    x=alt.X('blood_pressure_interpret:N', title='BP Level', sort=['Normal','Elevated','Stage-1 Hypertension','Stage-2 Hypertension','Hypertension Critical']),
+                    y=alt.Y('hours:Q'),
+                    tooltip=['employee_id', 'hours']
+                )
 
-def safety_dashboard():
-    st.title("TGSRTC   ESG   DASHBOARD")
-    st.header("Key Safety Trends (Data)")
-    st.text("Important Safety Trends")
+                # Combine the box plot, swarm plot, highlighted employee point, and the custom legend
+                final_chart = (box_plot + swarm_plot + highlighted_employee)
+              
+                # Display the chart in Streamlit
+                st.altair_chart(final_chart, use_container_width=True)
+    else:
+            st.error("Failed to load data.") 
 
-def accidents_predictor():
+            
+def monthly_productivity_dashboard():
     st.title("TGSRTC   ESG   DASHBOARD")
-    st.header("Accidents Predictor (AI)")
-    st.text("Predicting accidents based on health and operational data")
+    st.header("Monthly Productivity Monitoring FY2024-25")
+    st.text("Monthly monitoring of productivity trends")
+    
     
 
 # Productivity
-if option == "Productivity Dashboard (Data)":
+if option == "Productivity Baseline FY2023-24":
     productivity_dashboard()  
     
-elif option == "Productivity Predictor (AI)":
+elif option == "Productivity Potential (AI Tool)":
     productivity_predictor()
     
-elif option == "Productivity Factors (AI)":
-    key_productivity_factors()
-
-# Health
-    
-elif option == "Health Dashboard (Data)":
+elif option == "Health & Productivity":
     health_dashboard() 
     
-elif option == "Absenteeism Predictor (AI)":
-    absenteeism_calc()
+elif option == "Monthly Productivity Monitoring FY2024-25":
+    monthly_productivity_dashboard()
     
-elif option == "Health Calculator (AI)":
-    health_calc()
-
-elif option == "Health Factors (AI)":
-    key_health_factors()
-    
-    
-elif option == "Safety Dashboard (Data)":
-    safety_dashboard()
-    
-elif option == "Accidents Predictor (AI)":
-    accidents_predictor()
 
 
 

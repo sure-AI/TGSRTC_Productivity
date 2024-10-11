@@ -4,7 +4,8 @@ from TGSRTC_Productivity import logger
 #from sklearn.linear_model import ElasticNet
 #import joblib
 from TGSRTC_Productivity.entity.config_entity import ModelTrainerConfig
-from sklearn.linear_model import LogisticRegression
+#from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import RandomForestClassifier
 import pickle
 
 
@@ -25,10 +26,9 @@ class ModelTrainer:
         test_y = test_data[[self.config.target_column]]
 
 
-        #lr = ElasticNet(alpha=self.config.alpha, l1_ratio=self.config.l1_ratio, random_state=42)
-        lr = LogisticRegression(penalty=self.config.penalty, solver=self.config.solver, C=self.config.C)
-        lr.fit(train_x, train_y)
+        rf = RandomForestClassifier()
+        rf.fit(train_x, train_y.values.ravel())
 
         with open(os.path.join(self.config.root_dir, self.config.model_name), 'wb') as file:
-            pickle.dump(lr, file)
+            pickle.dump(rf, file)
         #joblib.dump(lr, os.path.join(self.config.root_dir, self.config.model_name))

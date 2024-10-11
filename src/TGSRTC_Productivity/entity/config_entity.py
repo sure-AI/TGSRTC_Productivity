@@ -30,12 +30,17 @@ class ModelTrainerConfig:
     train_data_path: Path
     test_data_path: Path
     model_name: str
-    penalty: str #added for LR
-    solver: str  #added for LR
-    C: float     #added for LR
+    #penalty: str #added for LR
+    #solver: str  #added for LR
+    #C: float     #added for LR
     #alpha: float
     #l1_ratio: float
-    target_column: str
+    n_estimators: float         #added for rf       
+    max_depth: float            #added for rf           
+    min_samples_split: float    #added for rf    
+    max_features: str           #added for rf
+    random_state: float         #added for rf
+    target_column: str          
 
 
 @dataclass(frozen=True)
@@ -47,3 +52,9 @@ class ModelEvaluationConfig:
     metric_file_name: Path
     target_column: str
     mlflow_uri: str
+    
+    
+@dataclass(frozen=True)
+class ModelPredictionConfig:
+    model_path: Path
+    data_path: Path
