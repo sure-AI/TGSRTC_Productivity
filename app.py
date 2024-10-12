@@ -893,6 +893,7 @@ def health_dashboard():
     #BP OF A SPECIFIC DRIVER        
     st.header("5. Benchmarking BP and hours of a specific driver")
     st.write(f"Yellow dot in the graph below shows the selected employee: {selected_employee}")
+    st.write("test")
     if data is not None:
     
         # Ensure the depot column exists
