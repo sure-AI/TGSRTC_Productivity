@@ -2,7 +2,7 @@ pandas
 sqlalchemy
 mlflow
 notebook
-numpy=1.26.4
+numpy=1.21.2
 scikit-learn
 matplotlib
 python-box
