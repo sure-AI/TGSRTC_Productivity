@@ -181,8 +181,6 @@ def productivity_predictor():
             st.success(f'Annual Driver Productivity (in Hours): {prediction[0] * 1000 + 500:.0f}')
         except Exception as e:
             st.error(f"Error during prediction: {e}")
-        else:
-            st.error("Model could not be loaded.")   
             
     st.header("2. Driver productivity potential (AI Tool)")
     st.write("- See the potential for each driver in hours annually")
