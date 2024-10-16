@@ -16,6 +16,9 @@ pipeline = ModelPredictionPipeline()
 # Load data from CSV into a pandas DataFrame
 data = pipeline.load_and_fetch_data()
 
+file_path = 'data/monthly_ops.csv'
+ops_data = pd.read_csv(file_path)
+
 # Extract distinct depot values
 distinct_depots = data['depot'].dropna().unique()
 
@@ -237,7 +240,7 @@ def productivity_predictor():
             if filtered_data.empty:
                 st.warning("No data available for the selected depot.")
             else:
-                filtered_data['Prediction Value'] = None  # You can also use an empty string ""
+                filtered_data.loc[:, 'Prediction Value'] = None  # You can also use an empty string ""
                 
                 # Iterate over each driver in the DataFrame and make predictions
             for index, row in filtered_data.iterrows():
@@ -311,7 +314,7 @@ def productivity_predictor():
                 prediction = pipeline.make_prediction(input_data)  # Call the prediction model
                 
                 # Store the predicted value in the DataFrame
-                filtered_data.at[index, 'Predicted Value'] = prediction[0] * 1000 + 500
+                filtered_data.loc[index, 'Predicted Value'] = prediction[0] * 1000 + 500
                 
             selected_columns = filtered_data[['employee_id','final_grading','hours','Predicted Value']]
                 
@@ -342,7 +345,7 @@ def productivity_predictor():
             }])
 
             # Display the table with a title
-            st.write(f"**Driver Productivity Potential for: {selected_depot}**")
+            st.write(f"**Productivity Potential for: {selected_depot}**")
             st.dataframe(styled_table, width=800)
     else:
             st.error("Failed to load data.") 
@@ -374,8 +377,8 @@ def depot_productivity_dashboard():
             st.error("Depot column not found in dataset")
         else:
 
-            # Ensure that employee_id is treated as text
-            filtered_data['employee_id'] = filtered_data['employee_id'].astype(str)
+            # Ensure there are no NaN or incompatible types before converting to string
+            filtered_data['employee_id'] = pd.to_numeric(filtered_data['employee_id'], errors='coerce').fillna(0).astype(int).astype(str)
             
             # Sort data by tot_opd_kms in ascending order
             sorted_data = filtered_data.sort_values(by='tot_opd_kms', ascending=False)
@@ -423,8 +426,9 @@ def depot_productivity_dashboard():
             
             # Calculate a dynamic width based on the number of bars (employee IDs)
             num_bars = len(sorted_data)
-            bar_width = 10  # You can adjust this value to make the bars wider or narrower
-            chart_width = num_bars * bar_width
+            #bar_width = 10  # You can adjust this value to make the bars wider or narrower
+            #chart_width = num_bars * bar_width
+            chart_width = max(600, num_bars * 20)
         
             if filtered_data.empty:
                 st.warning("No data available for the selected depot.")
@@ -434,7 +438,7 @@ def depot_productivity_dashboard():
                 bar_chart = alt.Chart(sorted_data).mark_bar().encode(
                     x=alt.X('employee_id', sort=None, title='Employee ID', 
                             axis=alt.Axis(ticks=False, labels=False)),  # Remove tick marks and set label angle to prevent truncation
-                    y=alt.Y('tot_opd_kms', title='Total OPD Kilometers'),  # Add label for y-axis
+                    y=alt.Y('tot_opd_kms', title=None),  # Add label for y-axis
                     tooltip=[
                                 alt.Tooltip('employee_id', title='Employee ID'),  # Custom label for employee ID
                                 alt.Tooltip('tot_opd_kms', title='Annual KM')  # Custom label for total operational kilometers
@@ -446,13 +450,13 @@ def depot_productivity_dashboard():
                     )
                 ).properties(
                         title=alt.TitleParams(
-                                                text=f'Productivity by driver (KM/Year): {selected_depot}',  # Correctly display selected depot in the title
+                                                text=f'Productivity (KM/Year): {selected_depot}',  # Correctly display selected depot in the title
                                                 anchor='middle'  # Center the title
                                                 ),
                     width=chart_width
                 )
 
-                # Create a red dotted line at the average value
+                                # Create a red dotted line at the average value
                 average_opd_line = alt.Chart(pd.DataFrame({'average_opd_kms': [average_opd_kms]})).mark_rule(
                     color='red',
                     strokeDash=[5, 5]  # Dotted line
@@ -461,7 +465,7 @@ def depot_productivity_dashboard():
                 )
 
                 # Combine the bar chart and the median line
-                final_chart = bar_chart + average_opd_line
+                final_chart = (bar_chart + average_opd_line)
 
                 # Display the chart in Streamlit
                 st.altair_chart(final_chart, use_container_width=True)
@@ -534,8 +538,9 @@ def depot_productivity_dashboard():
             )
                 
             num_bars = len(sorted_data1)
-            bar_width = 10  # You can adjust this value to make the bars wider or narrower
-            chart_width = num_bars * bar_width
+            #bar_width = 10  # You can adjust this value to make the bars wider or narrower
+            #chart_width = num_bars * bar_width
+            chart_width = max(600, num_bars * 20)
         
             if filtered_data.empty:
                 st.warning("No data available for the selected depot.")
@@ -545,7 +550,7 @@ def depot_productivity_dashboard():
                 bar_chart = alt.Chart(sorted_data1).mark_bar().encode(
                     x=alt.X('employee_id', sort=None, title='Employee ID', 
                             axis=alt.Axis(ticks=False, labels=False)),  # Remove tick marks and set label angle to prevent truncation
-                    y=alt.Y('absent_days', title='Total Absent Days - A+L+SL'),  # Add label for y-axis
+                    y=alt.Y('absent_days', title=None),  # Add label for y-axis
                     tooltip=[
                                 alt.Tooltip('employee_id', title='Employee ID'),  # Custom label for employee ID
                                 alt.Tooltip('absent_days', title='Annual Absent Days')  # Custom label for total operational kilometers
@@ -558,7 +563,7 @@ def depot_productivity_dashboard():
                     
                 ).properties(
                     title=alt.TitleParams(
-                                                text=f'Absenteeism by driver (Days/Year): {selected_depot}',  # Correctly display selected depot in the title
+                                                text=f'Absenteeism (Days/Year): {selected_depot}',  # Correctly display selected depot in the title
                                                 anchor='middle'  # Center the title
                                                 ),
                     width=chart_width
@@ -586,7 +591,6 @@ def depot_productivity_dashboard():
     # Divider for clear sectioning
     st.markdown("---")
 
-    # Section 2: Absenteeism Baseline
     st.header("**3. Productivity Baseline (Hours/Year), FY2023-24**")
 
     st.markdown("""
@@ -641,8 +645,9 @@ def depot_productivity_dashboard():
             )
         
             num_bars = len(sorted_data2)
-            bar_width = 10  # You can adjust this value to make the bars wider or narrower
-            chart_width = num_bars * bar_width
+            #bar_width = 10  # You can adjust this value to make the bars wider or narrower
+            #chart_width = num_bars * bar_width
+            chart_width = max(600, num_bars * 20)
         
             if filtered_data.empty:
                 st.warning("No data available for the selected depot.")
@@ -652,7 +657,7 @@ def depot_productivity_dashboard():
                 bar_chart = alt.Chart(sorted_data2).mark_bar().encode(
                     x=alt.X('employee_id', sort=None, title='Employee ID', 
                             axis=alt.Axis(ticks=False, labels=False)),  # Remove tick marks and set label angle to prevent truncation
-                    y=alt.Y('hours', title='Total Hours'),  # Add label for y-axis
+                    y=alt.Y('hours', title=None),  # Add label for y-axis
                     tooltip=[
                                 alt.Tooltip('employee_id', title='Employee ID'),  # Custom label for employee ID
                                 alt.Tooltip('hours', title='Annual Hours')  # Custom label for total operational kilometers
@@ -664,7 +669,7 @@ def depot_productivity_dashboard():
                     )
                 ).properties(
                                 title=alt.TitleParams(
-                                    text=f'Annual Productivity by Employee (Hours/Year): {selected_depot}',  # Correctly display selected depot in the title
+                                    text=f'Productivity (Hours/Year): {selected_depot}',  # Correctly display selected depot in the title
                                     anchor='middle'  # Center the title
                                 ),
                 width=chart_width
@@ -720,12 +725,12 @@ def depot_productivity_dashboard():
                 # Create the bar graph with matplotlib
                                 
                 # Create a box plot
-                box_plot = alt.Chart(sorted_data3).mark_boxplot(size=60).encode(
+                box_plot = alt.Chart(sorted_data3).mark_boxplot(size=20).encode(
                     x=alt.X('final_grading:N', title='Health Grade'),
-                    y=alt.Y('hours:Q', title='Annual Hours Per Driver')
+                    y=alt.Y('hours:Q', title=None)
                 ).properties(
                     title=alt.TitleParams(
-                                    text=f'Annual Hours By Health Grade (Hours/Year): {selected_depot}',  # Correctly display selected depot in the title
+                                    text=f'Productivity by Health Grade (Hours/Yr): {selected_depot}',  # Correctly display selected depot in the title
                                     anchor='middle'  # Center the title
                                 ),
                 )
@@ -733,10 +738,10 @@ def depot_productivity_dashboard():
                 # Create a swarm plot (jittered points)
                 swarm_plot = alt.Chart(sorted_data3).mark_point(
                     color='red',
-                    size=60
+                    size=30
                 ).encode(
                     x=alt.X('final_grading:N', title='Health Grade'),
-                    y=alt.Y('hours:Q', title='Annual Hours Per Driver'),
+                    y=alt.Y('hours:Q', title=None),
                     tooltip=[
                                 alt.Tooltip('employee_id', title='Employee ID'),  # Custom label for employee ID
                                 alt.Tooltip('hours', title='Annual Hours')  # Custom label for total operational kilometers
@@ -745,13 +750,13 @@ def depot_productivity_dashboard():
                     jitter='sqrt(-2*log(random()))*cos(2*PI*random())'  # Simulate jittering
                 ).encode(
                     x=alt.X('final_grading:N', title='Health Grade', axis=alt.Axis(labelAngle=0)),
-                    y=alt.Y('hours:Q', title='Annual Hours Per Driver')
+                    y=alt.Y('hours:Q', title=None)
                 )
                 
                 # Highlight the selected employee with a larger yellow dot
                 highlighted_employee = alt.Chart(sorted_data3[sorted_data3['employee_id'] == str(selected_employee_id)]).mark_point(
                     color='yellow',
-                    size=250, filled=True
+                    size=100, filled=True
                 ).encode(
                     x=alt.X('final_grading:N', title='Health Grade'),
                     y=alt.Y('hours:Q'),
@@ -799,12 +804,12 @@ def depot_productivity_dashboard():
                 # Create the bar graph with matplotlib
                                 
                 # Create a box plot
-                box_plot = alt.Chart(sorted_data3).mark_boxplot(size=60).encode(
+                box_plot = alt.Chart(sorted_data3).mark_boxplot(size=20).encode(
                     x=alt.X('final_grading:N', title='Health Grade'),
-                    y=alt.Y('absent_days:Q', title='Annual absent days per driver')
+                    y=alt.Y('absent_days:Q', title=None)
                 ).properties(
                     title=alt.TitleParams(
-                                    text=f'Annual Absent Days By Health Grade (Days/Year): {selected_depot}',  # Correctly display selected depot in the title
+                                    text=f'Absent Days by Health Grade (Days/Yr): {selected_depot}',  # Correctly display selected depot in the title
                                     anchor='middle'  # Center the title
                                 ),
                 )
@@ -812,10 +817,10 @@ def depot_productivity_dashboard():
                 # Create a swarm plot (jittered points)
                 swarm_plot = alt.Chart(sorted_data3).mark_point(
                     color='red',
-                    size=60
+                    size=30
                 ).encode(
                     x=alt.X('final_grading:N', title='Health Grade'),
-                    y=alt.Y('absent_days:Q', title='Annual absent days per driver'),
+                    y=alt.Y('absent_days:Q', title=None),
                     tooltip=[
                                 alt.Tooltip('employee_id', title='Employee ID'),  # Custom label for employee ID
                                 alt.Tooltip('absent_days', title='Annual Absent Days')  # Custom label for total operational kilometers
@@ -824,13 +829,13 @@ def depot_productivity_dashboard():
                     jitter='sqrt(-2*log(random()))*cos(2*PI*random())'  # Simulate jittering
                 ).encode(
                     x=alt.X('final_grading:N', title='Health Grade', axis=alt.Axis(labelAngle=0)),
-                    y=alt.Y('absent_days:Q', title='Annual absent days per driver')
+                    y=alt.Y('absent_days:Q', title=None)
                 )
                 
                 # Highlight the selected employee with a larger yellow dot
                 highlighted_employee = alt.Chart(sorted_data3[sorted_data3['employee_id'] == str(selected_employee_id)]).mark_point(
                     color='yellow',
-                    size=250, filled=True
+                    size=100, filled=True
                 ).encode(
                     x=alt.X('final_grading:N', title='Health Grade'),
                     y=alt.Y('absent_days:Q'),
@@ -903,8 +908,16 @@ def productivity_improvement_tracker():
     st.subheader("*HEALTH + PRODUCTIVITY*")
     st.markdown("---")  # Divider line for better sectioning
     
+    
+    
+#######################################################################################################                
+#######################################################################################################    
+    
+    
+    
+    
     # Monthly Depot Productivity (KM)
-    st.header("🚍 **1. Monthly Depot Productivity (KM)**")
+    st.header("**1. Monthly Depot Productivity (KM)**")
     st.markdown(
         """
         <div style='background-color: #f0f0f5; padding: 10px; border-radius: 10px;'>
@@ -913,20 +926,247 @@ def productivity_improvement_tracker():
         """, unsafe_allow_html=True
     )
     st.write("")  # Add spacing for visual clarity
+
+        
+    # Check if data loaded correctly
+    if ops_data is not None:
+    
+        # Ensure the depot column exists
+        if 'depot' not in ops_data.columns:
+            st.error("Depot column not found in dataset")
+        else:
+            filtered_depot_data = ops_data[ops_data['depot'] == selected_depot]
+
+            total_kms_by_date = (
+                                    filtered_depot_data.groupby('month_end_date')['monthly_kms']
+                                    .sum()
+                                    .reset_index()
+                                    .sort_values(by='month_end_date')
+                                    )
+
+            # Calculate a dynamic width based on the number of bars (employee IDs)
+            num_bars = len(total_kms_by_date)
+            chart_width = max(600, num_bars * 20)
+            
+            average_kms = total_kms_by_date['monthly_kms'].mean()
+            
+            if filtered_depot_data.empty:
+                st.warning("No data available for the selected depot.")
+            else:
+                
+                # Ensure 'month_end_date' is in datetime format
+                total_kms_by_date['month_end_date'] = pd.to_datetime(total_kms_by_date['month_end_date'], errors='coerce')
+
+                # Create the 'month_year' column for display for x-axis label
+                total_kms_by_date['month_year'] = total_kms_by_date['month_end_date'].dt.strftime('%b-%y')
+
+                # Sort the DataFrame by 'month_end_date' to ensure chronological order
+                total_kms_by_date = total_kms_by_date.sort_values('month_end_date')
+            
+                # Create a bar chart using Altair with hover annotations and sorted data
+                bar_chart = alt.Chart(total_kms_by_date).mark_bar().encode(
+                    x=alt.X('month_year:N', title=None,
+                            sort=alt.EncodingSortField(field='month_order', order='ascending'),  # Sort by 'month_order' to ensure proper month order 
+                            axis=alt.Axis(labels=True, labelAngle=270)),  # No need to set format here as it is already in the correct format
+                    y=alt.Y('monthly_kms', title=None)
+                                                    
+                ).properties(
+                    title=alt.TitleParams(
+                                                text=f'Depot Productivity (KM/Month): {selected_depot}',  # Correctly display selected depot in the title
+                                                anchor='middle'  # Center the title
+                                                ),
+                    width=chart_width
+                )
+                
+                # Create text marks to display totals above each bar
+                text = bar_chart.mark_text(
+                    align='left',  # Center the text on the bar
+                    baseline='middle',  # Position the text at the top of the bar
+                    angle=270
+                ).encode(
+                    text=alt.Text('monthly_kms:Q', format=',')  # Format the numbers with commas for readability
+                )
+
+                # Create a red dotted line at the median value
+                average_line = alt.Chart(pd.DataFrame({'average_kms': [average_kms]})).mark_rule(
+                    color='red',
+                    strokeDash=[5, 5]  # Dotted line
+                ).encode(
+                    y='average_kms:Q'
+                )
+                
+                # Combine the bar chart and the median line
+                final_chart = bar_chart + average_line + text
+                
+                # Creating two columns for average_kms and target_kms
+                col1, col2 = st.columns(2)
+
+                # Displaying the average_kms in the first column
+                with col1:
+                    st.markdown(
+                        """
+                        <div style='background-color: #e6f7ff; padding: 10px; border-radius: 10px; display: flex; flex-direction: column; justify-content: center; text-align: center;'>
+                            <h6>Baseline KM/Month</h6>
+                            <h6>FY 2023-24</h6>
+                            <p style='font-size: 24px; font-weight: bold;'>{:,}</p>
+                        </div>
+                        """.format(int(average_kms)), unsafe_allow_html=True
+                    )
+                # Displaying the target_kms in the second column
+                with col2:
+                        st.markdown(
+                        """
+                        <div style='background-color: #ffe6e6; padding: 10px; border-radius: 10px; display: flex; flex-direction: column; justify-content: center; text-align: center;'>
+                            <h6>Actual 12-month avg. KM/Month</h6>
+                            <h6>FY 2024-25</h6>
+                            <p style='font-size: 24px; font-weight: bold;'>{}</p>
+                        </div>
+                        """.format('[NEED DATA]'), unsafe_allow_html=True
+                    )
+                    
+                # Add spacing between the boxes and the chart using HTML/CSS
+                st.markdown("<br><br><br>", unsafe_allow_html=True)  # Add 3 line breaks (can adjust the number)
+ 
+
+                # Display the chart in Streamlit
+                st.altair_chart(final_chart, use_container_width=True)         
+    else:
+                st.error("Failed to load data.") 
+                
+                
+                
+#######################################################################################################                
+#######################################################################################################                
+                
+    
     
     # Monthly Depot Productivity (Hours)
-    st.header("🕒 **2. Monthly Depot Productivity (Hours)**")
+    st.markdown("---")  # Divider line for better sectioning
+    st.header("**2. Monthly Depot Productivity (Hours)**")
+    
     st.markdown(
         """
-        <div style='background-color: #e6f7ff; padding: 10px; border-radius: 10px;'>
+        <div style='background-color: #f0f0f5; padding: 10px; border-radius: 10px;'>
             <p>Tracking the monthly progress of depot productivity in hours.</p>
         </div>
         """, unsafe_allow_html=True
     )
     st.write("")  # Add spacing
     
+    # Check if data loaded correctly
+    if ops_data is not None:
+    
+        # Ensure the depot column exists
+        if 'depot' not in ops_data.columns:
+            st.error("Depot column not found in dataset")
+        else:
+            filtered_depot_data = ops_data[ops_data['depot'] == selected_depot]
+
+            total_hrs_by_date = (
+                                    filtered_depot_data.groupby('month_end_date')['monthly_hours']
+                                    .sum()
+                                    .reset_index()
+                                    .sort_values(by='month_end_date')
+                                    )
+
+            # Calculate a dynamic width based on the number of bars (employee IDs)
+            num_bars = len(total_hrs_by_date)
+            chart_width = max(600, num_bars * 20)
+            
+            average_hrs = total_hrs_by_date['monthly_hours'].mean()
+            
+            if filtered_depot_data.empty:
+                st.warning("No data available for the selected depot.")
+            else:
+                
+                # Ensure 'month_end_date' is in datetime format
+                total_hrs_by_date['month_end_date'] = pd.to_datetime(total_hrs_by_date['month_end_date'], errors='coerce')
+
+                # Create the 'month_year' column for display for x-axis label
+                total_hrs_by_date['month_year'] = total_hrs_by_date['month_end_date'].dt.strftime('%b-%y')
+
+                # Sort the DataFrame by 'month_end_date' to ensure chronological order
+                total_hrs_by_date = total_hrs_by_date.sort_values('month_end_date')
+            
+                # Create a bar chart using Altair with hover annotations and sorted data
+                bar_chart = alt.Chart(total_hrs_by_date).mark_bar().encode(
+                    x=alt.X('month_year:N', title=None,
+                            sort=alt.EncodingSortField(field='month_order', order='ascending'),  # Sort by 'month_order' to ensure proper month order 
+                            axis=alt.Axis(labels=True, labelAngle=270)),  # No need to set format here as it is already in the correct format
+                    y=alt.Y('monthly_hours', title=None)
+                                                    
+                ).properties(
+                    title=alt.TitleParams(
+                                                text=f'Depot Productivity (Hours/Month): {selected_depot}',  # Correctly display selected depot in the title
+                                                anchor='middle'  # Center the title
+                                                ),
+                    width=chart_width
+                )
+                
+                # Create text marks to display totals above each bar
+                text = bar_chart.mark_text(
+                    align='left',  # Center the text on the bar
+                    baseline='middle',  # Position the text at the top of the bar
+                    angle=270
+                ).encode(
+                    text=alt.Text('monthly_hours:Q', format=',')  # Format the numbers with commas for readability
+                )
+
+                # Create a red dotted line at the median value
+                average_line = alt.Chart(pd.DataFrame({'average_hrs': [average_hrs]})).mark_rule(
+                    color='red',
+                    strokeDash=[5, 5]  # Dotted line
+                ).encode(
+                    y='average_hrs:Q'
+                )
+                
+                # Combine the bar chart and the median line
+                final_chart = bar_chart + average_line + text
+                
+                # Creating two columns for average_kms and target_kms
+                col1, col2 = st.columns(2)
+
+                # Displaying the average_kms in the first column
+                with col1:
+                    st.markdown(
+                        """
+                        <div style='background-color: #e6f7ff; padding: 10px; border-radius: 10px; display: flex; flex-direction: column; justify-content: center; text-align: center;'>
+                            <h6>Baseline Hr/Month</h6>
+                            <h6>FY 2023-24</h6>
+                            <p style='font-size: 24px; font-weight: bold;'>{:,}</p>
+                        </div>
+                        """.format(int(average_hrs)), unsafe_allow_html=True
+                    )
+                st.write("")  # Add spacing for visual clarity
+                # Displaying the target_kms in the second column
+                with col2:
+                    st.markdown(
+                        """
+                        <div style='background-color: #ffe6e6; padding: 10px; border-radius: 10px; display: flex; flex-direction: column; justify-content: center; text-align: center;'>
+                            <h6>Actual 12-month avg. Hr/Month</h6>
+                            <h6>FY 2024-25</h6>
+                            <p style='font-size: 24px; font-weight: bold;'>{}</p>
+                        </div>
+                        """.format('[NEED DATA]'), unsafe_allow_html=True
+                    )
+                    
+                # Add spacing between the boxes and the chart using HTML/CSS
+                st.markdown("<br><br><br>", unsafe_allow_html=True)  # Add 3 line breaks (can adjust the number)
+ 
+                # Display the chart in Streamlit
+                st.altair_chart(final_chart, use_container_width=True)         
+    else:
+                st.error("Failed to load data.") 
+                
+                
+########################################################################################################                
+########################################################################################################                
+                        
+                
+    
     # Monthly Depot Absenteeism (Days)
-    st.header("🚫 **3. Monthly Depot Absenteeism (Days)**")
+    st.markdown("---")  # Divider line for better sectioning
+    st.header("**3. Monthly Depot Absenteeism (Days)**")
     st.markdown(
         """
         <div style='background-color: #ffe6e6; padding: 10px; border-radius: 10px;'>
@@ -936,8 +1176,124 @@ def productivity_improvement_tracker():
     )
     st.write("")  # Add spacing
     
+        # Check if data loaded correctly
+    if ops_data is not None:
+    
+        # Ensure the depot column exists
+        if 'depot' not in ops_data.columns:
+            st.error("Depot column not found in dataset")
+        else:
+            filtered_depot_data = ops_data[ops_data['depot'] == selected_depot]
+
+            total_abs_by_date = (
+                                    filtered_depot_data.groupby('month_end_date')['monthly_absent']
+                                    .sum()
+                                    .reset_index()
+                                    .sort_values(by='month_end_date')
+                                    )
+
+            # Calculate a dynamic width based on the number of bars (employee IDs)
+            num_bars = len(total_abs_by_date)
+            chart_width = max(600, num_bars * 20)
+            
+            average_abs_days = total_abs_by_date['monthly_absent'].mean()
+            
+            if filtered_depot_data.empty:
+                st.warning("No data available for the selected depot.")
+            else:
+                
+                # Ensure 'month_end_date' is in datetime format
+                total_abs_by_date['month_end_date'] = pd.to_datetime(total_abs_by_date['month_end_date'], errors='coerce')
+
+                # Create the 'month_year' column for display for x-axis label
+                total_abs_by_date['month_year'] = total_abs_by_date['month_end_date'].dt.strftime('%b-%y')
+
+                # Sort the DataFrame by 'month_end_date' to ensure chronological order
+                total_abs_by_date = total_abs_by_date.sort_values('month_end_date')
+            
+                # Create a bar chart using Altair with hover annotations and sorted data
+                bar_chart = alt.Chart(total_abs_by_date).mark_bar().encode(
+                    x=alt.X('month_year:N', title=None,
+                            sort=alt.EncodingSortField(field='month_order', order='ascending'),  # Sort by 'month_order' to ensure proper month order 
+                            axis=alt.Axis(labels=True, labelAngle=270)),  # No need to set format here as it is already in the correct format
+                    y=alt.Y('monthly_absent', title=None)
+                                                    
+                ).properties(
+                    title=alt.TitleParams(
+                                                text=f'Depot Absenteeism (Days/Month): {selected_depot}',  # Correctly display selected depot in the title
+                                                anchor='middle'  # Center the title
+                                                ),
+                    width=chart_width
+                )
+                
+                # Create text marks to display totals above each bar
+                text = bar_chart.mark_text(
+                    align='center',  # Center the text on the bar
+                    baseline='bottom',  # Position the text at the top of the bar
+                    angle=0
+                ).encode(
+                    text=alt.Text('monthly_absent:Q', format=',')  # Format the numbers with commas for readability
+                )
+
+                # Create a red dotted line at the median value
+                average_line = alt.Chart(pd.DataFrame({'average_abs_days)': [average_abs_days]})).mark_rule(
+                    color='red',
+                    strokeDash=[5, 5]  # Dotted line
+                ).encode(
+                    y='average_abs_days:Q'
+                )
+                
+                # Combine the bar chart and the median line
+                final_chart = bar_chart + average_line + text
+                
+                # Creating two columns for average_kms and target_kms
+                col1, col2 = st.columns(2)
+
+                # Displaying the average_kms in the first column
+                with col1:
+                    st.markdown(
+                        """
+                        <div style='background-color: #e6f7ff; padding: 10px; border-radius: 10px; display: flex; flex-direction: column; justify-content: center; text-align: center;'>
+                            <h6>Baseline Days/Month</h6>
+                            <h6>FY 2023-24</h6>
+                            <p style='font-size: 24px; font-weight: bold;'>{:,}</p>
+                        </div>
+                        """.format(int(average_abs_days)), unsafe_allow_html=True
+                    )
+                st.write("")  # Add spacing for visual clarity
+                # Displaying the target_kms in the second column
+                with col2:
+                    st.markdown(
+                        """
+                        <div style='background-color: #ffe6e6; padding: 10px; border-radius: 10px; display: flex; flex-direction: column; justify-content: center; text-align: center;'>
+                            <h6>Actual 12-month avg. Days/Month</h6>
+                            <h6>FY 2024-25</h6>
+                            <p style='font-size: 24px; font-weight: bold;'>{}</p>
+                        </div>
+                        """.format('[NEED DATA]'), unsafe_allow_html=True
+                    )
+                    
+                # Add spacing between the boxes and the chart using HTML/CSS
+                st.markdown("<br><br><br>", unsafe_allow_html=True)  # Add 3 line breaks (can adjust the number)
+ 
+
+                # Display the chart in Streamlit
+                st.altair_chart(final_chart, use_container_width=True)         
+    else:
+                st.error("Failed to load data.") 
+    
+    
+    
+    
+    ####################################################################################################
+    ####################################################################################################
+    
+    
+    
+    
     # Monthly Driver Productivity (KM)
-    st.header("🚛 **4. Monthly Driver Productivity (KM)**")
+    st.markdown("---")  # Divider line for better sectioning
+    st.header("**4. Monthly Driver Productivity (KM)**")
     st.markdown(
         """
         <div style='background-color: #f0f0f5; padding: 10px; border-radius: 10px;'>
@@ -947,8 +1303,120 @@ def productivity_improvement_tracker():
     )
     st.write("")  # Add spacing
     
+            # Check if data loaded correctly
+    if ops_data is not None:
+    
+        # Ensure the depot column exists
+        if 'depot' not in ops_data.columns:
+            st.error("Depot column not found in dataset")
+        else:
+            filtered_driver_data = ops_data[ops_data['employee_id'] == selected_employee_id]
+
+            total_dr_kms_by_date = (
+                                    filtered_driver_data.groupby('month_end_date')['monthly_kms']
+                                    .sum()
+                                    .reset_index()
+                                    .sort_values(by='month_end_date')
+                                    )
+
+            # Calculate a dynamic width based on the number of bars (employee IDs)
+            num_bars = len(total_dr_kms_by_date)
+            chart_width = max(600, num_bars * 20)
+            
+            average_dr_kms = total_dr_kms_by_date['monthly_kms'].mean()
+            
+            if filtered_driver_data.empty:
+                st.warning("No data available for the selected depot.")
+            else:
+                
+                # Ensure 'month_end_date' is in datetime format
+                total_dr_kms_by_date['month_end_date'] = pd.to_datetime(total_dr_kms_by_date['month_end_date'], errors='coerce')
+
+                # Create the 'month_year' column for display for x-axis label
+                total_dr_kms_by_date['month_year'] = total_dr_kms_by_date['month_end_date'].dt.strftime('%b-%y')
+
+                # Sort the DataFrame by 'month_end_date' to ensure chronological order
+                total_dr_kms_by_date = total_dr_kms_by_date.sort_values('month_end_date')
+            
+                # Create a bar chart using Altair with hover annotations and sorted data
+                bar_chart = alt.Chart(total_dr_kms_by_date).mark_bar().encode(
+                    x=alt.X('month_year:N', title=None,
+                            sort=alt.EncodingSortField(field='month_order', order='ascending'),  # Sort by 'month_order' to ensure proper month order 
+                            axis=alt.Axis(labels=True, labelAngle=270)),  # No need to set format here as it is already in the correct format
+                    y=alt.Y('monthly_kms', title=None)
+                                                    
+                ).properties(
+                    title=alt.TitleParams(
+                                                text=f'Driver Productivity (KM/Month): {selected_employee_id}',  # Correctly display selected depot in the title
+                                                anchor='middle'  # Center the title
+                                                ),
+                    width=chart_width
+                )
+                
+                # Create text marks to display totals above each bar
+                text = bar_chart.mark_text(
+                    align='left',  # Center the text on the bar
+                    baseline='middle',  # Position the text at the top of the bar
+                    angle=270
+                ).encode(
+                    text=alt.Text('monthly_kms:Q', format=',')  # Format the numbers with commas for readability
+                )
+
+                # Create a red dotted line at the median value
+                average_line = alt.Chart(pd.DataFrame({'average_dr_kms': [average_dr_kms]})).mark_rule(
+                    color='red',
+                    strokeDash=[5, 5]  # Dotted line
+                ).encode(
+                    y='average_dr_kms:Q'
+                )
+                
+                # Combine the bar chart and the median line
+                final_chart = bar_chart + average_line + text
+                
+                # Creating two columns for average_kms and target_kms
+                col1, col2 = st.columns(2)
+
+                # Displaying the average_kms in the first column
+                with col1:
+                    st.markdown(
+                        """
+                        <div style='background-color: #e6f7ff; padding: 10px; border-radius: 10px; display: flex; flex-direction: column; justify-content: center; text-align: center;'>
+                            <h6>Baseline KM/Month</h6>
+                            <h6>FY 2023-24</h6>
+                            <p style='font-size: 24px; font-weight: bold;'>{:,}</p>
+                        </div>
+                        """.format(int(average_dr_kms)), unsafe_allow_html=True
+                    )
+                st.write("")  # Add spacing for visual clarity
+                # Displaying the target_kms in the second column
+                with col2:
+                    st.markdown(
+                        """
+                        <div style='background-color: #ffe6e6; padding: 10px; border-radius: 10px; display: flex; flex-direction: column; justify-content: center; text-align: center;'>
+                            <h6>Actual 12-month avg. KM/Month</h6>
+                            <h6>FY 2024-25</h6>
+                            <p style='font-size: 24px; font-weight: bold;'>{}</p>
+                        </div>
+                        """.format('[NEED DATA]'), unsafe_allow_html=True
+                    )
+                    
+                st.markdown("<br><br><br>", unsafe_allow_html=True)  # Add 3 line breaks (can adjust the number)
+ 
+
+                # Display the chart in Streamlit
+                st.altair_chart(final_chart, use_container_width=True)         
+    else:
+                st.error("Failed to load data.") 
+    
+    
+    
+########################################################################################################
+########################################################################################################
+    
+        
     # Monthly Driver Productivity (Hours)
-    st.header("🕒 **5. Monthly Driver Productivity (Hours)**")
+    st.markdown("---")  # Divider line for better sectioning
+    st.header("**5. Monthly Driver Productivity (Hours)**")
     st.markdown(
         """
         <div style='background-color: #e6f7ff; padding: 10px; border-radius: 10px;'>
@@ -958,8 +1426,120 @@ def productivity_improvement_tracker():
     )
     st.write("")  # Add spacing
     
+                # Check if data loaded correctly
+    if ops_data is not None:
+    
+        # Ensure the depot column exists
+        if 'depot' not in ops_data.columns:
+            st.error("Depot column not found in dataset")
+        else:
+            filtered_driver_data = ops_data[ops_data['employee_id'] == selected_employee_id]
+
+            total_dr_hrs_by_date = (
+                                    filtered_driver_data.groupby('month_end_date')['monthly_hours']
+                                    .sum()
+                                    .reset_index()
+                                    .sort_values(by='month_end_date')
+                                    )
+
+            # Calculate a dynamic width based on the number of bars (employee IDs)
+            num_bars = len(total_dr_hrs_by_date)
+            chart_width = max(600, num_bars * 20)
+            
+            average_dr_hrs = total_dr_hrs_by_date['monthly_hours'].mean()
+            
+            if filtered_driver_data.empty:
+                st.warning("No data available for the selected depot.")
+            else:
+                
+                # Ensure 'month_end_date' is in datetime format
+                total_dr_hrs_by_date['month_end_date'] = pd.to_datetime(total_dr_hrs_by_date['month_end_date'], errors='coerce')
+
+                # Create the 'month_year' column for display for x-axis label
+                total_dr_hrs_by_date['month_year'] = total_dr_hrs_by_date['month_end_date'].dt.strftime('%b-%y')
+
+                # Sort the DataFrame by 'month_end_date' to ensure chronological order
+                total_dr_hrs_by_date = total_dr_hrs_by_date.sort_values('month_end_date')
+            
+                # Create a bar chart using Altair with hover annotations and sorted data
+                bar_chart = alt.Chart(total_dr_hrs_by_date).mark_bar().encode(
+                    x=alt.X('month_year:N', title=None,
+                            sort=alt.EncodingSortField(field='month_order', order='ascending'),  # Sort by 'month_order' to ensure proper month order 
+                            axis=alt.Axis(labels=True, labelAngle=270)),  # No need to set format here as it is already in the correct format
+                    y=alt.Y('monthly_hours', title=None)
+                                                    
+                ).properties(
+                    title=alt.TitleParams(
+                                                text=f'Driver Productivity (Hours/Month): {selected_employee_id}',  # Correctly display selected depot in the title
+                                                anchor='middle'  # Center the title
+                                                ),
+                    width=chart_width
+                )
+                
+                # Create text marks to display totals above each bar
+                text = bar_chart.mark_text(
+                    align='center',  # Center the text on the bar
+                    baseline='bottom',  # Position the text at the top of the bar
+                    angle=0
+                ).encode(
+                    text=alt.Text('monthly_hours:Q', format=',')  # Format the numbers with commas for readability
+                )
+
+                # Create a red dotted line at the median value
+                average_line = alt.Chart(pd.DataFrame({'average_dr_hrs': [average_dr_hrs]})).mark_rule(
+                    color='red',
+                    strokeDash=[5, 5]  # Dotted line
+                ).encode(
+                    y='average_dr_hrs:Q'
+                )
+                
+                # Combine the bar chart and the median line
+                final_chart = bar_chart + average_line + text
+                
+                # Creating two columns for average_kms and target_kms
+                col1, col2 = st.columns(2)
+
+                # Displaying the average_kms in the first column
+                with col1:
+                    st.markdown(
+                        """
+                        <div style='background-color: #e6f7ff; padding: 10px; border-radius: 10px; display: flex; flex-direction: column; justify-content: center; text-align: center;'>
+                            <h6>Baseline Hours/Month</h6>
+                            <h6>FY 2023-24</h6>
+                            <p style='font-size: 24px; font-weight: bold;'>{:,}</p>
+                        </div>
+                        """.format(int(average_dr_hrs)), unsafe_allow_html=True
+                    )
+                st.write("")  # Add spacing for visual clarity
+                # Displaying the target_kms in the second column
+                with col2:
+                    st.markdown(
+                        """
+                        <div style='background-color: #ffe6e6; padding: 10px; border-radius: 10px; display: flex; flex-direction: column; justify-content: center; text-align: center;'>
+                            <h6>Actual 12-month avg. Hours/Month</h6>
+                            <h6>FY 2024-25</h6>
+                            <p style='font-size: 24px; font-weight: bold;'>{}</p>
+                        </div>
+                        """.format('[NEED DATA]'), unsafe_allow_html=True
+                    )
+                    
+                # Add spacing between the boxes and the chart using HTML/CSS
+                st.markdown("<br><br><br>", unsafe_allow_html=True)  # Add 3 line breaks (can adjust the number)
+                
+                # Display the chart in Streamlit
+                st.altair_chart(final_chart, use_container_width=True)         
+    else:
+                st.error("Failed to load data.") 
+    
+
+#########################################################################################################
+#########################################################################################################
+    
+    
+    
     # Monthly Driver Absenteeism (Days)
-    st.header("🚫 **6. Monthly Driver Absenteeism (Days)**")
+    st.markdown("---")  # Divider line for better sectioning
+    st.header("**6. Monthly Driver Absenteeism (Days)**")
     st.markdown(
         """
         <div style='background-color: #ffe6e6; padding: 10px; border-radius: 10px;'>
@@ -968,6 +1548,117 @@ def productivity_improvement_tracker():
         """, unsafe_allow_html=True
     )
     st.write("")  # Add spacing
+    
+                    # Check if data loaded correctly
+    if ops_data is not None:
+    
+        # Ensure the depot column exists
+        if 'depot' not in ops_data.columns:
+            st.error("Depot column not found in dataset")
+        else:
+            filtered_driver_data = ops_data[ops_data['employee_id'] == selected_employee_id]
+
+            total_dr_abs_by_date = (
+                                    filtered_driver_data.groupby('month_end_date')['monthly_absent']
+                                    .sum()
+                                    .reset_index()
+                                    .sort_values(by='month_end_date')
+                                    )
+
+            # Calculate a dynamic width based on the number of bars (employee IDs)
+            num_bars = len(total_dr_abs_by_date)
+            chart_width = max(600, num_bars * 20)
+            
+            average_dr_abs = total_dr_abs_by_date['monthly_absent'].mean()
+            
+            if filtered_driver_data.empty:
+                st.warning("No data available for the selected depot.")
+            else:
+                
+                # Ensure 'month_end_date' is in datetime format
+                total_dr_abs_by_date['month_end_date'] = pd.to_datetime(total_dr_abs_by_date['month_end_date'], errors='coerce')
+
+                # Create the 'month_year' column for display for x-axis label
+                total_dr_abs_by_date['month_year'] = total_dr_abs_by_date['month_end_date'].dt.strftime('%b-%y')
+
+                # Sort the DataFrame by 'month_end_date' to ensure chronological order
+                total_dr_abs_by_date = total_dr_abs_by_date.sort_values('month_end_date')
+            
+                # Create a bar chart using Altair with hover annotations and sorted data
+                bar_chart = alt.Chart(total_dr_abs_by_date).mark_bar().encode(
+                    x=alt.X('month_year:N', title=None,
+                            sort=alt.EncodingSortField(field='month_order', order='ascending'),  # Sort by 'month_order' to ensure proper month order 
+                            axis=alt.Axis(labels=True, labelAngle=270)),  # No need to set format here as it is already in the correct format
+                    y=alt.Y('monthly_absent', title=None)
+                                                    
+                ).properties(
+                    title=alt.TitleParams(
+                                                text=f'Driver Absenteeism (Days/Month): {selected_employee_id}',  # Correctly display selected depot in the title
+                                                anchor='middle'  # Center the title
+                                                ),
+                    width=chart_width
+                )
+                
+                # Create text marks to display totals above each bar
+                text = bar_chart.mark_text(
+                    align='center',  # Center the text on the bar
+                    baseline='bottom',  # Position the text at the top of the bar
+                    angle=0
+                ).encode(
+                    text=alt.Text('monthly_absent:Q', format=',')  # Format the numbers with commas for readability
+                )
+
+                # Create a red dotted line at the median value
+                average_line = alt.Chart(pd.DataFrame({'average_dr_abs': [average_dr_abs]})).mark_rule(
+                    color='red',
+                    strokeDash=[5, 5]  # Dotted line
+                ).encode(
+                    y='average_dr_abs:Q'
+                )
+                
+                # Combine the bar chart and the median line
+                final_chart = bar_chart + average_line + text
+                
+                # Creating two columns for average_kms and target_kms
+                col1, col2 = st.columns(2)
+
+                # Displaying the average_kms in the first column
+                with col1:
+                    st.markdown(
+                        """
+                        <div style='background-color: #e6f7ff; padding: 10px; border-radius: 10px; display: flex; flex-direction: column; justify-content: center; text-align: center;'>
+                            <h6>Baseline Absenteeism Days/Month</h6>
+                            <h6>FY 2023-24</h6>
+                            <p style='font-size: 24px; font-weight: bold;'>{:,}</p>
+                        </div>
+                        """.format(int(average_dr_abs)), unsafe_allow_html=True
+                    )
+                st.write("")  # Add spacing for visual clarity
+                # Displaying the target_kms in the second column
+                with col2:
+                    st.markdown(
+                        """
+                        <div style='background-color: #ffe6e6; padding: 10px; border-radius: 10px; display: flex; flex-direction: column; justify-content: center; text-align: center;'>
+                            <h6>Actual 12-month avg. Days/Month</h6>
+                            <h6>FY 2024-25</h6>
+                            <p style='font-size: 24px; font-weight: bold;'>{}</p>
+                        </div>
+                        """.format('[NEED DATA]'), unsafe_allow_html=True
+                    )
+                    
+                # Add spacing between the boxes and the chart using HTML/CSS
+                st.markdown("<br><br><br>", unsafe_allow_html=True)  # Add 3 line breaks (can adjust the number)
+ 
+                # Display the chart in Streamlit
+                st.altair_chart(final_chart, use_container_width=True)         
+    else:
+                st.error("Failed to load data.")
+                
+    st.markdown("---")  # Divider line for better sectioning
+    
+########################################################################################################
+########################################################################################################
+
     
 # Productivity
 if option == "STEP 1: SET BASELINE":
