@@ -691,12 +691,17 @@ def depot_productivity_dashboard():
     else:
             st.error("Failed to load data.")
             
-                       
+
+########################################################################
+########################################################################
+
+
+
 # PRODUCTIVITY BY HEALTH GRADE
     # Divider for clear sectioning
     st.markdown("---")
 
-    # Section 2: Absenteeism Baseline
+    #Absenteeism Baseline
     st.header("**4. Productivity (Hours) + Health Grade (GHC2)**")
 
     st.markdown("""
@@ -770,6 +775,269 @@ def depot_productivity_dashboard():
                 st.altair_chart(final_chart, use_container_width=True)
     else:
             st.error("Failed to load data.") 
+            
+            
+########################################################################
+########################################################################
+
+
+
+# RELATION BETWEEN AGE AND GRADE
+
+    # Divider for clear sectioning
+    st.markdown("---")
+
+    #Absenteeism Baseline
+    st.header("**5. Age (Years) + Health Grade (GHC2)**")
+
+    st.markdown("""
+    - **Doctors**: Review the grading mechanism
+    - **Note**: Blue box indicates where middle 50% drivers age levels are for a grade
+    - **Note**: Red circles indicate depot drivers
+    - **Note**: Yellow circles indicates selected driver   
+    """)   
+    
+    
+    if data is not None:
+    
+        # Ensure the depot column exists
+        if 'depot' not in data.columns:
+            st.error("Depot column not found in dataset")
+        else:
+             
+            # Sort data by tot_opd_kms in ascending order
+            sorted_data3 = filtered_data.dropna(subset=['final_grading']).sort_values(by='final_grading', ascending=True)
+            
+            if filtered_data.empty:
+                st.warning("No data available for the selected depot.")
+            else:
+                # Create the bar graph with matplotlib
+                                
+                # Create a box plot
+                box_plot = alt.Chart(sorted_data3).mark_boxplot(size=20).encode(
+                    x=alt.X('final_grading:N', title='Health Grade'),
+                    y=alt.Y('age:Q', title=None)
+                ).properties(
+                    title=alt.TitleParams(
+                                    text=f'Health Grade by Age: {selected_depot}',  # Correctly display selected depot in the title
+                                    anchor='middle'  # Center the title
+                                ),
+                )
+                
+                # Create a swarm plot (jittered points)
+                swarm_plot = alt.Chart(sorted_data3).mark_point(
+                    color='red',
+                    size=30
+                ).encode(
+                    x=alt.X('final_grading:N', title='Health Grade'),
+                    y=alt.Y('age:Q', title=None),
+                    tooltip=[
+                                alt.Tooltip('employee_id', title='Employee ID'),  # Custom label for employee ID
+                                alt.Tooltip('age', title='Age')  # Custom label for total operational kilometers
+                            ],
+                ).transform_calculate(
+                    jitter='sqrt(-2*log(random()))*cos(2*PI*random())'  # Simulate jittering
+                ).encode(
+                    x=alt.X('final_grading:N', title='Health Grade', axis=alt.Axis(labelAngle=0)),
+                    y=alt.Y('age:Q', title=None)
+                )
+                
+                # Highlight the selected employee with a larger yellow dot
+                highlighted_employee = alt.Chart(sorted_data3[sorted_data3['employee_id'] == str(selected_employee_id)]).mark_point(
+                    color='yellow',
+                    size=100, filled=True
+                ).encode(
+                    x=alt.X('final_grading:N', title='Health Grade'),
+                    y=alt.Y('age:Q'),
+        
+                )
+
+                # Combine the box plot, swarm plot, highlighted employee point, and the custom legend
+                final_chart = (box_plot + swarm_plot + highlighted_employee)
+                
+                # Display the chart in Streamlit
+                st.altair_chart(final_chart, use_container_width=True)
+    else:
+            st.error("Failed to load data.") 
+            
+            
+
+########################################################################
+########################################################################
+
+
+
+# PRODUCTIVITY BY AGE GROUPS
+    # Divider for clear sectioning
+    st.markdown("---")
+
+    #Absenteeism Baseline
+    st.header("**6. Productivity (Hours) + Health Grade (GHC2)**")
+
+    st.markdown("""
+    - **RM & DM**: Review under performance of drivers by age
+    - **Note**: Blue box indicates where middle 50% drivers productivity levels are
+    - **Note**: Red circles indicate depot drivers
+    - **Note**: Yellow circles indicates selected driver   
+    """)   
+    
+    
+    if data is not None:
+    
+        # Ensure the depot column exists
+        if 'depot' not in data.columns:
+            st.error("Depot column not found in dataset")
+        else:
+            
+            # Assuming age groups have already been defined in the filtered_data
+            age_bins = pd.cut(filtered_data['age'], bins=[35, 40, 45, 50, 55, 60], labels=['35-40', '40-45', '45-50', '50-55', '55-60'])
+            filtered_data['age_group'] = age_bins
+            
+            # Sort data by age groups and filter out rows without valid age group
+            sorted_data3 = filtered_data.dropna(subset=['age_group']).sort_values(by='age_group', ascending=True)
+
+            if filtered_data.empty:
+                st.warning("No data available for the selected depot.")
+            else:
+                # Create the bar graph with matplotlib
+                                
+                # Create a box plot
+                box_plot = alt.Chart(sorted_data3).mark_boxplot(size=20).encode(
+                    x=alt.X('age_group:N', title='Age, Yrs'),
+                    y=alt.Y('hours:Q', title=None)
+                ).properties(
+                    title=alt.TitleParams(
+                                    text=f'Productivity by Age (Hours/Yr): {selected_depot}',  # Correctly display selected depot in the title
+                                    anchor='middle'  # Center the title
+                                ),
+                )
+                
+                # Create a swarm plot (jittered points)
+                swarm_plot = alt.Chart(sorted_data3).mark_point(
+                    color='red',
+                    size=30
+                ).encode(
+                    x=alt.X('age_group:N', title='Age, Yrs'),
+                    y=alt.Y('hours:Q', title=None),
+                    tooltip=[
+                                alt.Tooltip('employee_id', title='Employee ID'),  # Custom label for employee ID
+                                alt.Tooltip('hours', title='Annual Hours')  # Custom label for total operational kilometers
+                            ],
+                ).transform_calculate(
+                    jitter='sqrt(-2*log(random()))*cos(2*PI*random())'  # Simulate jittering
+                ).encode(
+                    x=alt.X('age_group:N', title='Age, Yrs', axis=alt.Axis(labelAngle=0)),
+                    y=alt.Y('hours:Q', title=None)
+                )
+                
+                # Highlight the selected employee with a larger yellow dot
+                highlighted_employee = alt.Chart(sorted_data3[sorted_data3['employee_id'] == str(selected_employee_id)]).mark_point(
+                    color='yellow',
+                    size=100, filled=True
+                ).encode(
+                    x=alt.X('age_group:N', title='Age, Yrs'),
+                    y=alt.Y('hours:Q'),
+                    #tooltip=['employee_id', 'tot_opd_kms']
+                )
+
+                # Combine the box plot, swarm plot, highlighted employee point, and the custom legend
+                final_chart = (box_plot + swarm_plot + highlighted_employee)
+                
+                # Display the chart in Streamlit
+                st.altair_chart(final_chart, use_container_width=True)
+    else:
+            st.error("Failed to load data.") 
+            
+##################################################################################################################
+##################################################################################################################
+
+# PRODUCTIVITY BY ALCOHOL
+    # Divider for clear sectioning
+    st.markdown("---")
+
+    #Absenteeism Baseline
+    st.header("**7. Productivity (Hours) + Alcohol Habit**")
+
+    st.markdown("""
+    - **RM & DM**: Review under performance of drivers in good health condition
+    - **Doctors**: Review the grading mechanism 
+    - **Note**: Blue box indicates where middle 50% drivers productivity levels are
+    - **Note**: Red circles indicate depot drivers
+    - **Note**: Yellow circles indicates selected driver   
+    """)   
+    
+    
+    
+    if data is not None:
+    
+        # Ensure the depot column exists
+        if 'depot' not in data.columns:
+            st.error("Depot column not found in dataset")
+        else:
+             
+            
+            # Map 'alcohol' values to 'Alcohol-Yes' and 'Alcohol-No'
+            filtered_data['alcohol_status'] = filtered_data['alcohol'].map({1: 'Alcohol-Yes', 0: 'Alcohol-No'})
+            
+            # Sort data by age groups and filter out rows without valid age group
+            sorted_data3 = filtered_data.dropna(subset=['alcohol_status']).sort_values(by='alcohol_status', ascending=True)
+
+            print(filtered_data.alcohol_status)
+            
+            if filtered_data.empty:
+                st.warning("No data available for the selected depot.")
+            else:
+                # Create the bar graph with matplotlib
+                                
+                # Create a box plot
+                box_plot = alt.Chart(sorted_data3).mark_boxplot(size=20).encode(
+                    x=alt.X('alcohol_status:N', title='Alcolhol Y/N'),
+                    y=alt.Y('hours:Q', title=None)
+                ).properties(
+                    title=alt.TitleParams(
+                                    text=f'Productivity by Alcohol Habit (Hours/Yr): {selected_depot}',  # Correctly display selected depot in the title
+                                    anchor='middle'  # Center the title
+                                ),
+                )
+                
+                # Create a swarm plot (jittered points)
+                swarm_plot = alt.Chart(sorted_data3).mark_point(
+                    color='red',
+                    size=30
+                ).encode(
+                    x=alt.X('alcohol_status:N', title=None),
+                    y=alt.Y('hours:Q', title=None),
+                    tooltip=[
+                                alt.Tooltip('employee_id', title='Employee ID'),  # Custom label for employee ID
+                                alt.Tooltip('hours', title='Annual Hours')  # Custom label for total operational kilometers
+                            ],
+                ).transform_calculate(
+                    jitter='sqrt(-2*log(random()))*cos(2*PI*random())'  # Simulate jittering
+                ).encode(
+                    x=alt.X('alcohol_status:N', title=None, axis=alt.Axis(labelAngle=0)),
+                    y=alt.Y('hours:Q', title=None)
+                )
+                
+                # Highlight the selected employee with a larger yellow dot
+                highlighted_employee = alt.Chart(sorted_data3[sorted_data3['employee_id'] == str(selected_employee_id)]).mark_point(
+                    color='yellow',
+                    size=100, filled=True
+                ).encode(
+                    x=alt.X('alcohol_status:N', title=None),
+                    y=alt.Y('hours:Q'),
+                    #tooltip=['employee_id', 'tot_opd_kms']
+                )
+
+                # Combine the box plot, swarm plot, highlighted employee point, and the custom legend
+                final_chart = (box_plot + swarm_plot + highlighted_employee)
+                
+                # Display the chart in Streamlit
+                st.altair_chart(final_chart, use_container_width=True)
+    else:
+            st.error("Failed to load data.") 
+
+##########################################################################
+##########################################################################
 
 # DEPOT ABSENTEEISM BY HEALTH GRADE
     
@@ -777,7 +1045,7 @@ def depot_productivity_dashboard():
     st.markdown("---")
 
     # Section 2: Absenteeism Baseline
-    st.header("**5. Absenteeism (Days) + Health Grade (GHC2)**")
+    st.header("**8. Absenteeism (Days) + Health Grade (GHC2)**")
 
     st.markdown("""
     - **RM & DM**: Review under performance of drivers in good health condition
@@ -856,8 +1124,12 @@ def depot_productivity_dashboard():
     # Divider for clear sectioning
     st.markdown("---")
 
-    # Section 2: Absenteeism Baseline
-    st.header("**6. Depot Productivity Data**")
+
+#########################################################################
+#########################################################################
+    
+    
+    st.header("**9. Depot Productivity Data**")
 
     st.markdown("""
     - **Note**: Sort the date in the table by clicking on the header
