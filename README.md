@@ -437,9 +437,13 @@ Go to EC2 service in AWS
 
 Click on launch instance
 
+Enter instance name tgsrtc_prod
+
+Select Ubuntu
+
 Instace select 8GB RAM t2. Large
 
-Select key pair, examplekeypair
+Select key pair, tgsrtc_key
 
 In instances, click on that instance ID
 
