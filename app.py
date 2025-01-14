@@ -118,11 +118,13 @@ def productivity_predictor():
     
     # One-hot encoding for depot
     if selected_depot == "Mahaboobabad":
-        feature_depot_mn, feature_depot_rg = 0, 0
+        feature_depot_mb, feature_depot_mn, feature_depot_rg = 1, 0, 0
     elif selected_depot == "Mahaboobnagar":
-        feature_depot_mn, feature_depot_rg = 1, 0
+        feature_depot_mb, feature_depot_mn, feature_depot_rg = 0, 1, 0
+    elif selected_depot == "Ranigunj-I":
+        feature_depot_mb, feature_depot_mn, feature_depot_rg = 0, 0, 1
     else:
-        feature_depot_mn, feature_depot_rg = 0, 1
+        feature_depot_mb, feature_depot_mn, feature_depot_rg = 0, 0, 0
         
     # One-hot encoding for creatinine
     feature_crea = 1 if feature_crea == "Normal" else 0
@@ -164,6 +166,7 @@ def productivity_predictor():
     # Store inputs in a data frame
     input_data = pd.DataFrame([[
                                 feature_age, 
+                                feature_depot_mb, 
                                 feature_depot_mn, 
                                 feature_depot_rg, 
                                 feature_crea, 
@@ -185,6 +188,7 @@ def productivity_predictor():
                         
                                 columns=[
                                     'age', 
+                                    'depot_Mahaboobabad',
                                     'depot_Mahaboobnagar', 
                                     'depot_Ranigunj-I',
                                     'creatinine_interpret_Normal', 
@@ -298,12 +302,12 @@ def productivity_predictor():
                 feature_metrolux = (row['metroexp_schedules'] / row['tot_schedules'] * 100) if row['tot_schedules'] > 0 else 0
 
                 # Create a DataFrame row for the current driver with all features
-                input_data = pd.DataFrame([[feature_age, feature_depot_mn, feature_depot_rg, feature_crea, feature_bp_criti, feature_bp_norm,
+                input_data = pd.DataFrame([[feature_age, feature_depot_mb, feature_depot_mn, feature_depot_rg, feature_crea, feature_bp_criti, feature_bp_norm,
                                             feature_bp_stage_1, feature_bp_stage_2, feature_glu_norm,
                                             feature_glu_pre, feature_bili, feature_chole_bord, feature_chole_norm,
                                             feature_ECG, feature_night, feature_palle, feature_cityord, feature_metrolux]],
                                             columns=[
-                                            'age', 'depot_Mahaboobnagar', 'depot_Ranigunj-I','creatinine_interpret_Normal', 'blood_pressure_interpret_Hypertension Critical',
+                                            'age', 'depot_Mahaboobabad', 'depot_Mahaboobnagar', 'depot_Ranigunj-I','creatinine_interpret_Normal', 'blood_pressure_interpret_Hypertension Critical',
                                             'blood_pressure_interpret_Normal', 'blood_pressure_interpret_Stage-1 Hypertension',
                                             'blood_pressure_interpret_Stage-2 Hypertension', 'glucose_interpret_Normal',
                                             'glucose_interpret_Prediabetes', 'bilirubin_interpret_Normal', 'cholestrol_interpret_Borderline',
